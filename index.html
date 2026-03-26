@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lion's Notes — Tasks, Habits & Live Collaboration</title>
+  <meta name="description" content="Beautiful productivity app for to-do lists, daily habits, and real-time collaboration. Available on Android and iOS." />
+  <meta property="og:title" content="Lion's Notes" />
+  <meta property="og:description" content="Tasks, habits & live collaboration in one beautiful app." />
+  <meta property="og:image" content="assets/icon.png" />
+  <link rel="icon" href="assets/icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0A0800;
+      --surface: #141008;
+      --card: #1C1610;
+      --border: rgba(255,255,255,0.08);
+      --text: #F5EFE0;
+      --muted: rgba(245,239,224,0.5);
+      --accent: #F5A020;
+      --accent2: #FF6B35;
+      --glow: rgba(245,160,32,0.3);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(245,160,32,0.12) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -55%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(255,107,53,0.08) 0%, transparent 70%);
+      bottom: 10%; right: 10%;
+      pointer-events: none;
+    }
+
+    .app-icon {
+      width: 120px; height: 120px;
+      border-radius: 28px;
+      margin-bottom: 28px;
+      box-shadow: 0 0 60px rgba(245,160,32,0.4), 0 20px 60px rgba(0,0,0,0.6);
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(245,160,32,0.12);
+      border: 1px solid rgba(245,160,32,0.3);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 80px);
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1.05;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #F5A020, #FF6B35, #FFD166);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #F5A020, #FF6B35);
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 14px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(245,160,32,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(245,160,32,0.45);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 16px;
+      padding: 14px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+
+    /* ── FEATURES ── */
+    .section {
+      padding: 80px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 500px;
+      margin: 0 auto 56px;
+      line-height: 1.6;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(245,160,32,0.25);
+    }
+
+    .feature-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* ── SCREENSHOTS ── */
+    .screenshots-section {
+      padding: 80px 24px;
+      background: linear-gradient(180deg, transparent, var(--surface) 20%, var(--surface) 80%, transparent);
+    }
+
+    .screenshots-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .screenshots-grid {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding: 20px 0 30px;
+      scrollbar-width: none;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .screenshot {
+      width: 220px;
+      flex-shrink: 0;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      border: 1px solid var(--border);
+      background: var(--card);
+      aspect-ratio: 9/19.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .screenshot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ── PRO ── */
+    .pro-section {
+      padding: 80px 24px;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .pro-card {
+      background: linear-gradient(135deg, rgba(245,160,32,0.1), rgba(255,107,53,0.08));
+      border: 1px solid rgba(245,160,32,0.25);
+      border-radius: 28px;
+      padding: 48px 40px;
+    }
+
+    .pro-features {
+      list-style: none;
+      margin: 28px 0 36px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .pro-features li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .pro-features li::before {
+      content: '✦';
+      color: var(--accent);
+      font-size: 10px;
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      font-size: 14px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    footer p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 2px;
+      margin: 0 auto 48px;
+    }
+
+    @media (max-width: 600px) {
+      .pro-features { grid-template-columns: 1fr; }
+      .pro-card { padding: 32px 24px; }
+      .cta-group { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="assets/icon.png" alt="Lion's Notes Icon" class="app-icon" />
+    <div class="badge">✦ Productivity App</div>
+    <h1>Your life,<br /><span>organized.</span></h1>
+    <p>Beautiful to-do lists, daily habits, and live collaboration — all in one premium app.</p>
+    <div class="cta-group">
+      <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" class="btn-primary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.85c.37.2.8.2 1.18.03l11.65-6.73-2.48-2.48-10.35 9.18zm-1.68-20.5A1.5 1.5 0 001 4.5v15c0 .5.27.97.5 1.18l.1.08 8.4-8.4v-.2L1.5 3.27l-.01.08zM20.32 10.5l-2.33-1.35-2.77 2.77 2.77 2.77 2.35-1.35c.67-.39.67-1.45-.02-1.84zM4.36.18L16.01 6.9l-2.48 2.48L3.18.18C3.56 0 3.98.0 4.36.18z"/></svg>
+        Google Play
+      </a>
+      <a href="#features" class="btn-secondary">
+        Learn more ↓
+      </a>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="section-label">What's inside</div>
+    <h2 class="section-title">Everything you need<br />to stay on track</h2>
+    <p class="section-sub">From daily tasks to long-term habits — Lion's Notes keeps you focused and productive.</p>
+    <div class="divider"></div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">📋</span>
+        <h3>Smart To-Do Lists</h3>
+        <p>Create checklists and task lists, mark what's done, and never lose track of what matters. Share any list with a single link.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🔥</span>
+        <h3>Daily Habit Tracker</h3>
+        <p>Build routines that stick. Track habits every day, watch your streaks grow, and turn small actions into lasting change.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">⚡</span>
+        <h3>Live Collaboration</h3>
+        <p>Work on shared lists in real time with friends and family. Perfect for groceries, travel, or team tasks.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🎨</span>
+        <h3>Premium Themes</h3>
+        <p>Make the app truly yours. Choose from stunning dark and light themes — Aurora, Ocean, Forest, Rose, and more.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🔲</span>
+        <h3>Home Screen Widget</h3>
+        <p>See your pending tasks right on your home screen without even opening the app.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🌍</span>
+        <h3>13 Languages</h3>
+        <p>Available in English, Russian, Ukrainian, Spanish, French, German, Portuguese, Japanese, Chinese, Korean, Hindi, Italian, and Romanian.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREENSHOTS -->
+  <section class="screenshots-section">
+    <div class="screenshots-wrapper">
+      <div class="section-label" style="text-align:center">Screenshots</div>
+      <h2 class="section-title" style="text-align:center;margin-bottom:8px">Beautiful by design</h2>
+      <p class="section-sub">A premium experience that feels great every day.</p>
+      <div class="divider"></div>
+      <div class="screenshots-grid">
+        <div class="screenshot"><span>Screenshot 1</span></div>
+        <div class="screenshot"><span>Screenshot 2</span></div>
+        <div class="screenshot"><span>Screenshot 3</span></div>
+        <div class="screenshot"><span>Screenshot 4</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRO -->
+  <section class="pro-section">
+    <div class="pro-card">
+      <div class="badge">✦ Premium</div>
+      <h2 class="section-title" style="margin-top:16px">Lion's Notes Pro</h2>
+      <p style="color:var(--muted);line-height:1.6;margin-top:8px">Unlock the full power of Lion's Notes with a simple subscription.</p>
+      <ul class="pro-features">
+        <li>Unlimited to-do lists</li>
+        <li>Unlimited daily habits</li>
+        <li>Live collaboration</li>
+        <li>Split lists</li>
+        <li>All premium themes</li>
+        <li>All app icons</li>
+        <li>Home screen widget</li>
+        <li>Priority new features</li>
+      </ul>
+      <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" class="btn-primary" style="display:inline-flex">
+        Get Pro on Google Play
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="https://victorsocinschi.github.io/lionnotes-privacy/">Privacy Policy</a>
+      <a href="https://victorsocinschi.github.io/lionnotes-terms/">Terms of Service</a>
+      <a href="mailto:chaosdaddy84@gmail.com">Contact</a>
+    </div>
+    <p>© 2026 Lion's Notes · Made by Victor Socinschi</p>
+  </footer>
+
+</body>
+</html>
