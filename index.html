@@ -67,13 +67,24 @@
       pointer-events: none;
     }
 
-    .app-icon {
-      width: 120px; height: 120px;
-      border-radius: 28px;
+    .app-icon-wrap {
+      width: 160px; height: 160px;
+      border-radius: 36px;
+      background: linear-gradient(135deg, #1A1408, #0A0800);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 28px;
       box-shadow: 0 0 60px rgba(245,160,32,0.4), 0 20px 60px rgba(0,0,0,0.6);
       position: relative;
       z-index: 1;
+      overflow: hidden;
+    }
+
+    .app-icon {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .badge {
@@ -372,7 +383,9 @@
 
   <!-- HERO -->
   <section class="hero">
-    <img src="assets/icon.png" alt="Lion's Notes Icon" class="app-icon" />
+    <div class="app-icon-wrap">
+      <img src="assets/icon.png" alt="Lion's Notes Icon" class="app-icon" />
+    </div>
     <div class="badge">✦ Productivity App</div>
     <h1>Your life,<br /><span>organized.</span></h1>
     <p>Beautiful to-do lists, daily habits, and live collaboration — all in one premium app.</p>
@@ -435,10 +448,10 @@
       <p class="section-sub">A premium experience that feels great every day.</p>
       <div class="divider"></div>
       <div class="screenshots-grid">
-        <div class="screenshot"><span>Screenshot 1</span></div>
-        <div class="screenshot"><span>Screenshot 2</span></div>
-        <div class="screenshot"><span>Screenshot 3</span></div>
-        <div class="screenshot"><span>Screenshot 4</span></div>
+        <div class="screenshot"><img src="assets/screen1.jpg" alt="Lion's Notes screenshot 1" /></div>
+        <div class="screenshot"><img src="assets/screen2.jpg" alt="Lion's Notes screenshot 2" /></div>
+        <div class="screenshot"><img src="assets/screen3.jpg" alt="Lion's Notes screenshot 3" /></div>
+        <div class="screenshot"><img src="assets/screen4.jpg" alt="Lion's Notes screenshot 4" /></div>
       </div>
     </div>
   </section>
