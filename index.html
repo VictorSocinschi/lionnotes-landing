@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lion's Notes — Tasks, Habits & Live Collaboration</title>
-  <meta name="description" content="Beautiful productivity app for to-do lists, daily habits, and real-time collaboration. Available on Android and iOS." />
+  <meta name="description" content="Beautiful productivity app for to-do lists, daily habits, and real-time collaboration. Available on Android." />
   <meta property="og:title" content="Lion's Notes" />
   <meta property="og:description" content="Tasks, habits & live collaboration in one beautiful app." />
   <meta property="og:image" content="assets/icon.png" />
@@ -14,15 +14,18 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0A0800;
-      --surface: #141008;
-      --card: #1C1610;
-      --border: rgba(255,255,255,0.08);
-      --text: #F5EFE0;
-      --muted: rgba(245,239,224,0.5);
-      --accent: #F5A020;
+      --bg: #080600;
+      --surface: #0F0C06;
+      --card: #161209;
+      --card2: #1C1810;
+      --border: rgba(255,255,255,0.07);
+      --border2: rgba(255,255,255,0.12);
+      --text: #F0E8D6;
+      --muted: rgba(240,232,214,0.45);
+      --muted2: rgba(240,232,214,0.65);
+      --accent: #F0A020;
       --accent2: #FF6B35;
-      --glow: rgba(245,160,32,0.3);
+      --glow: rgba(240,160,32,0.25);
     }
 
     html { scroll-behavior: smooth; }
@@ -35,7 +38,110 @@
       overflow-x: hidden;
     }
 
-    /* ── HERO ── */
+    /* ─── NAVBAR ─── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      height: 60px;
+      background: rgba(8,6,0,0.75);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .navbar-brand img {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+    }
+
+    .navbar-brand span {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.3px;
+    }
+
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .navbar-links a {
+      color: var(--muted2);
+      font-size: 13.5px;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    .navbar-links a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .navbar-links a.active {
+      color: var(--accent);
+      background: rgba(240,160,32,0.1);
+    }
+
+    .navbar-cta {
+      background: linear-gradient(135deg, #F0A020, #FF6B35);
+      color: #fff !important;
+      font-weight: 600 !important;
+      border-radius: 10px !important;
+      padding: 7px 16px !important;
+    }
+
+    .navbar-cta:hover {
+      opacity: 0.9;
+      background: linear-gradient(135deg, #F0A020, #FF6B35) !important;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      width: 22px;
+      height: 2px;
+      background: var(--muted2);
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    /* ─── PAGE SECTIONS ─── */
+    #page-home,
+    #page-legal {
+      display: block;
+    }
+
+    #page-legal {
+      display: none;
+      padding-top: 60px;
+    }
+
+    /* ─── HERO ─── */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -43,62 +149,53 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 80px 24px 60px;
+      padding: 100px 24px 80px;
       position: relative;
       overflow: hidden;
     }
 
-    .hero::before {
-      content: '';
+    .hero-glow {
       position: absolute;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(245,160,32,0.12) 0%, transparent 70%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(240,160,32,0.09) 0%, transparent 65%);
       top: 50%; left: 50%;
       transform: translate(-50%, -55%);
       pointer-events: none;
     }
 
-    .hero::after {
-      content: '';
+    .hero-glow2 {
       position: absolute;
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(255,107,53,0.08) 0%, transparent 70%);
-      bottom: 10%; right: 10%;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(255,107,53,0.06) 0%, transparent 70%);
+      bottom: 5%; right: 5%;
       pointer-events: none;
     }
 
     .app-icon-wrap {
-      width: 160px; height: 160px;
-      border-radius: 36px;
-      background: linear-gradient(135deg, #1A1408, #0A0800);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 28px;
-      box-shadow: 0 0 60px rgba(245,160,32,0.4), 0 20px 60px rgba(0,0,0,0.6);
+      width: 120px; height: 120px;
+      border-radius: 28px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      box-shadow: 0 0 50px rgba(240,160,32,0.35), 0 20px 60px rgba(0,0,0,0.7);
       position: relative;
       z-index: 1;
-      overflow: hidden;
+      flex-shrink: 0;
     }
 
-    .app-icon {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .app-icon { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-    .badge {
+    .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(245,160,32,0.12);
-      border: 1px solid rgba(245,160,32,0.3);
+      background: rgba(240,160,32,0.1);
+      border: 1px solid rgba(240,160,32,0.25);
       border-radius: 20px;
-      padding: 6px 14px;
-      font-size: 12px;
-      font-weight: 600;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 700;
       color: var(--accent);
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
       margin-bottom: 20px;
       position: relative;
@@ -106,35 +203,35 @@
     }
 
     .hero h1 {
-      font-size: clamp(48px, 8vw, 80px);
+      font-size: clamp(46px, 8vw, 84px);
       font-weight: 900;
-      letter-spacing: -2px;
-      line-height: 1.05;
+      letter-spacing: -3px;
+      line-height: 1.0;
       position: relative;
       z-index: 1;
       margin-bottom: 20px;
     }
 
-    .hero h1 span {
-      background: linear-gradient(135deg, #F5A020, #FF6B35, #FFD166);
+    .hero h1 .gradient {
+      background: linear-gradient(135deg, #F0A020 0%, #FF6B35 50%, #FFD166 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    .hero p {
-      font-size: clamp(16px, 2.5vw, 20px);
+    .hero-desc {
+      font-size: clamp(15px, 2.5vw, 18px);
       color: var(--muted);
-      max-width: 520px;
-      line-height: 1.6;
-      margin-bottom: 40px;
+      max-width: 480px;
+      line-height: 1.65;
+      margin-bottom: 36px;
       position: relative;
       z-index: 1;
     }
 
     .cta-group {
       display: flex;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
       justify-content: center;
       position: relative;
@@ -144,408 +241,868 @@
     .btn-primary {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      background: linear-gradient(135deg, #F5A020, #FF6B35);
+      gap: 9px;
+      background: linear-gradient(135deg, #F0A020, #FF6B35);
       color: #fff;
       font-weight: 700;
-      font-size: 16px;
-      padding: 14px 28px;
-      border-radius: 14px;
+      font-size: 15px;
+      padding: 13px 26px;
+      border-radius: 13px;
       text-decoration: none;
-      box-shadow: 0 8px 32px rgba(245,160,32,0.35);
-      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 28px rgba(240,160,32,0.3);
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(245,160,32,0.45);
+      box-shadow: 0 14px 36px rgba(240,160,32,0.4);
     }
 
-    .btn-secondary {
+    .btn-outline {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid var(--border);
-      color: var(--text);
+      gap: 9px;
+      background: transparent;
+      border: 1px solid var(--border2);
+      color: var(--muted2);
       font-weight: 600;
-      font-size: 16px;
-      padding: 14px 28px;
-      border-radius: 14px;
+      font-size: 15px;
+      padding: 13px 26px;
+      border-radius: 13px;
       text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
     }
 
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.1);
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.07);
+      color: var(--text);
       transform: translateY(-2px);
     }
 
-    /* ── FEATURES ── */
+    .hero-trial {
+      margin-top: 14px;
+      font-size: 12.5px;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-trial strong { color: var(--accent); font-weight: 600; }
+
+    /* ─── STATS STRIP ─── */
+    .stats-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      padding: 28px 24px;
+    }
+
+    .stats-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #F0A020, #FF6B35);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    /* ─── SECTION ─── */
     .section {
-      padding: 80px 24px;
+      padding: 96px 24px;
       max-width: 1100px;
       margin: 0 auto;
     }
 
-    .section-label {
-      text-align: center;
-      font-size: 12px;
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(240,160,32,0.08);
+      border: 1px solid rgba(240,160,32,0.18);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
     }
 
     .section-title {
-      text-align: center;
-      font-size: clamp(28px, 5vw, 44px);
+      font-size: clamp(26px, 5vw, 42px);
       font-weight: 800;
-      letter-spacing: -1px;
-      margin-bottom: 16px;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 14px;
     }
 
     .section-sub {
-      text-align: center;
       color: var(--muted);
-      font-size: 17px;
-      max-width: 500px;
-      margin: 0 auto 56px;
-      line-height: 1.6;
+      font-size: 16px;
+      max-width: 480px;
+      line-height: 1.65;
     }
 
+    .section-header {
+      margin-bottom: 56px;
+    }
+
+    /* ─── FEATURES GRID ─── */
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
     }
 
     .feature-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 28px;
-      transition: transform 0.2s, border-color 0.2s;
+      padding: 28px 24px;
+      transition: transform 0.2s, border-color 0.2s, background 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(240,160,32,0.04), transparent);
+      opacity: 0;
+      transition: opacity 0.2s;
+      border-radius: 20px;
     }
 
     .feature-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(245,160,32,0.25);
+      transform: translateY(-3px);
+      border-color: rgba(240,160,32,0.2);
     }
 
+    .feature-card:hover::before { opacity: 1; }
+
     .feature-icon {
-      font-size: 32px;
+      width: 44px;
+      height: 44px;
+      background: rgba(240,160,32,0.1);
+      border: 1px solid rgba(240,160,32,0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
       margin-bottom: 16px;
-      display: block;
     }
 
     .feature-card h3 {
-      font-size: 18px;
+      font-size: 15px;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
+      letter-spacing: -0.2px;
     }
 
     .feature-card p {
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.7;
+      font-size: 13.5px;
+      line-height: 1.65;
     }
 
-    /* ── SCREENSHOTS ── */
+    /* ─── SCREENSHOTS ─── */
     .screenshots-section {
-      padding: 80px 24px;
-      background: linear-gradient(180deg, transparent, var(--surface) 20%, var(--surface) 80%, transparent);
+      padding: 96px 24px;
+      background: linear-gradient(180deg, transparent, var(--surface) 15%, var(--surface) 85%, transparent);
     }
 
-    .screenshots-wrapper {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+    .screenshots-wrapper { max-width: 1100px; margin: 0 auto; }
 
     .screenshots-grid {
       display: flex;
-      gap: 16px;
+      gap: 14px;
       overflow-x: auto;
-      padding: 20px 0 30px;
+      padding: 16px 0 24px;
       scrollbar-width: none;
       justify-content: center;
       flex-wrap: wrap;
+      margin-top: 48px;
     }
 
     .screenshot {
-      width: 220px;
+      width: 195px;
       flex-shrink: 0;
-      border-radius: 24px;
+      border-radius: 22px;
       overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-      border: 1px solid var(--border);
-      background: var(--card);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px var(--border);
       aspect-ratio: 9/19.5;
+      background: var(--card2);
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
     }
 
-    .screenshot img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .screenshot img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-    /* ── PRO ── */
+    /* ─── PRO ─── */
     .pro-section {
-      padding: 80px 24px;
-      max-width: 700px;
+      padding: 96px 24px;
+      max-width: 820px;
       margin: 0 auto;
-      text-align: center;
     }
 
     .pro-card {
-      background: linear-gradient(135deg, rgba(245,160,32,0.1), rgba(255,107,53,0.08));
-      border: 1px solid rgba(245,160,32,0.25);
+      background: linear-gradient(145deg, rgba(240,160,32,0.08) 0%, rgba(255,107,53,0.06) 100%);
+      border: 1px solid rgba(240,160,32,0.2);
       border-radius: 28px;
-      padding: 48px 40px;
+      padding: 52px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pro-card::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%;
+      transform: translateX(-50%);
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(240,160,32,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .pricing-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin: 32px 0;
+      flex-wrap: wrap;
+    }
+
+    .price-card {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--border2);
+      border-radius: 16px;
+      padding: 20px 28px;
+      min-width: 160px;
+      transition: border-color 0.2s;
+    }
+
+    .price-card.popular {
+      border-color: rgba(240,160,32,0.4);
+      background: rgba(240,160,32,0.06);
+    }
+
+    .price-pill {
+      display: inline-block;
+      background: linear-gradient(135deg, #F0A020, #FF6B35);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      border-radius: 20px;
+      padding: 3px 8px;
+      margin-bottom: 10px;
+    }
+
+    .price-label {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .price-amount {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--text);
+    }
+
+    .price-period {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
     }
 
     .pro-features {
-      list-style: none;
-      margin: 28px 0 36px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 10px 24px;
+      margin: 28px 0 36px;
       text-align: left;
     }
 
     .pro-features li {
+      list-style: none;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 9px;
       font-size: 14px;
-      color: var(--text);
+      color: var(--muted2);
     }
 
     .pro-features li::before {
-      content: '✦';
-      color: var(--accent);
-      font-size: 10px;
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
       flex-shrink: 0;
     }
 
-    /* ── FOOTER ── */
+    /* ─── LEGAL TABS ─── */
+    .legal-tabs-bar {
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .legal-tabs-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+      padding: 0 24px;
+    }
+
+    .legal-tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 16px 20px;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+      font-family: inherit;
+      margin-bottom: -1px;
+    }
+
+    .legal-tab-btn:hover { color: var(--text); }
+
+    .legal-tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .legal-tab-content {
+      display: none;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    .legal-tab-content.active { display: block; }
+
+    .legal-meta {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 40px;
+    }
+
+    .legal-body {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .legal-item h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+      letter-spacing: -0.2px;
+    }
+
+    .legal-item p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .legal-item a { color: var(--accent); text-decoration: none; }
+    .legal-item a:hover { text-decoration: underline; }
+    .legal-item strong { color: var(--muted2); font-weight: 600; }
+
+    /* ─── FOOTER ─── */
     footer {
       border-top: 1px solid var(--border);
-      padding: 32px 24px;
-      text-align: center;
+      padding: 28px 24px;
+      background: var(--surface);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .footer-brand img {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+    }
+
+    .footer-brand span {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted2);
     }
 
     .footer-links {
       display: flex;
-      gap: 24px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 16px;
+      gap: 4px;
     }
 
+    .footer-links button,
     .footer-links a {
-      color: var(--muted);
-      font-size: 14px;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: var(--text); }
-
-    footer p {
+      background: none;
+      border: none;
       color: var(--muted);
       font-size: 13px;
+      font-family: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      padding: 5px 10px;
+      border-radius: 7px;
+      transition: color 0.15s, background 0.15s;
     }
 
-    /* ── DIVIDER ── */
-    .divider {
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      border-radius: 2px;
-      margin: 0 auto 48px;
+    .footer-links button:hover,
+    .footer-links a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
     }
 
-    @media (max-width: 600px) {
+    .footer-copy {
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 768px) {
+      .navbar { padding: 0 20px; }
+      .navbar-links { display: none; }
+      .hamburger { display: flex; }
+
+      .navbar-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 60px; left: 0; right: 0;
+        background: rgba(8,6,0,0.97);
+        backdrop-filter: blur(20px);
+        padding: 16px;
+        border-bottom: 1px solid var(--border);
+        gap: 4px;
+      }
+
+      .features-grid { grid-template-columns: 1fr; }
+      .pro-card { padding: 36px 24px; }
       .pro-features { grid-template-columns: 1fr; }
-      .pro-card { padding: 32px 24px; }
+      .pricing-row { flex-direction: column; align-items: center; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .section { padding: 64px 20px; }
+      .screenshots-section { padding: 64px 20px; }
+      .pro-section { padding: 64px 20px; }
+    }
+
+    @media (max-width: 500px) {
       .cta-group { flex-direction: column; align-items: center; }
+      .stats-inner { gap: 28px; }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="app-icon-wrap">
-      <img src="assets/icon.png" alt="Lion's Notes Icon" class="app-icon" />
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="#" class="navbar-brand" onclick="showHome(event)">
+      <img src="assets/icon.png" alt="Lion's Notes" />
+      <span>Lion's Notes</span>
+    </a>
+    <ul class="navbar-links" id="navLinks">
+      <li><a href="#" onclick="showHome(event)" class="nav-link active" data-page="home">Home</a></li>
+      <li><a href="#features" onclick="showHomeSection(event, 'features')" class="nav-link" data-page="home">Features</a></li>
+      <li><a href="#pro" onclick="showHomeSection(event, 'pro')" class="nav-link" data-page="home">Pro</a></li>
+      <li><a href="#" onclick="showLegal(event, 'privacy')" class="nav-link" data-page="legal">Privacy</a></li>
+      <li><a href="#" onclick="showLegal(event, 'terms')" class="nav-link" data-page="legal">Terms</a></li>
+      <li><a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" class="navbar-cta" target="_blank">Download</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
     </div>
-    <div class="badge">✦ Productivity App</div>
-    <h1>Your life,<br /><span>organized.</span></h1>
-    <p>Beautiful to-do lists, daily habits, and live collaboration — all in one premium app.</p>
-    <div class="cta-group">
-      <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" class="btn-primary">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.85c.37.2.8.2 1.18.03l11.65-6.73-2.48-2.48-10.35 9.18zm-1.68-20.5A1.5 1.5 0 001 4.5v15c0 .5.27.97.5 1.18l.1.08 8.4-8.4v-.2L1.5 3.27l-.01.08zM20.32 10.5l-2.33-1.35-2.77 2.77 2.77 2.77 2.35-1.35c.67-.39.67-1.45-.02-1.84zM4.36.18L16.01 6.9l-2.48 2.48L3.18.18C3.56 0 3.98.0 4.36.18z"/></svg>
-        Google Play
-      </a>
-      <a href="#features" class="btn-secondary">
-        Learn more ↓
-      </a>
-    </div>
-    <p style="margin-top:16px;font-size:13px;color:var(--muted);">✦ 14-day free trial — no credit card required</p>
-  </section>
+  </nav>
 
-  <!-- FEATURES -->
-  <section class="section" id="features">
-    <div class="section-label">What's inside</div>
-    <h2 class="section-title">Everything you need<br />to stay on track</h2>
-    <p class="section-sub">From daily tasks to long-term habits — Lion's Notes keeps you focused and productive.</p>
-    <div class="divider"></div>
-    <div class="features-grid">
-      <div class="feature-card">
-        <span class="feature-icon">📋</span>
-        <h3>Smart To-Do Lists</h3>
-        <p>Create checklists and task lists, mark what's done, and never lose track of what matters. Share any list with a single link.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">🔥</span>
-        <h3>Daily Habit Tracker</h3>
-        <p>Build routines that stick. Track habits every day, watch your streaks grow, and turn small actions into lasting change.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">⚡</span>
-        <h3>Live Collaboration</h3>
-        <p>Work on shared lists in real time with friends and family. Perfect for groceries, travel, or team tasks.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">🎨</span>
-        <h3>Premium Themes</h3>
-        <p>Make the app truly yours. Choose from stunning dark and light themes — Aurora, Ocean, Forest, Rose, and more.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">🔲</span>
-        <h3>Home Screen Widget</h3>
-        <p>See your pending tasks right on your home screen without even opening the app.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">🌍</span>
-        <h3>13 Languages</h3>
-        <p>Available in English, Russian, Ukrainian, Spanish, French, German, Portuguese, Japanese, Chinese, Korean, Hindi, Italian, and Romanian.</p>
-      </div>
-    </div>
-  </section>
+  <!-- HOME PAGE -->
+  <div id="page-home">
 
-  <!-- SCREENSHOTS -->
-  <section class="screenshots-section">
-    <div class="screenshots-wrapper">
-      <div class="section-label" style="text-align:center">Screenshots</div>
-      <h2 class="section-title" style="text-align:center;margin-bottom:8px">Beautiful by design</h2>
-      <p class="section-sub">A premium experience that feels great every day.</p>
-      <div class="divider"></div>
-      <div class="screenshots-grid">
-        <div class="screenshot"><img src="assets/screen1.jpg" alt="Lion's Notes screenshot 1" /></div>
-        <div class="screenshot"><img src="assets/screen2.jpg" alt="Lion's Notes screenshot 2" /></div>
-        <div class="screenshot"><img src="assets/screen3.jpg" alt="Lion's Notes screenshot 3" /></div>
-        <div class="screenshot"><img src="assets/screen4.jpg" alt="Lion's Notes screenshot 4" /></div>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-glow"></div>
+      <div class="hero-glow2"></div>
+      <div class="app-icon-wrap">
+        <img src="assets/icon.png" alt="Lion's Notes" class="app-icon" />
+      </div>
+      <div class="hero-badge">✦ Productivity App</div>
+      <h1>Your life,<br /><span class="gradient">organized.</span></h1>
+      <p class="hero-desc">Beautiful to-do lists, daily habits, and live collaboration — all in one premium app.</p>
+      <div class="cta-group">
+        <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" class="btn-primary" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.85c.37.2.8.2 1.18.03l11.65-6.73-2.48-2.48-10.35 9.18zm-1.68-20.5A1.5 1.5 0 001 4.5v15c0 .5.27.97.5 1.18l.1.08 8.4-8.4v-.2L1.5 3.27l-.01.08zM20.32 10.5l-2.33-1.35-2.77 2.77 2.77 2.77 2.35-1.35c.67-.39.67-1.45-.02-1.84zM4.36.18L16.01 6.9l-2.48 2.48L3.18.18C3.56 0 3.98.0 4.36.18z"/></svg>
+          Google Play
+        </a>
+        <a href="#features" class="btn-outline" onclick="scrollToSection(event, 'features')">
+          Explore features ↓
+        </a>
+      </div>
+      <p class="hero-trial"><strong>14-day free trial</strong> — no credit card required</p>
+    </section>
+
+    <!-- STATS STRIP -->
+    <div class="stats-strip">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <div class="stat-value">13</div>
+          <div class="stat-label">Languages</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">14</div>
+          <div class="stat-label">Days free trial</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">∞</div>
+          <div class="stat-label">Lists with Pro</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">Real-time</div>
+          <div class="stat-label">Collaboration</div>
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- PRO -->
-  <section class="pro-section">
-    <div class="pro-card">
-      <div class="badge">✦ Premium</div>
-      <h2 class="section-title" style="margin-top:16px">Lion's Notes Pro</h2>
-      <p style="color:var(--muted);line-height:1.6;margin-top:8px">Unlock the full power of Lion's Notes with a simple subscription.</p>
-      <ul class="pro-features">
-        <li>Unlimited to-do lists</li>
-        <li>Unlimited daily habits</li>
-        <li>Live collaboration</li>
-        <li>Split lists</li>
-        <li>All premium themes</li>
-        <li>All app icons</li>
-        <li>Home screen widget</li>
-        <li>Priority new features</li>
-      </ul>
-      <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" class="btn-primary" style="display:inline-flex">
-        Get Pro on Google Play
-      </a>
-    </div>
-  </section>
-
-  <!-- PRIVACY POLICY -->
-  <section id="privacy" style="background:var(--surface);padding:80px 24px;">
-    <div style="max-width:760px;margin:0 auto;">
-      <div class="section-label">Legal</div>
-      <h2 class="section-title" style="margin-bottom:8px">Privacy Policy</h2>
-      <p style="color:var(--muted);margin-bottom:40px;font-size:0.9rem">Last updated: March 26, 2026</p>
-      <div style="color:var(--muted);line-height:1.8;font-size:0.95rem;display:flex;flex-direction:column;gap:28px;">
-        <div><h3 style="color:var(--text);margin-bottom:8px">1. Information We Collect</h3>
-        <p>Lion's Notes collects: account information (name and email via sign-in), user-generated content (tasks, checklists, habits, notes), and app preferences stored locally on your device.</p></div>
-        <div><h3 style="color:var(--text);margin-bottom:8px">2. How We Use Your Information</h3>
-        <p>We use your data solely to provide and sync your tasks and habits, enable shared checklists and live collaboration, and maintain your account. We do <strong style="color:var(--text)">not</strong> use your data for advertising or sell it to third parties.</p></div>
-        <div><h3 style="color:var(--text);margin-bottom:8px">3. Data Storage</h3>
-        <p>Your data is stored securely using Convex cloud infrastructure hosted in the EU (eu-west-1). All data is transmitted over encrypted HTTPS connections.</p></div>
-        <div><h3 style="color:var(--text);margin-bottom:8px">4. Third-Party Services</h3>
-        <p>Clerk (authentication) · Convex (cloud storage) · RevenueCat (subscriptions). Each service has its own privacy policy.</p></div>
-        <div id="account-deletion"><h3 style="color:var(--text);margin-bottom:8px">5. Account &amp; Data Deletion</h3>
-        <p>You can delete your account directly from the app: <strong style="color:var(--text)">Settings → Danger Zone → Delete Account</strong>. All your data will be permanently removed. Alternatively, email <a href="mailto:chaosdaddy84@gmail.com" style="color:var(--accent)">chaosdaddy84@gmail.com</a> with subject "Delete My Account — Lion's Notes". We process requests within 30 days.</p>
-        <p style="margin-top:8px"><strong style="color:var(--text)">What gets deleted:</strong> account, all tasks, habits, notes, settings, session history.<br><strong style="color:var(--text)">What may be retained:</strong> anonymized aggregate statistics only.</p></div>
-        <div><h3 style="color:var(--text);margin-bottom:8px">6. Children's Privacy</h3>
-        <p>Lion's Notes is not directed to children under 13. We do not knowingly collect data from children under 13.</p></div>
-        <div><h3 style="color:var(--text);margin-bottom:8px">7. Contact</h3>
-        <p>Questions? <a href="mailto:chaosdaddy84@gmail.com" style="color:var(--accent)">chaosdaddy84@gmail.com</a></p></div>
+    <!-- FEATURES -->
+    <div class="section" id="features">
+      <div class="section-header">
+        <div class="section-tag">✦ What's inside</div>
+        <h2 class="section-title">Everything you need<br />to stay on track</h2>
+        <p class="section-sub">From daily tasks to long-term habits — Lion's Notes keeps you focused and productive every day.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3>Smart To-Do Lists</h3>
+          <p>Create checklists and task lists, mark what's done, and never lose track of what matters. Share any list with a single link.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔥</div>
+          <h3>Daily Habit Tracker</h3>
+          <p>Build routines that stick. Track habits every day, watch your streaks grow, and turn small actions into lasting change.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Live Collaboration</h3>
+          <p>Work on shared lists in real time with friends and family. Perfect for groceries, travel, or team tasks.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>Premium Themes</h3>
+          <p>Make the app truly yours. Choose from stunning dark and light themes — Aurora, Ocean, Forest, Rose, and more.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔲</div>
+          <h3>Home Screen Widget</h3>
+          <p>See your pending tasks right on your home screen without even opening the app.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h3>13 Languages</h3>
+          <p>Available in English, Russian, Ukrainian, Spanish, French, German, Portuguese, Japanese, Chinese, Korean, Hindi, Italian, and Romanian.</p>
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- TERMS OF SERVICE -->
-  <section id="terms" style="background:var(--bg);padding:80px 24px;">
-    <div style="max-width:760px;margin:0 auto;">
-      <div class="section-label">Legal</div>
-      <h2 class="section-title" style="margin-bottom:8px">Terms of Service</h2>
-      <p style="color:var(--muted);margin-bottom:40px;font-size:0.9rem">Last updated: March 26, 2026</p>
-      <div style="color:var(--muted);line-height:1.8;font-size:0.95rem;display:flex;flex-direction:column;gap:28px;">
-        <div><h3 style="color:var(--text);margin-bottom:8px">1. Acceptance of Terms</h3>
-        <p>By downloading or using Lion's Notes, you agree to these Terms. If you do not agree, do not use the App.</p></div>
-        <div><h3 style="color:var(--text);margin-bottom:8px">2. Description of the Service</h3>
-        <p>Lion's Notes lets you create to-do lists, track daily habits, collaborate in real-time (Live &amp; Split), customize themes and icons, and use a home screen widget (Android).</p></div>
-        <div><h3 style="color:var(--text);margin-bottom:8px">3. User Accounts</h3>
-        <p>You must create an account with a valid email. You are responsible for all activity under your account. You may delete your account at any time from Settings → Delete Account — all data will be permanently removed. Notify us at <a href="mailto:chaosdaddy84@gmail.com" style="color:var(--accent)">chaosdaddy84@gmail.com</a> if you suspect unauthorized access.</p></div>
-        <div><h3 style="color:var(--text);margin-bottom:8px">4. Free and Premium Features</h3>
-        <p><strong style="color:var(--text)">Free:</strong> up to 5 to-do lists, 5 custom habits/day, Classic theme.<br>
-        <strong style="color:var(--text)">Pro:</strong> unlimited lists &amp; habits, live collaboration, all themes &amp; icons, widget, priority features.</p></div>
-        <div><h3 style="color:var(--text);margin-bottom:8px">5. Subscriptions and Payments</h3>
-        <p>Pro is available monthly or annually. Subscriptions auto-renew unless cancelled 24 hours before the next billing period. Cancel anytime via Google Play or App Store. Refunds are handled by the respective store. We do not process refunds directly.</p></div>
-        <div><h3 style="color:var(--text);margin-bottom:8px">6. User Content</h3>
-        <p>You retain full ownership of your content. We do not claim ownership of your data. You grant us a limited license to store and process it solely to provide the service.</p></div>
-        <div><h3 style="color:var(--text);margin-bottom:8px">7. Prohibited Uses</h3>
-        <p>Do not use the App to share illegal or harmful content, gain unauthorized access to others' data, reverse-engineer the App, or create multiple accounts to circumvent free limits. Violations may result in account termination.</p></div>
-        <div><h3 style="color:var(--text);margin-bottom:8px">8. Disclaimer &amp; Liability</h3>
-        <p>Lion's Notes is provided "as is" without warranties. We are not liable for indirect, incidental, or consequential damages. Our total liability shall not exceed the amount you paid us in the 12 months preceding any claim.</p></div>
-        <div><h3 style="color:var(--text);margin-bottom:8px">9. Changes to Terms</h3>
-        <p>We may update these Terms at any time. Continued use after changes constitutes acceptance.</p></div>
-        <div><h3 style="color:var(--text);margin-bottom:8px">10. Contact</h3>
-        <p><a href="mailto:chaosdaddy84@gmail.com" style="color:var(--accent)">chaosdaddy84@gmail.com</a> · Lion's Notes · Victor Socinschi</p></div>
+    <!-- SCREENSHOTS -->
+    <section class="screenshots-section">
+      <div class="screenshots-wrapper">
+        <div class="section-tag" style="display:inline-flex;margin-bottom:14px">✦ Screenshots</div>
+        <h2 class="section-title">Beautiful by design</h2>
+        <p class="section-sub" style="margin-top:12px">A premium experience that feels great every day.</p>
+        <div class="screenshots-grid">
+          <div class="screenshot"><img src="assets/screen1.jpg" alt="Screen 1" /></div>
+          <div class="screenshot"><img src="assets/screen2.jpg" alt="Screen 2" /></div>
+          <div class="screenshot"><img src="assets/screen3.jpg" alt="Screen 3" /></div>
+          <div class="screenshot"><img src="assets/screen4.jpg" alt="Screen 4" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRO -->
+    <div class="pro-section" id="pro">
+      <div class="pro-card">
+        <div class="hero-badge" style="margin-bottom:16px">✦ Premium</div>
+        <h2 class="section-title">Lion's Notes Pro</h2>
+        <p style="color:var(--muted);font-size:15px;line-height:1.6;margin-top:10px;">Unlock the full power of Lion's Notes.</p>
+        <div class="pricing-row">
+          <div class="price-card">
+            <div class="price-label">Monthly</div>
+            <div class="price-amount">$8.99</div>
+            <div class="price-period">per month</div>
+          </div>
+          <div class="price-card popular">
+            <div class="price-pill">Best value</div>
+            <div class="price-label">Annual</div>
+            <div class="price-amount">$89.99</div>
+            <div class="price-period">per year · save 17%</div>
+          </div>
+        </div>
+        <ul class="pro-features">
+          <li>Unlimited to-do lists</li>
+          <li>Unlimited daily habits</li>
+          <li>Live collaboration</li>
+          <li>Split lists</li>
+          <li>All premium themes</li>
+          <li>All app icons</li>
+          <li>Home screen widget</li>
+          <li>Priority new features</li>
+        </ul>
+        <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" class="btn-primary" style="display:inline-flex" target="_blank">
+          Get Pro on Google Play
+        </a>
+        <p style="margin-top:14px;font-size:12.5px;color:var(--muted)">14-day free trial included · Cancel anytime</p>
       </div>
     </div>
-  </section>
+
+  </div><!-- /page-home -->
+
+  <!-- LEGAL PAGE -->
+  <div id="page-legal">
+
+    <div class="legal-tabs-bar">
+      <div class="legal-tabs-inner">
+        <button class="legal-tab-btn active" onclick="switchLegalTab(event, 'privacy')" id="tab-privacy">Privacy Policy</button>
+        <button class="legal-tab-btn" onclick="switchLegalTab(event, 'terms')" id="tab-terms">Terms of Service</button>
+      </div>
+    </div>
+
+    <!-- PRIVACY -->
+    <div class="legal-tab-content active" id="content-privacy">
+      <h2 class="section-title" style="margin-bottom:6px">Privacy Policy</h2>
+      <p class="legal-meta">Last updated: March 26, 2026</p>
+      <div class="legal-body">
+        <div class="legal-item">
+          <h3>1. Information We Collect</h3>
+          <p>Lion's Notes collects: account information (name and email via sign-in), user-generated content (tasks, checklists, habits, notes), and app preferences stored locally on your device.</p>
+        </div>
+        <div class="legal-item">
+          <h3>2. How We Use Your Information</h3>
+          <p>We use your data solely to provide and sync your tasks and habits, enable shared checklists and live collaboration, and maintain your account. We do <strong>not</strong> use your data for advertising or sell it to third parties.</p>
+        </div>
+        <div class="legal-item">
+          <h3>3. Data Storage</h3>
+          <p>Your data is stored securely using Convex cloud infrastructure hosted in the EU (eu-west-1). All data is transmitted over encrypted HTTPS connections.</p>
+        </div>
+        <div class="legal-item">
+          <h3>4. Third-Party Services</h3>
+          <p>Clerk (authentication) · Convex (cloud storage) · RevenueCat (subscriptions). Each service has its own privacy policy.</p>
+        </div>
+        <div class="legal-item" id="account-deletion">
+          <h3>5. Account &amp; Data Deletion</h3>
+          <p>You can delete your account directly from the app: <strong>Settings → Danger Zone → Delete Account</strong>. All your data will be permanently removed. Alternatively, email <a href="mailto:chaosdaddy84@gmail.com">chaosdaddy84@gmail.com</a> with subject "Delete My Account — Lion's Notes". We process requests within 30 days.</p>
+          <p style="margin-top:10px"><strong>What gets deleted:</strong> account, all tasks, habits, notes, settings, session history.<br><strong>What may be retained:</strong> anonymized aggregate statistics only.</p>
+        </div>
+        <div class="legal-item">
+          <h3>6. Children's Privacy</h3>
+          <p>Lion's Notes is not directed to children under 13. We do not knowingly collect data from children under 13.</p>
+        </div>
+        <div class="legal-item">
+          <h3>7. Contact</h3>
+          <p>Questions? <a href="mailto:chaosdaddy84@gmail.com">chaosdaddy84@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TERMS -->
+    <div class="legal-tab-content" id="content-terms">
+      <h2 class="section-title" style="margin-bottom:6px">Terms of Service</h2>
+      <p class="legal-meta">Last updated: March 26, 2026</p>
+      <div class="legal-body">
+        <div class="legal-item">
+          <h3>1. Acceptance of Terms</h3>
+          <p>By downloading or using Lion's Notes, you agree to these Terms. If you do not agree, do not use the App.</p>
+        </div>
+        <div class="legal-item">
+          <h3>2. Description of the Service</h3>
+          <p>Lion's Notes lets you create to-do lists, track daily habits, collaborate in real-time (Live &amp; Split), customize themes and icons, and use a home screen widget (Android).</p>
+        </div>
+        <div class="legal-item">
+          <h3>3. User Accounts</h3>
+          <p>You must create an account with a valid email. You are responsible for all activity under your account. You may delete your account at any time from Settings → Delete Account — all data will be permanently removed. Notify us at <a href="mailto:chaosdaddy84@gmail.com">chaosdaddy84@gmail.com</a> if you suspect unauthorized access.</p>
+        </div>
+        <div class="legal-item">
+          <h3>4. Free and Premium Features</h3>
+          <p><strong>Free:</strong> up to 5 to-do lists, 5 custom habits/day, Classic theme.<br>
+          <strong>Pro:</strong> unlimited lists &amp; habits, live collaboration, all themes &amp; icons, widget, priority features.</p>
+        </div>
+        <div class="legal-item">
+          <h3>5. Subscriptions and Payments</h3>
+          <p>Pro is available monthly ($8.99/mo) or annually ($89.99/yr). Subscriptions auto-renew unless cancelled 24 hours before the next billing period. Cancel anytime via Google Play or App Store. Refunds are handled by the respective store. We do not process refunds directly.</p>
+        </div>
+        <div class="legal-item">
+          <h3>6. User Content</h3>
+          <p>You retain full ownership of your content. We do not claim ownership of your data. You grant us a limited license to store and process it solely to provide the service.</p>
+        </div>
+        <div class="legal-item">
+          <h3>7. Prohibited Uses</h3>
+          <p>Do not use the App to share illegal or harmful content, gain unauthorized access to others' data, reverse-engineer the App, or create multiple accounts to circumvent free limits. Violations may result in account termination.</p>
+        </div>
+        <div class="legal-item">
+          <h3>8. Disclaimer &amp; Liability</h3>
+          <p>Lion's Notes is provided "as is" without warranties. We are not liable for indirect, incidental, or consequential damages. Our total liability shall not exceed the amount you paid us in the 12 months preceding any claim.</p>
+        </div>
+        <div class="legal-item">
+          <h3>9. Changes to Terms</h3>
+          <p>We may update these Terms at any time. Continued use after changes constitutes acceptance.</p>
+        </div>
+        <div class="legal-item">
+          <h3>10. Contact</h3>
+          <p><a href="mailto:chaosdaddy84@gmail.com">chaosdaddy84@gmail.com</a> · Lion's Notes · Victor Socinschi</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /page-legal -->
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-links">
-      <a href="#privacy">Privacy Policy</a>
-      <a href="#terms">Terms of Service</a>
-      <a href="mailto:chaosdaddy84@gmail.com">Contact</a>
+    <div class="footer-inner">
+      <a href="#" class="footer-brand" onclick="showHome(event)">
+        <img src="assets/icon.png" alt="Lion's Notes" />
+        <span>Lion's Notes</span>
+      </a>
+      <div class="footer-links">
+        <button onclick="showLegal(event, 'privacy')">Privacy Policy</button>
+        <button onclick="showLegal(event, 'terms')">Terms of Service</button>
+        <a href="mailto:chaosdaddy84@gmail.com">Contact</a>
+      </div>
+      <p class="footer-copy">© 2026 Lion's Notes · Victor Socinschi</p>
     </div>
-    <p>© 2026 Lion's Notes · Made by Victor Socinschi</p>
   </footer>
+
+  <script>
+    function showHome(e) {
+      if (e) e.preventDefault();
+      document.getElementById('page-home').style.display = 'block';
+      document.getElementById('page-legal').style.display = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      updateNavActive('home');
+      closeMenu();
+    }
+
+    function showHomeSection(e, sectionId) {
+      if (e) e.preventDefault();
+      const wasLegal = document.getElementById('page-legal').style.display === 'block';
+      document.getElementById('page-home').style.display = 'block';
+      document.getElementById('page-legal').style.display = 'none';
+      updateNavActive('home');
+      closeMenu();
+      if (wasLegal) {
+        setTimeout(() => scrollToSection(null, sectionId), 50);
+      } else {
+        scrollToSection(null, sectionId);
+      }
+    }
+
+    function scrollToSection(e, sectionId) {
+      if (e) e.preventDefault();
+      const el = document.getElementById(sectionId);
+      if (el) {
+        const offset = 70;
+        const top = el.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+
+    function showLegal(e, tab) {
+      if (e) e.preventDefault();
+      document.getElementById('page-home').style.display = 'none';
+      document.getElementById('page-legal').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      switchLegalTab(null, tab);
+      updateNavActive('legal');
+      closeMenu();
+    }
+
+    function switchLegalTab(e, tab) {
+      if (e) e.preventDefault();
+      document.querySelectorAll('.legal-tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.legal-tab-content').forEach(c => c.classList.remove('active'));
+      const btn = document.getElementById('tab-' + tab);
+      const content = document.getElementById('content-' + tab);
+      if (btn) btn.classList.add('active');
+      if (content) content.classList.add('active');
+    }
+
+    function updateNavActive(page) {
+      document.querySelectorAll('.nav-link').forEach(a => {
+        a.classList.remove('active');
+      });
+    }
+
+    function toggleMenu() {
+      const links = document.getElementById('navLinks');
+      links.classList.toggle('open');
+    }
+
+    function closeMenu() {
+      document.getElementById('navLinks').classList.remove('open');
+    }
+
+    // Close menu on outside click
+    document.addEventListener('click', (e) => {
+      const nav = document.querySelector('.navbar');
+      if (!nav.contains(e.target)) closeMenu();
+    });
+  </script>
 
 </body>
 </html>
