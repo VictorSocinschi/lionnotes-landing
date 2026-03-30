@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shared List — Lion's Notes</title>
+  <meta name="description" content="Someone shared a list with you via Lion's Notes." />
+  <meta property="og:title" content="Shared List — Lion's Notes" />
+  <meta property="og:description" content="Open in Lion's Notes to view and import this list." />
+  <meta property="og:image" content="https://lionnotes.online/assets/icon.png" />
+  <link rel="icon" href="https://lionnotes.online/assets/icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080600;
+      --surface: #0F0C06;
+      --card: #161209;
+      --border: rgba(255,255,255,0.07);
+      --text: #F0E8D6;
+      --muted: rgba(240,232,214,0.45);
+      --accent: #F0A020;
+      --accent2: #FF6B35;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px 32px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .icon-wrap {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 36px;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+      margin-bottom: 32px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    .btn:active { opacity: 0.8; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #000;
+      margin-bottom: 12px;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.07);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .logo {
+      margin-top: 32px;
+      color: var(--muted);
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .logo img {
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+    }
+
+    .status {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 16px;
+      min-height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon-wrap">📋</div>
+    <h1>Shared List</h1>
+    <p class="subtitle" id="subtitle">Someone shared a list with you via Lion's Notes.</p>
+
+    <button class="btn btn-primary" id="openBtn" onclick="openInApp()">Open in Lion's Notes</button>
+    <a class="btn btn-secondary" id="downloadBtn" href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" target="_blank">
+      Download on Google Play
+    </a>
+
+    <p class="status" id="status"></p>
+
+    <div class="logo">
+      <img src="https://lionnotes.online/assets/icon.png" alt="Lion's Notes" />
+      Lion's Notes
+    </div>
+  </div>
+
+  <script>
+    // Extract token from URL path: /share/TOKEN
+    const pathParts = window.location.pathname.split('/');
+    const token = pathParts[pathParts.length - 1] || pathParts[pathParts.length - 2];
+
+    const appUrl = token ? `lionnotes://share/${token}` : 'lionnotes://';
+
+    function openInApp() {
+      if (!token) {
+        document.getElementById('status').textContent = 'Invalid share link.';
+        return;
+      }
+
+      document.getElementById('status').textContent = 'Opening app…';
+
+      // Try opening the app via custom scheme
+      const start = Date.now();
+      window.location.href = appUrl;
+
+      // If app not installed, user stays on page — show Play Store hint
+      setTimeout(() => {
+        if (Date.now() - start < 3000) {
+          document.getElementById('status').textContent = "App not installed? Download it below.";
+          document.getElementById('downloadBtn').style.background = 'linear-gradient(135deg, rgba(240,160,32,0.2), rgba(255,107,53,0.2))';
+          document.getElementById('downloadBtn').style.borderColor = 'rgba(240,160,32,0.4)';
+        }
+      }, 2500);
+    }
+
+    // Auto-open on page load if token is present
+    if (token && token !== 'share') {
+      // Small delay to let page render first
+      setTimeout(openInApp, 600);
+    } else {
+      document.getElementById('status').textContent = 'Invalid or missing share token.';
+    }
+  </script>
+</body>
+</html>
