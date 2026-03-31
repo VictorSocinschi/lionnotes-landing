@@ -764,6 +764,7 @@
       <li><a href="#" onclick="showHome(event)" class="nav-link active" data-page="home">Home</a></li>
       <li><a href="#features" onclick="showHomeSection(event, 'features')" class="nav-link" data-page="home">Features</a></li>
       <li><a href="#pro" onclick="showHomeSection(event, 'pro')" class="nav-link" data-page="home">Pro</a></li>
+      <li><a href="#" onclick="showTesters(event)" class="nav-link" data-page="testers">Testers</a></li>
       <li><a href="#" onclick="showLegal(event, 'privacy')" class="nav-link" data-page="legal">Privacy</a></li>
       <li><a href="#" onclick="showLegal(event, 'terms')" class="nav-link" data-page="legal">Terms</a></li>
       <li><a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" class="navbar-cta" target="_blank">Download</a></li>
@@ -1014,6 +1015,142 @@
 
   </div><!-- /page-legal -->
 
+  <!-- TESTERS PAGE -->
+  <div id="page-testers" style="display:none;padding-top:60px">
+
+    <div class="legal-tabs-bar">
+      <div class="legal-tabs-inner">
+        <button class="legal-tab-btn active" onclick="switchTestersTab(event,'ro')" id="ttab-ro">🇷🇴 Română</button>
+        <button class="legal-tab-btn" onclick="switchTestersTab(event,'ru')" id="ttab-ru">🇷🇺 Русский</button>
+      </div>
+    </div>
+
+    <!-- ROMANIAN -->
+    <div class="legal-tab-content active" id="tcontent-ro">
+      <h2 class="section-title" style="margin-bottom:6px">Instrucțiuni pentru Testeri</h2>
+      <p class="legal-meta">Lion's Notes · Testare internă Google Play</p>
+      <div class="legal-body">
+
+        <div class="legal-item">
+          <h3>Pasul 1 — Acceptă invitația</h3>
+          <p>Apasă pe link-ul de mai jos pentru a te alătura programului de testare internă pe Google Play. Este necesar să folosești contul Google de pe telefonul tău Android.</p>
+          <p style="margin-top:12px">
+            <a href="https://play.google.com/apps/internaltest/4701234390309215304" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#F0A020,#FF6B35);color:#fff;font-weight:700;font-size:14px;padding:10px 20px;border-radius:10px;text-decoration:none">
+              ▶ Alătură-te testării
+            </a>
+          </p>
+        </div>
+
+        <div class="legal-item">
+          <h3>Pasul 2 — Instalează aplicația</h3>
+          <p>După ce ai acceptat invitația:</p>
+          <ol style="margin-top:10px;padding-left:20px;line-height:2">
+            <li>Deschide <strong>Google Play Store</strong> pe telefon</li>
+            <li>Caută <strong>„Lion's Notes"</strong> și apasă <strong>Instalează</strong></li>
+            <li>Dacă ai instalat deja aplicația — apasă <strong>Actualizează</strong></li>
+          </ol>
+        </div>
+
+        <div class="legal-item">
+          <h3>Pasul 3 — Creează un cont</h3>
+          <p>Deschide aplicația și înregistrează-te cu adresa ta de email. Contul este necesar pentru sincronizare și sesiuni live.</p>
+        </div>
+
+        <div class="legal-item">
+          <h3>Ce poți testa</h3>
+          <p style="margin-bottom:10px">Încearcă toate funcțiile principale ale aplicației:</p>
+          <ul style="padding-left:20px;line-height:2.2">
+            <li>✅ <strong>Sarcini și liste de verificare</strong> — creează, bifează, reordonează</li>
+            <li>✅ <strong>Obiceiuri zilnice</strong> — urmărește-ți rutina zilnică</li>
+            <li>✅ <strong>Sesiune Live</strong> — colaborare în timp real pe aceeași listă</li>
+            <li>✅ <strong>Split Screen</strong> — fiecare participant cu propria lui listă, vizibile simultan</li>
+            <li>✅ <strong>Moduri Shopping</strong> — notificări cu articolele de cumpărat</li>
+            <li>✅ <strong>Teme vizuale</strong> — încearcă tema Classic, Dark și altele</li>
+            <li>✅ <strong>Widget pe ecranul principal</strong> — lista ta direct pe home screen</li>
+          </ul>
+        </div>
+
+        <div class="legal-item">
+          <h3>Cum trimiți feedback</h3>
+          <p>Orice problemă, idee sau observație este binevenită. Scrie-ne pe email:</p>
+          <p style="margin-top:10px">
+            <a href="mailto:chaosdaddy84@gmail.com" style="color:var(--accent);font-weight:600">chaosdaddy84@gmail.com</a>
+          </p>
+          <p style="margin-top:8px;color:var(--muted2);font-size:14px">Descrie ce ai văzut, pe ce ecran s-a întâmplat și ce te-ai așteptat să se întâmple. Poți atașa și o captură de ecran.</p>
+        </div>
+
+        <div class="legal-item">
+          <h3>Mulțumim!</h3>
+          <p>Feedback-ul tău ne ajută direct să îmbunătățim aplicația înainte de lansarea publică. Apreciem orice minut pe care îl acorzi testării.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RUSSIAN -->
+    <div class="legal-tab-content" id="tcontent-ru">
+      <h2 class="section-title" style="margin-bottom:6px">Инструкция для тестировщиков</h2>
+      <p class="legal-meta">Lion's Notes · Внутреннее тестирование Google Play</p>
+      <div class="legal-body">
+
+        <div class="legal-item">
+          <h3>Шаг 1 — Принять приглашение</h3>
+          <p>Нажми на ссылку ниже, чтобы вступить в программу внутреннего тестирования Google Play. Используй тот же Google-аккаунт, что установлен на твоём Android-телефоне.</p>
+          <p style="margin-top:12px">
+            <a href="https://play.google.com/apps/internaltest/4701234390309215304" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#F0A020,#FF6B35);color:#fff;font-weight:700;font-size:14px;padding:10px 20px;border-radius:10px;text-decoration:none">
+              ▶ Вступить в тестирование
+            </a>
+          </p>
+        </div>
+
+        <div class="legal-item">
+          <h3>Шаг 2 — Установи приложение</h3>
+          <p>После принятия приглашения:</p>
+          <ol style="margin-top:10px;padding-left:20px;line-height:2">
+            <li>Открой <strong>Google Play Store</strong> на телефоне</li>
+            <li>Найди <strong>«Lion's Notes»</strong> и нажми <strong>Установить</strong></li>
+            <li>Если приложение уже установлено — нажми <strong>Обновить</strong></li>
+          </ol>
+        </div>
+
+        <div class="legal-item">
+          <h3>Шаг 3 — Создай аккаунт</h3>
+          <p>Открой приложение и зарегистрируйся по email. Аккаунт нужен для синхронизации данных и живых сессий.</p>
+        </div>
+
+        <div class="legal-item">
+          <h3>Что тестировать</h3>
+          <p style="margin-bottom:10px">Попробуй все основные функции приложения:</p>
+          <ul style="padding-left:20px;line-height:2.2">
+            <li>✅ <strong>Задачи и чеклисты</strong> — создавай, отмечай, переставляй</li>
+            <li>✅ <strong>Ежедневные привычки</strong> — отслеживай свою рутину</li>
+            <li>✅ <strong>Live-сессия</strong> — совместная работа со списком в реальном времени</li>
+            <li>✅ <strong>Split Screen</strong> — у каждого участника свой список, видны одновременно</li>
+            <li>✅ <strong>Режим Покупок</strong> — уведомления с нужными товарами прямо в магазине</li>
+            <li>✅ <strong>Темы оформления</strong> — Classic, Dark и другие</li>
+            <li>✅ <strong>Виджет на экране</strong> — твой список прямо на домашнем экране</li>
+          </ul>
+        </div>
+
+        <div class="legal-item">
+          <h3>Как отправить отзыв</h3>
+          <p>Любой баг, идея или наблюдение — всё ценно. Пиши нам на почту:</p>
+          <p style="margin-top:10px">
+            <a href="mailto:chaosdaddy84@gmail.com" style="color:var(--accent);font-weight:600">chaosdaddy84@gmail.com</a>
+          </p>
+          <p style="margin-top:8px;color:var(--muted2);font-size:14px">Опиши что произошло, на каком экране и что ожидалось. Можно приложить скриншот.</p>
+        </div>
+
+        <div class="legal-item">
+          <h3>Спасибо!</h3>
+          <p>Твои отзывы напрямую помогают улучшить приложение до публичного запуска. Ценим каждую минуту, которую ты тратишь на тестирование.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /page-testers -->
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
@@ -1022,6 +1159,7 @@
         <span>Lion's Notes</span>
       </a>
       <div class="footer-links">
+        <button onclick="showTesters(event)">Testers</button>
         <button onclick="showLegal(event, 'privacy')">Privacy Policy</button>
         <button onclick="showLegal(event, 'terms')">Terms of Service</button>
         <a href="mailto:chaosdaddy84@gmail.com">Contact</a>
@@ -1035,6 +1173,7 @@
       if (e) e.preventDefault();
       document.getElementById('page-home').style.display = 'block';
       document.getElementById('page-legal').style.display = 'none';
+      document.getElementById('page-testers').style.display = 'none';
       window.scrollTo({ top: 0, behavior: 'smooth' });
       updateNavActive('home');
       closeMenu();
@@ -1045,6 +1184,7 @@
       const wasLegal = document.getElementById('page-legal').style.display === 'block';
       document.getElementById('page-home').style.display = 'block';
       document.getElementById('page-legal').style.display = 'none';
+      document.getElementById('page-testers').style.display = 'none';
       updateNavActive('home');
       closeMenu();
       if (wasLegal) {
@@ -1064,10 +1204,31 @@
       }
     }
 
+    function showTesters(e) {
+      if (e) e.preventDefault();
+      document.getElementById('page-home').style.display = 'none';
+      document.getElementById('page-legal').style.display = 'none';
+      document.getElementById('page-testers').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      updateNavActive('testers');
+      closeMenu();
+    }
+
+    function switchTestersTab(e, tab) {
+      if (e) e.preventDefault();
+      document.querySelectorAll('[id^="ttab-"]').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('[id^="tcontent-"]').forEach(c => c.classList.remove('active'));
+      const btn = document.getElementById('ttab-' + tab);
+      const content = document.getElementById('tcontent-' + tab);
+      if (btn) btn.classList.add('active');
+      if (content) content.classList.add('active');
+    }
+
     function showLegal(e, tab) {
       if (e) e.preventDefault();
       document.getElementById('page-home').style.display = 'none';
       document.getElementById('page-legal').style.display = 'block';
+      document.getElementById('page-testers').style.display = 'none';
       window.scrollTo({ top: 0, behavior: 'instant' });
       switchLegalTab(null, tab);
       updateNavActive('legal');
