@@ -141,25 +141,39 @@
   </div>
 
   <script>
-    // Extract token from URL path: /share/TOKEN
-    const pathParts = window.location.pathname.split('/');
-    const token = pathParts[pathParts.length - 1] || pathParts[pathParts.length - 2];
+    // /share/TOKEN           → lionnotes://share/TOKEN  (shared list)
+    // /share/session/TOKEN   → lionnotes://session/TOKEN
+    // /share/split/TOKEN     → lionnotes://split/TOKEN
+    const pathParts = window.location.pathname.replace(/\/$/, '').split('/').filter(Boolean);
+    let appUrl = 'lionnotes://';
+    let token = null;
 
-    const appUrl = token ? `lionnotes://share/${token}` : 'lionnotes://';
+    if (pathParts.length >= 3 && (pathParts[1] === 'session' || pathParts[1] === 'split')) {
+      const type = pathParts[1];
+      token = pathParts[2];
+      appUrl = `lionnotes://${type}/${token}`;
+      if (type === 'session') {
+        document.querySelector('h1').textContent = 'Live Session';
+        document.getElementById('subtitle').textContent = "Someone invited you to a live collaboration session in Lion's Notes.";
+        document.querySelector('.icon-wrap').textContent = '🔴';
+      } else {
+        document.querySelector('h1').textContent = 'Split Session';
+        document.getElementById('subtitle').textContent = "Someone invited you to a split list session in Lion's Notes.";
+        document.querySelector('.icon-wrap').textContent = '⚡';
+      }
+    } else if (pathParts.length >= 2) {
+      token = pathParts[pathParts.length - 1];
+      appUrl = token ? `lionnotes://share/${token}` : 'lionnotes://';
+    }
 
     function openInApp() {
       if (!token) {
         document.getElementById('status').textContent = 'Invalid share link.';
         return;
       }
-
       document.getElementById('status').textContent = 'Opening app…';
-
-      // Try opening the app via custom scheme
       const start = Date.now();
       window.location.href = appUrl;
-
-      // If app not installed, user stays on page — show Play Store hint
       setTimeout(() => {
         if (Date.now() - start < 3000) {
           document.getElementById('status').textContent = "App not installed? Download it below.";
@@ -169,9 +183,7 @@
       }, 2500);
     }
 
-    // Auto-open on page load if token is present
-    if (token && token !== 'share') {
-      // Small delay to let page render first
+    if (token) {
       setTimeout(openInApp, 600);
     } else {
       document.getElementById('status').textContent = 'Invalid or missing share token.';
