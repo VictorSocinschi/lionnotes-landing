@@ -183,9 +183,7 @@
       }, 2500);
     }
 
-    if (token) {
-      setTimeout(openInApp, 600);
-    } else {
+    if (!token) {
       document.getElementById('status').textContent = 'Invalid or missing share token.';
     }
   </script>
