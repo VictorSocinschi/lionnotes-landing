@@ -2,7 +2,8 @@
   "rewrites": [
     { "source": "/share/session/:token", "destination": "/share/index.html" },
     { "source": "/share/split/:token", "destination": "/share/index.html" },
-    { "source": "/share/:token", "destination": "/share/index.html" }
+    { "source": "/share/:token", "destination": "/share/index.html" },
+    { "source": "/share", "destination": "/share/index.html" }
   ],
   "headers": [
     {
