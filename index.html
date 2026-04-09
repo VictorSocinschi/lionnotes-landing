@@ -169,6 +169,83 @@
     #page-home { display: block; }
     #page-legal { display: none; padding-top: 62px; }
     #page-testers { display: none; padding-top: 62px; }
+    #page-support { display: none; padding-top: 62px; }
+
+    /* ─── SUPPORT PAGE ─── */
+    .support-hero {
+      background: linear-gradient(180deg, var(--surface) 0%, transparent 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 52px 48px 48px;
+      text-align: center;
+    }
+    .support-hero h1 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; letter-spacing: -1.5px; margin-bottom: 12px; }
+    .support-hero p { font-size: 16px; color: var(--muted2); max-width: 440px; margin: 0 auto 28px; line-height: 1.7; }
+    .support-email-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: linear-gradient(135deg, #F0A020, #FF6B35);
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 13px 26px;
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(240,160,32,0.28);
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .support-email-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 1000px;
+      margin: 56px auto 0;
+      padding: 0 48px;
+    }
+    .support-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .support-card:hover { border-color: rgba(240,160,32,0.2); transform: translateY(-2px); }
+    .support-card-icon { font-size: 28px; margin-bottom: 14px; }
+    .support-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .support-card p { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+    .support-card a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .support-card a:hover { text-decoration: underline; }
+
+    .support-faq-wrap {
+      max-width: 740px;
+      margin: 72px auto 0;
+      padding: 0 48px 80px;
+    }
+    .support-faq-wrap h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 800; letter-spacing: -1px; margin-bottom: 32px; }
+
+    .support-delete {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 0 48px 80px;
+    }
+    .support-delete-card {
+      background: rgba(255,100,50,0.06);
+      border: 1px solid rgba(255,100,50,0.18);
+      border-radius: var(--radius);
+      padding: 28px 28px;
+    }
+    .support-delete-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; color: var(--text); }
+    .support-delete-card p { font-size: 14px; color: var(--muted); line-height: 1.8; }
+    .support-delete-card strong { color: var(--muted2); }
+
+    @media (max-width: 900px) {
+      .support-hero { padding: 40px 24px 36px; }
+      .support-grid { grid-template-columns: 1fr; padding: 0 24px; margin-top: 36px; }
+      .support-faq-wrap { padding: 0 24px 60px; margin-top: 52px; }
+      .support-delete { padding: 0 24px 60px; }
+    }
 
     /* ─── HERO ─── */
     .hero {
@@ -1043,6 +1120,7 @@
       <li><a href="#features" onclick="showHomeSection(event,'features')" class="nav-link" data-page="home">Features</a></li>
       <li><a href="#plans" onclick="showHomeSection(event,'plans')" class="nav-link" data-page="home">Pricing</a></li>
       <li><a href="#faq" onclick="showHomeSection(event,'faq')" class="nav-link" data-page="home">FAQ</a></li>
+      <li><a href="#" onclick="showSupport(event)" class="nav-link" data-page="support">Support</a></li>
       <li><a href="#" onclick="showLegal(event,'privacy')" class="nav-link" data-page="legal">Privacy</a></li>
       <li><a href="#" onclick="showLegal(event,'terms')" class="nav-link" data-page="legal">Terms</a></li>
     </ul>
@@ -1062,6 +1140,7 @@
     <a href="#features" onclick="showHomeSection(event,'features')">✨ Features</a>
     <a href="#plans" onclick="showHomeSection(event,'plans')">💎 Pricing</a>
     <a href="#faq" onclick="showHomeSection(event,'faq')">❓ FAQ</a>
+    <a href="#" onclick="showSupport(event)">🆘 Support</a>
     <a href="#" onclick="showTesters(event)">🧪 Testers Guide</a>
     <a href="#" onclick="showLegal(event,'privacy')">🔒 Privacy Policy</a>
     <a href="#" onclick="showLegal(event,'terms')">📄 Terms of Service</a>
@@ -1706,6 +1785,113 @@
     </div>
   </div><!-- /page-testers -->
 
+  <!-- SUPPORT PAGE -->
+  <div id="page-support">
+
+    <div class="support-hero">
+      <div class="section-tag" style="margin-bottom:16px">🆘 Support</div>
+      <h1>How can we <span class="grad-text">help you?</span></h1>
+      <p>Can't find what you're looking for? We're here — usually reply within 24 hours.</p>
+      <a href="mailto:support@lionnotes.online" class="support-email-btn">
+        ✉️ support@lionnotes.online
+      </a>
+    </div>
+
+    <div class="support-grid">
+      <div class="support-card">
+        <div class="support-card-icon">📦</div>
+        <h3>Subscriptions & Billing</h3>
+        <p>Questions about your Pro plan, trial, or charges? Subscriptions are managed by Google Play or the App Store. You can cancel anytime from your store account settings.</p>
+      </div>
+      <div class="support-card">
+        <div class="support-card-icon">🔐</div>
+        <h3>Account & Login</h3>
+        <p>Having trouble signing in? Make sure you're using the same method you registered with (Google, Apple, or email). Contact us if you've lost access to your account.</p>
+      </div>
+      <div class="support-card">
+        <div class="support-card-icon">🔄</div>
+        <h3>Data & Sync</h3>
+        <p>Your data syncs automatically when you're connected to the internet. If you see missing content, try signing out and back in. Data is stored securely in the EU.</p>
+      </div>
+      <div class="support-card">
+        <div class="support-card-icon">🎨</div>
+        <h3>Themes & Features</h3>
+        <p>Aurora and Luxury themes, live collaboration, and split screen are Pro features. Start a free 14-day trial from the paywall inside the app — no credit card required.</p>
+      </div>
+      <div class="support-card">
+        <div class="support-card-icon">🐛</div>
+        <h3>Report a Bug</h3>
+        <p>Found something broken? Email us at <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> with a short description and a screenshot if possible. We fix bugs fast.</p>
+      </div>
+      <div class="support-card">
+        <div class="support-card-icon">💡</div>
+        <h3>Feature Requests</h3>
+        <p>Have an idea that would make Lion's Notes better? We genuinely read every suggestion. Drop us an email — many features came from user feedback.</p>
+      </div>
+    </div>
+
+    <!-- DELETE ACCOUNT -->
+    <div class="support-delete" style="margin-top:52px">
+      <div class="support-delete-card" id="delete-account">
+        <h3>🗑️ How to Delete Your Account</h3>
+        <p>To permanently delete your account and all associated data, open the app and go to:<br><br>
+        <strong>Settings → Danger Zone → Delete Account</strong><br><br>
+        All your tasks, habits, notes, and settings will be permanently removed within 30 days. This action cannot be undone.<br><br>
+        Alternatively, email <a href="mailto:support@lionnotes.online" style="color:var(--accent);text-decoration:none;font-weight:600">support@lionnotes.online</a> with the subject <strong>"Delete My Account — Lion's Notes"</strong> and we'll process it within 30 days.</p>
+      </div>
+    </div>
+
+    <!-- SUPPORT FAQ -->
+    <div class="support-faq-wrap">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>How do I cancel my Pro subscription?</span>
+            <div class="faq-arrow">▾</div>
+          </div>
+          <div class="faq-a">Go to the <strong>Google Play Store → Subscriptions</strong> (Android) or <strong>App Store → Subscriptions</strong> (iOS) and cancel Lion's Notes Pro. Your access continues until the end of the current billing period. We do not process cancellations directly.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>I was charged but the app still shows Free — what do I do?</span>
+            <div class="faq-arrow">▾</div>
+          </div>
+          <div class="faq-a">Try signing out and back in — this usually restores your subscription. If the issue persists, email <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> with your order number and we'll resolve it quickly.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>Can I use Lion's Notes on multiple devices?</span>
+            <div class="faq-arrow">▾</div>
+          </div>
+          <div class="faq-a">Yes. Sign in with the same account on any device and your data syncs automatically in real time. One account, all your devices.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>I forgot which email I used to sign up — how do I recover my account?</span>
+            <div class="faq-arrow">▾</div>
+          </div>
+          <div class="faq-a">Email us at <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> with any details you remember (approximate sign-up date, device type). We'll help you locate and recover your account.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>Is my data safe? Where is it stored?</span>
+            <div class="faq-arrow">▾</div>
+          </div>
+          <div class="faq-a">All data is stored in the EU (eu-west-1) using Convex cloud infrastructure, transmitted over encrypted HTTPS. We never sell your data or use it for advertising. See our <a href="#" onclick="showLegal(event,'privacy')">Privacy Policy</a> for full details.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>The app is crashing — what should I do?</span>
+            <div class="faq-arrow">▾</div>
+          </div>
+          <div class="faq-a">First, try updating to the latest version from Google Play or the App Store. If it still crashes, email <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> with your device model, OS version, and what you were doing when it crashed.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /page-support -->
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
@@ -1715,6 +1901,7 @@
       </a>
       <p class="footer-copy">© 2026 Lion's Notes. All rights reserved.</p>
       <div class="footer-links">
+        <button onclick="showSupport(event)">Support</button>
         <button onclick="showTesters(event)">Testers</button>
         <button onclick="showLegal(event,'privacy')">Privacy</button>
         <button onclick="showLegal(event,'terms')">Terms</button>
@@ -1725,11 +1912,16 @@
 
   <script>
     /* ─── NAVIGATION ─── */
+    function hideAll() {
+      ['page-home','page-legal','page-testers','page-support'].forEach(id => {
+        document.getElementById(id).style.display = 'none';
+      });
+    }
+
     function showHome(e) {
       if (e) e.preventDefault();
+      hideAll();
       document.getElementById('page-home').style.display = 'block';
-      document.getElementById('page-legal').style.display = 'none';
-      document.getElementById('page-testers').style.display = 'none';
       window.scrollTo({ top: 0, behavior: 'smooth' });
       updateNavActive('home');
       closeMenu();
@@ -1737,11 +1929,9 @@
 
     function showHomeSection(e, sectionId) {
       if (e) e.preventDefault();
-      const wasOther = document.getElementById('page-legal').style.display === 'block'
-        || document.getElementById('page-testers').style.display === 'block';
+      const wasOther = document.getElementById('page-home').style.display !== 'block';
+      hideAll();
       document.getElementById('page-home').style.display = 'block';
-      document.getElementById('page-legal').style.display = 'none';
-      document.getElementById('page-testers').style.display = 'none';
       updateNavActive('home');
       closeMenu();
       const delay = wasOther ? 60 : 0;
@@ -1758,8 +1948,7 @@
 
     function showTesters(e) {
       if (e) e.preventDefault();
-      document.getElementById('page-home').style.display = 'none';
-      document.getElementById('page-legal').style.display = 'none';
+      hideAll();
       document.getElementById('page-testers').style.display = 'block';
       window.scrollTo({ top: 0, behavior: 'instant' });
       updateNavActive('testers');
@@ -1768,12 +1957,20 @@
 
     function showLegal(e, tab) {
       if (e) e.preventDefault();
-      document.getElementById('page-home').style.display = 'none';
+      hideAll();
       document.getElementById('page-legal').style.display = 'block';
-      document.getElementById('page-testers').style.display = 'none';
       window.scrollTo({ top: 0, behavior: 'instant' });
       switchLegalTab(null, tab);
       updateNavActive('legal');
+      closeMenu();
+    }
+
+    function showSupport(e) {
+      if (e) e.preventDefault();
+      hideAll();
+      document.getElementById('page-support').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      updateNavActive('support');
       closeMenu();
     }
 
