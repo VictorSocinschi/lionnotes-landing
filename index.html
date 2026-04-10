@@ -30,7 +30,7 @@
       --radius: 20px;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -750,6 +750,44 @@
       background: linear-gradient(180deg, transparent, var(--surface) 15%, var(--surface) 85%, transparent);
     }
 
+    .billing-toggle {
+      display: inline-flex;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: 100px;
+      padding: 4px;
+      margin-top: 32px;
+      gap: 2px;
+    }
+    .billing-toggle button {
+      background: none;
+      border: none;
+      color: var(--muted2);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 22px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .billing-toggle button.active {
+      background: linear-gradient(135deg, #F0A020, #FF6B35);
+      color: #fff;
+    }
+    .billing-save-badge {
+      background: rgba(240,160,32,0.15);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 100px;
+      margin-left: 6px;
+      letter-spacing: 0.3px;
+    }
+
     .plans-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1314,6 +1352,12 @@
         <div class="section-tag">✦ Pricing</div>
         <h2 class="section-title">Simple, honest pricing</h2>
         <p class="section-sub">Start free. Upgrade when you need more. Cancel anytime — no tricks.</p>
+        <div style="display:flex;justify-content:center;">
+          <div class="billing-toggle">
+            <button class="active" id="btn-monthly" onclick="setBilling('monthly')">Monthly</button>
+            <button id="btn-annual" onclick="setBilling('annual')">Annual <span class="billing-save-badge">Save 16%</span></button>
+          </div>
+        </div>
         <div class="plans-grid">
           <!-- FREE -->
           <div class="plan-card free">
@@ -1339,8 +1383,8 @@
           <div class="plan-card pro">
             <div class="plan-badge">✦ Most Popular</div>
             <div class="plan-name">Pro</div>
-            <div class="plan-price"><span>from </span>$8.99<span>/mo</span></div>
-            <div class="plan-period">or $89.99/year · save 16%</div>
+            <div class="plan-price" id="pro-price"><span>$8.99</span><span style="font-size:22px;font-weight:600">/mo</span></div>
+            <div class="plan-period" id="pro-period">Billed monthly</div>
             <div class="plan-trial">🎁 14-day free trial included</div>
             <div class="plan-divider"></div>
             <div class="plan-features">
@@ -1976,6 +2020,24 @@
     });
 
     /* ─── FAQ ─── */
+    function setBilling(type) {
+      const btnMonthly = document.getElementById('btn-monthly');
+      const btnAnnual = document.getElementById('btn-annual');
+      const price = document.getElementById('pro-price');
+      const period = document.getElementById('pro-period');
+      if (type === 'annual') {
+        btnAnnual.classList.add('active');
+        btnMonthly.classList.remove('active');
+        price.innerHTML = '<span>$7.50</span><span style="font-size:22px;font-weight:600">/mo</span>';
+        period.innerHTML = 'Billed $89.99/year &nbsp;·&nbsp; <span style="color:var(--accent)">Save 16%</span>';
+      } else {
+        btnMonthly.classList.add('active');
+        btnAnnual.classList.remove('active');
+        price.innerHTML = '<span>$8.99</span><span style="font-size:22px;font-weight:600">/mo</span>';
+        period.innerHTML = 'Billed monthly';
+      }
+    }
+
     function toggleFaq(el) {
       const item = el.closest('.faq-item');
       const wasOpen = item.classList.contains('open');
