@@ -1120,7 +1120,7 @@
       .plans-grid { grid-template-columns: 1fr; }
       .plan-card { padding: 32px 24px; }
       .screenshots-header { padding: 0 24px; }
-      .carousel-track { padding: 20px 32px 30px; }
+      .carousel-track { padding: 20px 32px 30px; justify-content: flex-start; }
       .carousel-fade-left, .carousel-fade-right { width: 40px; }
       .final-cta-section { padding: 80px 24px; }
       footer { padding: 28px 20px; }
@@ -1150,18 +1150,18 @@
 
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
-    <a href="#" class="navbar-brand" onclick="showHome(event)">
+    <a href="/" class="navbar-brand">
       <img src="assets/icon.png" alt="Lion's Notes" />
       <span>Lion's Notes</span>
     </a>
     <ul class="nav-center" id="navCenter">
-      <li><a href="#" onclick="showHome(event)" class="nav-link active" data-page="home">Home</a></li>
-      <li><a href="#features" onclick="showHomeSection(event,'features')" class="nav-link" data-page="home">Features</a></li>
-      <li><a href="#plans" onclick="showHomeSection(event,'plans')" class="nav-link" data-page="home">Pricing</a></li>
-      <li><a href="#faq" onclick="showHomeSection(event,'faq')" class="nav-link" data-page="home">FAQ</a></li>
-      <li><a href="#" onclick="showSupport(event)" class="nav-link" data-page="support">Support</a></li>
-      <li><a href="#" onclick="showLegal(event,'privacy')" class="nav-link" data-page="legal">Privacy</a></li>
-      <li><a href="#" onclick="showLegal(event,'terms')" class="nav-link" data-page="legal">Terms</a></li>
+      <li><a href="/" class="nav-link active">Home</a></li>
+      <li><a href="/#features" class="nav-link">Features</a></li>
+      <li><a href="/pricing" class="nav-link">Pricing</a></li>
+      <li><a href="/#faq" class="nav-link">FAQ</a></li>
+      <li><a href="/support" class="nav-link">Support</a></li>
+      <li><a href="/privacy" class="nav-link">Privacy</a></li>
+      <li><a href="/terms" class="nav-link">Terms</a></li>
     </ul>
     <div class="nav-right">
       <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" class="btn-nav-dl" target="_blank">
@@ -1175,14 +1175,13 @@
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#" onclick="showHome(event)">🏠 Home</a>
-    <a href="#features" onclick="showHomeSection(event,'features')">✨ Features</a>
-    <a href="#plans" onclick="showHomeSection(event,'plans')">💎 Pricing</a>
-    <a href="#faq" onclick="showHomeSection(event,'faq')">❓ FAQ</a>
-    <a href="#" onclick="showSupport(event)">🆘 Support</a>
-    <a href="#" onclick="showTesters(event)">🧪 Testers Guide</a>
-    <a href="#" onclick="showLegal(event,'privacy')">🔒 Privacy Policy</a>
-    <a href="#" onclick="showLegal(event,'terms')">📄 Terms of Service</a>
+    <a href="/">🏠 Home</a>
+    <a href="/#features">✨ Features</a>
+    <a href="/pricing">💎 Pricing</a>
+    <a href="/#faq">❓ FAQ</a>
+    <a href="/support">🆘 Support</a>
+    <a href="/privacy">🔒 Privacy Policy</a>
+    <a href="/terms">📄 Terms of Service</a>
     <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" class="btn-mobile-dl" target="_blank">↓ Download on Google Play</a>
   </div>
 
@@ -1436,7 +1435,7 @@
             <span>Where is my data stored?</span>
             <div class="faq-arrow">▾</div>
           </div>
-          <div class="faq-a">All data is stored securely in the EU (eu-west-1 region) using Convex cloud infrastructure, transmitted over encrypted HTTPS. We do not sell or share your data with advertisers. See our <a href="#" onclick="showLegal(event,'privacy')">Privacy Policy</a> for full details.</div>
+          <div class="faq-a">All data is stored securely in the EU (eu-west-1 region) using Convex cloud infrastructure, transmitted over encrypted HTTPS. We do not sell or share your data with advertisers. See our <a href="/privacy">Privacy Policy</a> for full details.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)">
@@ -1858,7 +1857,7 @@
             <span>I was charged but the app still shows Free — what do I do?</span>
             <div class="faq-arrow">▾</div>
           </div>
-          <div class="faq-a">Try signing out and back in — this usually restores your subscription. If the issue persists, email <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> with your order number and we'll resolve it quickly.</div>
+          <div class="faq-a">Open the app and go to <strong>Settings → Restore Purchases</strong> — this is the fastest way to recover your Pro access. If that doesn't work, try signing out and back in. Still stuck? Email <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> with your order number and we'll resolve it quickly.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)">
@@ -1879,7 +1878,7 @@
             <span>Is my data safe? Where is it stored?</span>
             <div class="faq-arrow">▾</div>
           </div>
-          <div class="faq-a">All data is stored in the EU (eu-west-1) using Convex cloud infrastructure, transmitted over encrypted HTTPS. We never sell your data or use it for advertising. See our <a href="#" onclick="showLegal(event,'privacy')">Privacy Policy</a> for full details.</div>
+          <div class="faq-a">All data is stored in the EU (eu-west-1) using Convex cloud infrastructure, transmitted over encrypted HTTPS. We never sell your data or use it for advertising. See our <a href="/privacy">Privacy Policy</a> for full details.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)">
@@ -1896,16 +1895,15 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <a href="#" class="footer-brand" onclick="showHome(event)">
+      <a href="/" class="footer-brand">
         <img src="assets/icon.png" alt="Lion's Notes" />
         <span>Lion's Notes</span>
       </a>
       <p class="footer-copy">© 2026 Lion's Notes. All rights reserved.</p>
       <div class="footer-links">
-        <button onclick="showSupport(event)">Support</button>
-        <button onclick="showTesters(event)">Testers</button>
-        <button onclick="showLegal(event,'privacy')">Privacy</button>
-        <button onclick="showLegal(event,'terms')">Terms</button>
+        <a href="/support">Support</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
         <a href="mailto:support@lionnotes.online">Contact</a>
       </div>
     </div>
