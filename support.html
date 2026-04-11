@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — Lion's Notes</title>
+  <meta name="description" content="Lion's Notes Support — get help with subscriptions, account, data, and more." />
+  <link rel="icon" href="/assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #060504;
+      --surface: #0C0A07;
+      --card: #131008;
+      --border: rgba(255,255,255,0.07);
+      --border2: rgba(255,255,255,0.13);
+      --text: #F2EAD8;
+      --muted: rgba(242,234,216,0.42);
+      --muted2: rgba(242,234,216,0.65);
+      --accent: #F0A020;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { overflow-x: hidden; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(6,5,4,0.9); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px; height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-brand img { width: 30px; height: 30px; border-radius: 8px; }
+    .nav-brand span { font-size: 15px; font-weight: 800; color: var(--text); }
+    .nav-back { font-size: 14px; color: var(--muted2); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.15s; }
+    .nav-back:hover { color: var(--text); }
+
+    .grad-text {
+      background: linear-gradient(135deg, #F0A020 0%, #FF6B35 55%, #FFD166 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(240,160,32,0.1); border: 1px solid rgba(240,160,32,0.22);
+      border-radius: 30px; padding: 6px 14px;
+      font-size: 11.5px; font-weight: 700; color: var(--accent);
+      letter-spacing: 1.1px; text-transform: uppercase;
+    }
+
+    .support-hero {
+      background: linear-gradient(180deg, var(--surface) 0%, transparent 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 52px 48px 48px;
+      text-align: center;
+    }
+    .support-hero h1 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; letter-spacing: -1.5px; margin-bottom: 12px; margin-top: 16px; }
+    .support-hero p { font-size: 16px; color: var(--muted2); max-width: 440px; margin: 0 auto 28px; line-height: 1.7; }
+    .support-email-btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: linear-gradient(135deg, #F0A020, #FF6B35);
+      color: #fff; font-weight: 700; font-size: 15px;
+      padding: 13px 26px; border-radius: 14px; text-decoration: none;
+      box-shadow: 0 8px 24px rgba(240,160,32,0.28);
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .support-email-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+    .support-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 14px; max-width: 1000px; margin: 56px auto 0; padding: 0 48px;
+    }
+    .support-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 28px 24px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .support-card:hover { border-color: rgba(240,160,32,0.2); transform: translateY(-2px); }
+    .support-card-icon { font-size: 28px; margin-bottom: 14px; }
+    .support-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .support-card p { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+    .support-card a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .support-card a:hover { text-decoration: underline; }
+
+    .support-delete {
+      max-width: 740px; margin: 52px auto 0; padding: 0 48px;
+    }
+    .support-delete-card {
+      background: rgba(255,100,50,0.06); border: 1px solid rgba(255,100,50,0.18);
+      border-radius: 20px; padding: 28px;
+    }
+    .support-delete-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; color: var(--text); }
+    .support-delete-card p { font-size: 14px; color: var(--muted); line-height: 1.8; }
+    .support-delete-card strong { color: var(--muted2); }
+    .support-delete-card a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+    .support-faq-wrap {
+      max-width: 740px; margin: 56px auto 0; padding: 0 48px 80px;
+    }
+    .support-faq-wrap h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 800; letter-spacing: -1px; margin-bottom: 32px; }
+
+    .faq-list { display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+    }
+    .faq-q {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 20px; cursor: pointer; user-select: none;
+      font-size: 14.5px; font-weight: 600; gap: 12px;
+    }
+    .faq-q:hover { background: rgba(255,255,255,0.03); }
+    .faq-arrow { font-size: 18px; color: var(--muted); transition: transform 0.2s; flex-shrink: 0; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-a {
+      display: none; padding: 0 20px 18px;
+      font-size: 14px; color: var(--muted2); line-height: 1.8; border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+    .faq-item.open .faq-a { display: block; }
+    .faq-a a { color: var(--accent); text-decoration: none; }
+    .faq-a a:hover { text-decoration: underline; }
+
+    footer { text-align: center; padding: 32px 24px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+    footer a { color: var(--muted); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      .support-hero { padding: 40px 24px 36px; }
+      .support-grid { grid-template-columns: 1fr; padding: 0 24px; margin-top: 36px; }
+      .support-delete { padding: 0 24px; margin-top: 36px; }
+      .support-faq-wrap { padding: 0 24px 60px; margin-top: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-brand">
+    <img src="/assets/icon.png" alt="Lion's Notes" />
+    <span>Lion's Notes</span>
+  </a>
+  <a href="/" class="nav-back">← Back to home</a>
+</nav>
+
+<div class="support-hero">
+  <div class="section-tag">🆘 Support</div>
+  <h1>How can we <span class="grad-text">help you?</span></h1>
+  <p>Can't find what you're looking for? We're here — usually reply within 24 hours.</p>
+  <a href="mailto:support@lionnotes.online" class="support-email-btn">
+    ✉️ support@lionnotes.online
+  </a>
+</div>
+
+<div class="support-grid">
+  <div class="support-card">
+    <div class="support-card-icon">📦</div>
+    <h3>Subscriptions &amp; Billing</h3>
+    <p>Questions about your Pro plan, trial, or charges? Subscriptions are managed by Google Play or the App Store. You can cancel anytime from your store account settings.</p>
+  </div>
+  <div class="support-card">
+    <div class="support-card-icon">🔐</div>
+    <h3>Account &amp; Login</h3>
+    <p>Having trouble signing in? Make sure you're using the same method you registered with (Google, Apple, or email). Contact us if you've lost access to your account.</p>
+  </div>
+  <div class="support-card">
+    <div class="support-card-icon">🔄</div>
+    <h3>Data &amp; Sync</h3>
+    <p>Your data syncs automatically when you're connected to the internet. If you see missing content, try signing out and back in. Data is stored securely in the EU.</p>
+  </div>
+  <div class="support-card">
+    <div class="support-card-icon">🎨</div>
+    <h3>Themes &amp; Features</h3>
+    <p>Aurora and Luxury themes, live collaboration, and split screen are Pro features. Start a free 14-day trial from the paywall inside the app — no credit card required.</p>
+  </div>
+  <div class="support-card">
+    <div class="support-card-icon">🐛</div>
+    <h3>Report a Bug</h3>
+    <p>Found something broken? Email us at <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> with a short description and a screenshot if possible. We fix bugs fast.</p>
+  </div>
+  <div class="support-card">
+    <div class="support-card-icon">💡</div>
+    <h3>Feature Requests</h3>
+    <p>Have an idea that would make Lion's Notes better? We genuinely read every suggestion. Drop us an email — many features came from user feedback.</p>
+  </div>
+</div>
+
+<div class="support-delete" id="delete-account">
+  <div class="support-delete-card">
+    <h3>🗑️ How to Delete Your Account</h3>
+    <p>To permanently delete your account and all associated data, open the app and go to:<br><br>
+    <strong>Settings → Danger Zone → Delete Account</strong><br><br>
+    All your tasks, habits, notes, and settings will be permanently removed within 30 days. This action cannot be undone.<br><br>
+    Alternatively, email <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> with the subject <strong>"Delete My Account — Lion's Notes"</strong> and we'll process it within 30 days.</p>
+  </div>
+</div>
+
+<div class="support-faq-wrap">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>How do I cancel my Pro subscription?</span>
+        <div class="faq-arrow">▾</div>
+      </div>
+      <div class="faq-a">Go to the <strong>Google Play Store → Subscriptions</strong> (Android) or <strong>App Store → Subscriptions</strong> (iOS) and cancel Lion's Notes Pro. Your access continues until the end of the current billing period. We do not process cancellations directly.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>I was charged but the app still shows Free — what do I do?</span>
+        <div class="faq-arrow">▾</div>
+      </div>
+      <div class="faq-a">Open the app and go to <strong>Settings → Restore Purchases</strong> — this is the fastest way to recover your Pro access. If that doesn't work, try signing out and back in. Still stuck? Email <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> with your order number and we'll resolve it quickly.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>Can I use Lion's Notes on multiple devices?</span>
+        <div class="faq-arrow">▾</div>
+      </div>
+      <div class="faq-a">Yes. Sign in with the same account on any device and your data syncs automatically in real time. One account, all your devices.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>I forgot which email I used to sign up — how do I recover my account?</span>
+        <div class="faq-arrow">▾</div>
+      </div>
+      <div class="faq-a">Email us at <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> with any details you remember (approximate sign-up date, device type). We'll help you locate and recover your account.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>Is my data safe? Where is it stored?</span>
+        <div class="faq-arrow">▾</div>
+      </div>
+      <div class="faq-a">All data is stored in the EU (eu-west-1) using Convex cloud infrastructure, transmitted over encrypted HTTPS. We never sell your data or use it for advertising. See our <a href="/privacy">Privacy Policy</a> for full details.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>The app is crashing — what should I do?</span>
+        <div class="faq-arrow">▾</div>
+      </div>
+      <div class="faq-a">First, try updating to the latest version from Google Play or the App Store. If it still crashes, email <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> with your device model, OS version, and what you were doing when it crashed.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2026 Lion's Notes · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="mailto:support@lionnotes.online">Contact</a>
+</footer>
+
+<script>
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    item.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
