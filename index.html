@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lion's Notes — Tasks, Habits & Live Collaboration</title>
-  <meta name="description" content="Beautiful productivity app for to-do lists, daily habits, and real-time collaboration. Available on Android and iOS." />
+  <meta name="description" content="Beautiful productivity app for to-do lists, daily habits, and real-time collaboration. 14-day free trial. Available on Android and iOS." />
   <meta property="og:title" content="Lion's Notes — Tasks, Habits & Live Collaboration" />
   <meta property="og:description" content="Tasks, habits & live collaboration in one beautiful app. 14-day free trial." />
   <meta property="og:image" content="assets/icon.png" />
@@ -16,8 +16,8 @@
     :root {
       --bg: #060504;
       --surface: #0C0A07;
-      --card: #131008;
-      --card2: #1A150C;
+      --card: #111009;
+      --card2: #181310;
       --border: rgba(255,255,255,0.07);
       --border2: rgba(255,255,255,0.13);
       --text: #F2EAD8;
@@ -43,7 +43,7 @@
 
     /* ─── UTILS ─── */
     .grad-text {
-      background: linear-gradient(135deg, #F0A020 0%, #FF6B35 55%, #FFD166 100%);
+      background: linear-gradient(135deg, #F0A020 0%, #FF6B35 50%, #FFD166 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -59,11 +59,10 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 40px;
-      background: rgba(6,5,4,0.8);
+      background: rgba(6,5,4,0.85);
       backdrop-filter: blur(24px) saturate(180%);
       -webkit-backdrop-filter: blur(24px) saturate(180%);
       border-bottom: 1px solid var(--border);
-      transition: background 0.3s;
     }
 
     .navbar-brand {
@@ -121,9 +120,7 @@
       cursor: pointer;
       padding: 6px;
       border-radius: 8px;
-      transition: background 0.15s;
     }
-    .hamburger:hover { background: rgba(255,255,255,0.07); }
     .hamburger span { width: 22px; height: 2px; background: var(--muted2); border-radius: 2px; transition: all 0.25s; display: block; }
     .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
     .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
@@ -165,88 +162,6 @@
       padding: 13px;
     }
 
-    /* ─── PAGE SECTIONS ─── */
-    #page-home { display: block; }
-    #page-legal { display: none; padding-top: 62px; }
-    #page-testers { display: none; padding-top: 62px; }
-    #page-support { display: none; padding-top: 62px; }
-
-    /* ─── SUPPORT PAGE ─── */
-    .support-hero {
-      background: linear-gradient(180deg, var(--surface) 0%, transparent 100%);
-      border-bottom: 1px solid var(--border);
-      padding: 52px 48px 48px;
-      text-align: center;
-    }
-    .support-hero h1 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; letter-spacing: -1.5px; margin-bottom: 12px; }
-    .support-hero p { font-size: 16px; color: var(--muted2); max-width: 440px; margin: 0 auto 28px; line-height: 1.7; }
-    .support-email-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      background: linear-gradient(135deg, #F0A020, #FF6B35);
-      color: #fff;
-      font-weight: 700;
-      font-size: 15px;
-      padding: 13px 26px;
-      border-radius: 14px;
-      text-decoration: none;
-      box-shadow: 0 8px 24px rgba(240,160,32,0.28);
-      transition: transform 0.2s, opacity 0.2s;
-    }
-    .support-email-btn:hover { transform: translateY(-2px); opacity: 0.9; }
-
-    .support-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      max-width: 1000px;
-      margin: 56px auto 0;
-      padding: 0 48px;
-    }
-    .support-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px 24px;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .support-card:hover { border-color: rgba(240,160,32,0.2); transform: translateY(-2px); }
-    .support-card-icon { font-size: 28px; margin-bottom: 14px; }
-    .support-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
-    .support-card p { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
-    .support-card a { color: var(--accent); text-decoration: none; font-weight: 600; }
-    .support-card a:hover { text-decoration: underline; }
-
-    .support-faq-wrap {
-      max-width: 740px;
-      margin: 72px auto 0;
-      padding: 0 48px 80px;
-    }
-    .support-faq-wrap h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 800; letter-spacing: -1px; margin-bottom: 32px; }
-
-    .support-delete {
-      max-width: 740px;
-      margin: 0 auto;
-      padding: 0 48px 80px;
-    }
-    .support-delete-card {
-      background: rgba(255,100,50,0.06);
-      border: 1px solid rgba(255,100,50,0.18);
-      border-radius: var(--radius);
-      padding: 28px 28px;
-    }
-    .support-delete-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; color: var(--text); }
-    .support-delete-card p { font-size: 14px; color: var(--muted); line-height: 1.8; }
-    .support-delete-card strong { color: var(--muted2); }
-
-    @media (max-width: 900px) {
-      .support-hero { padding: 40px 24px 36px; }
-      .support-grid { grid-template-columns: 1fr; padding: 0 24px; margin-top: 36px; }
-      .support-faq-wrap { padding: 0 24px 60px; margin-top: 52px; }
-      .support-delete { padding: 0 24px 60px; }
-    }
-
     /* ─── HERO ─── */
     .hero {
       min-height: 100vh;
@@ -262,20 +177,21 @@
       position: relative;
     }
 
-    .hero-blob1 {
+    .hero-bg-glow {
       position: fixed;
-      top: -200px; left: -200px;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(240,160,32,0.07) 0%, transparent 60%);
+      top: -300px; left: -200px;
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(240,160,32,0.065) 0%, transparent 60%);
       pointer-events: none;
       z-index: 0;
     }
-    .hero-blob2 {
-      position: absolute;
-      bottom: 0; right: -100px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(255,107,53,0.06) 0%, transparent 65%);
+    .hero-bg-glow2 {
+      position: fixed;
+      bottom: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(255,107,53,0.05) 0%, transparent 65%);
       pointer-events: none;
+      z-index: 0;
     }
 
     .hero-left { position: relative; z-index: 1; }
@@ -283,43 +199,43 @@
     .hero-eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
+      gap: 8px;
       background: rgba(240,160,32,0.1);
       border: 1px solid rgba(240,160,32,0.22);
       border-radius: 30px;
-      padding: 6px 14px;
+      padding: 7px 16px;
       font-size: 11.5px;
       font-weight: 700;
       color: var(--accent);
-      letter-spacing: 1.1px;
+      letter-spacing: 1px;
       text-transform: uppercase;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
-    .hero-eyebrow .dot {
-      width: 6px; height: 6px;
+    .hero-eyebrow .live-dot {
+      width: 7px; height: 7px;
       background: var(--accent);
       border-radius: 50%;
-      animation: pulse 2s infinite;
+      animation: pulse-dot 2s infinite;
     }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.7); }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(240,160,32,0.5); }
+      50% { opacity: 0.7; transform: scale(0.8); box-shadow: 0 0 0 4px rgba(240,160,32,0); }
     }
 
     .hero h1 {
-      font-size: clamp(42px, 5.5vw, 72px);
+      font-size: clamp(44px, 5.8vw, 76px);
       font-weight: 900;
-      letter-spacing: -2.5px;
-      line-height: 1.05;
-      margin-bottom: 22px;
+      letter-spacing: -3px;
+      line-height: 1.03;
+      margin-bottom: 24px;
     }
 
     .hero-desc {
-      font-size: clamp(15px, 1.8vw, 17px);
+      font-size: clamp(15px, 1.7vw, 17px);
       color: var(--muted2);
-      line-height: 1.75;
-      max-width: 440px;
-      margin-bottom: 36px;
+      line-height: 1.78;
+      max-width: 450px;
+      margin-bottom: 38px;
     }
 
     .hero-ctas {
@@ -327,7 +243,7 @@
       gap: 12px;
       flex-wrap: wrap;
       align-items: center;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
     }
 
     .btn-store {
@@ -344,9 +260,9 @@
     .btn-store-android {
       background: linear-gradient(135deg, #F0A020, #FF6B35);
       color: #fff;
-      box-shadow: 0 8px 28px rgba(240,160,32,0.28);
+      box-shadow: 0 8px 28px rgba(240,160,32,0.3);
     }
-    .btn-store-android:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(240,160,32,0.38); }
+    .btn-store-android:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(240,160,32,0.42); }
     .btn-store-ios {
       background: rgba(255,255,255,0.07);
       border: 1px solid var(--border2);
@@ -361,7 +277,7 @@
     .hero-trust {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 20px;
       flex-wrap: wrap;
     }
     .hero-trust-item {
@@ -371,9 +287,9 @@
       font-size: 13px;
       color: var(--muted);
     }
-    .hero-trust-item span.check { color: var(--accent); font-size: 14px; }
+    .hero-trust-item .check { color: var(--accent); font-size: 14px; font-weight: 700; }
 
-    /* Hero right — phone mockup */
+    /* Hero right */
     .hero-right {
       display: flex;
       justify-content: center;
@@ -384,99 +300,87 @@
 
     .phone-stack {
       position: relative;
-      width: 260px;
-      height: 520px;
+      width: 280px;
+      height: 540px;
     }
 
     .phone-frame {
       position: absolute;
-      border-radius: 36px;
+      border-radius: 38px;
       overflow: hidden;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.1);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.75), 0 0 0 1px rgba(255,255,255,0.1);
       background: #111;
     }
     .phone-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     .phone-main {
-      width: 230px;
-      height: 490px;
-      left: 50%;
-      top: 50%;
+      width: 240px; height: 510px;
+      left: 50%; top: 50%;
       transform: translate(-50%, -50%);
       z-index: 3;
       animation: floatMain 4s ease-in-out infinite;
     }
     .phone-back {
-      width: 200px;
-      height: 420px;
-      left: 50%;
-      top: 50%;
-      transform: translate(-10%, -50%) rotate(8deg);
+      width: 210px; height: 440px;
+      left: 50%; top: 50%;
+      transform: translate(-8%, -50%) rotate(9deg);
       z-index: 2;
-      opacity: 0.6;
+      opacity: 0.55;
       filter: blur(1px);
-      animation: floatBack 4s ease-in-out infinite 0.5s;
+      animation: floatBack 4s ease-in-out infinite 0.6s;
     }
 
     @keyframes floatMain {
       0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
-      50% { transform: translate(-50%, -50%) translateY(-12px); }
+      50% { transform: translate(-50%, -50%) translateY(-14px); }
     }
     @keyframes floatBack {
-      0%, 100% { transform: translate(-10%, -50%) rotate(8deg) translateY(0px); }
-      50% { transform: translate(-10%, -50%) rotate(8deg) translateY(-8px); }
+      0%, 100% { transform: translate(-8%, -50%) rotate(9deg) translateY(0px); }
+      50% { transform: translate(-8%, -50%) rotate(9deg) translateY(-9px); }
     }
 
     .phone-glow {
       position: absolute;
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(240,160,32,0.2) 0%, transparent 65%);
+      width: 340px; height: 340px;
+      background: radial-gradient(circle, rgba(240,160,32,0.18) 0%, transparent 65%);
       left: 50%; top: 50%;
       transform: translate(-50%, -50%);
       z-index: 1;
       pointer-events: none;
     }
 
-    /* floating badges */
     .phone-badge {
       position: absolute;
       z-index: 10;
-      background: rgba(13,10,6,0.9);
-      border: 1px solid rgba(240,160,32,0.25);
-      border-radius: 14px;
-      padding: 9px 14px;
+      background: rgba(13,10,6,0.92);
+      border: 1px solid rgba(240,160,32,0.28);
+      border-radius: 16px;
+      padding: 10px 15px;
       backdrop-filter: blur(12px);
       display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 10px;
       white-space: nowrap;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
       animation: badgeFloat 3.5s ease-in-out infinite;
     }
-    .phone-badge.badge-left {
-      left: -70px;
-      top: 30%;
-      animation-delay: 0.8s;
-    }
-    .phone-badge.badge-right {
-      right: -60px;
-      top: 55%;
-    }
+    .badge-left { left: -80px; top: 28%; animation-delay: 0.8s; }
+    .badge-right { right: -70px; top: 58%; }
     @keyframes badgeFloat {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
+      50% { transform: translateY(-7px); }
     }
-    .badge-icon { font-size: 20px; }
+    .badge-icon { font-size: 22px; }
     .badge-text { display: flex; flex-direction: column; }
     .badge-title { font-size: 12px; font-weight: 700; color: var(--text); }
-    .badge-sub { font-size: 10.5px; color: var(--muted); }
+    .badge-sub { font-size: 10.5px; color: var(--muted); margin-top: 1px; }
 
     /* ─── TRUST STRIP ─── */
     .trust-strip {
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       background: var(--surface);
-      padding: 20px 24px;
-      overflow: hidden;
+      padding: 22px 24px;
     }
     .trust-inner {
       max-width: 1100px;
@@ -487,32 +391,19 @@
       gap: 16px;
       flex-wrap: wrap;
     }
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 6px 0;
-    }
+    .trust-item { display: flex; align-items: center; gap: 12px; padding: 4px 0; }
     .trust-icon {
-      width: 36px; height: 36px;
+      width: 40px; height: 40px;
       background: rgba(240,160,32,0.1);
-      border: 1px solid rgba(240,160,32,0.15);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 17px;
-      flex-shrink: 0;
+      border: 1px solid rgba(240,160,32,0.16);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
     }
-    .trust-label { font-size: 12.5px; font-weight: 600; color: var(--muted2); }
-    .trust-value { font-size: 18px; font-weight: 800; letter-spacing: -0.5px; color: var(--text); }
-
-    .trust-sep {
-      width: 1px;
-      height: 32px;
-      background: var(--border);
-      flex-shrink: 0;
-    }
+    .trust-texts { display: flex; flex-direction: column; }
+    .trust-value { font-size: 18px; font-weight: 900; letter-spacing: -0.5px; color: var(--text); line-height: 1.1; }
+    .trust-label { font-size: 11.5px; font-weight: 500; color: var(--muted); margin-top: 2px; }
+    .trust-sep { width: 1px; height: 36px; background: var(--border); flex-shrink: 0; }
 
     /* ─── SECTIONS ─── */
     .section-wrap {
@@ -528,20 +419,20 @@
       background: rgba(240,160,32,0.08);
       border: 1px solid rgba(240,160,32,0.16);
       border-radius: 30px;
-      padding: 5px 13px;
+      padding: 5px 14px;
       font-size: 11px;
       font-weight: 700;
       color: var(--accent);
       letter-spacing: 1px;
       text-transform: uppercase;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .section-title {
-      font-size: clamp(28px, 4vw, 44px);
+      font-size: clamp(28px, 4vw, 46px);
       font-weight: 900;
-      letter-spacing: -1.5px;
-      line-height: 1.1;
+      letter-spacing: -1.8px;
+      line-height: 1.08;
       margin-bottom: 16px;
     }
 
@@ -549,7 +440,7 @@
       color: var(--muted2);
       font-size: 16px;
       line-height: 1.75;
-      max-width: 500px;
+      max-width: 520px;
     }
 
     /* ─── FEATURES ─── */
@@ -564,61 +455,47 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 28px 24px;
+      padding: 32px 26px;
       position: relative;
       overflow: hidden;
-      transition: transform 0.25s, border-color 0.25s;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
     }
-    .feat-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(240,160,32,0.05), transparent 60%);
-      opacity: 0;
-      transition: opacity 0.25s;
-      pointer-events: none;
+    .feat-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(240,160,32,0.22);
+      box-shadow: 0 16px 50px rgba(0,0,0,0.4), 0 0 40px rgba(240,160,32,0.06);
     }
-    .feat-card:hover { transform: translateY(-4px); border-color: rgba(240,160,32,0.22); }
-    .feat-card:hover::after { opacity: 1; }
 
     .feat-card.featured {
-      background: linear-gradient(145deg, rgba(240,160,32,0.09), rgba(255,107,53,0.05));
-      border-color: rgba(240,160,32,0.22);
-      grid-column: span 1;
+      background: linear-gradient(145deg, rgba(240,160,32,0.08), rgba(255,107,53,0.04));
+      border-color: rgba(240,160,32,0.2);
     }
 
     .feat-icon {
-      width: 48px; height: 48px;
+      width: 52px; height: 52px;
       background: rgba(240,160,32,0.1);
-      border: 1px solid rgba(240,160,32,0.18);
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      margin-bottom: 18px;
-      flex-shrink: 0;
+      border: 1px solid rgba(240,160,32,0.2);
+      border-radius: 15px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px;
+      margin-bottom: 20px;
     }
     .feat-card h3 {
-      font-size: 15.5px;
+      font-size: 16px;
       font-weight: 700;
-      margin-bottom: 8px;
-      letter-spacing: -0.2px;
+      margin-bottom: 9px;
+      letter-spacing: -0.3px;
     }
-    .feat-card p {
-      color: var(--muted);
-      font-size: 13.5px;
-      line-height: 1.7;
-    }
+    .feat-card p { color: var(--muted); font-size: 13.5px; line-height: 1.72; }
     .feat-tag {
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      margin-top: 12px;
+      margin-top: 14px;
       background: rgba(240,160,32,0.12);
-      border: 1px solid rgba(240,160,32,0.2);
+      border: 1px solid rgba(240,160,32,0.22);
       border-radius: 20px;
-      padding: 3px 9px;
+      padding: 3px 10px;
       font-size: 10.5px;
       font-weight: 700;
       color: var(--accent);
@@ -633,36 +510,27 @@
     }
     .screenshots-header {
       max-width: 1100px;
-      margin: 0 auto;
+      margin: 0 auto 52px;
       padding: 0 48px;
-      margin-bottom: 52px;
     }
 
-    .carousel-track-wrap {
-      position: relative;
-    }
+    .carousel-track-wrap { position: relative; }
     .carousel-fade-left {
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 80px;
+      position: absolute; left: 0; top: 0; bottom: 0; width: 100px;
       background: linear-gradient(to right, var(--surface), transparent);
-      z-index: 2;
-      pointer-events: none;
+      z-index: 2; pointer-events: none;
     }
     .carousel-fade-right {
-      position: absolute;
-      right: 0; top: 0; bottom: 0;
-      width: 80px;
+      position: absolute; right: 0; top: 0; bottom: 0; width: 100px;
       background: linear-gradient(to left, var(--surface), transparent);
-      z-index: 2;
-      pointer-events: none;
+      z-index: 2; pointer-events: none;
     }
 
     .carousel-track {
       display: flex;
-      gap: 16px;
+      gap: 18px;
       overflow-x: auto;
-      padding: 20px 80px 30px;
+      padding: 20px 100px 30px;
       scrollbar-width: none;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
@@ -680,70 +548,111 @@
     .carousel-phone {
       width: 200px;
       aspect-ratio: 9/19.5;
-      border-radius: 26px;
+      border-radius: 28px;
       overflow: hidden;
       box-shadow: 0 30px 70px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.09);
       background: var(--card2);
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
     .carousel-phone img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .carousel-slide:hover .carousel-phone { transform: translateY(-6px); }
+    .carousel-slide:hover .carousel-phone {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(240,160,32,0.15);
+    }
 
     .carousel-dots {
       display: flex;
       justify-content: center;
-      gap: 6px;
-      margin-top: 24px;
+      gap: 7px;
+      margin-top: 28px;
     }
     .carousel-dot {
-      width: 6px; height: 6px;
+      width: 7px; height: 7px;
       border-radius: 50%;
       background: var(--border2);
       cursor: pointer;
       transition: background 0.2s, width 0.2s;
     }
-    .carousel-dot.active { background: var(--accent); width: 20px; border-radius: 3px; }
+    .carousel-dot.active { background: var(--accent); width: 22px; border-radius: 4px; }
 
     /* ─── HOW IT WORKS ─── */
     .hiw-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      margin-top: 56px;
+      margin-top: 60px;
       position: relative;
     }
     .hiw-grid::before {
       content: '';
       position: absolute;
-      top: 28px;
+      top: 30px;
       left: calc(16.66% + 12px);
       right: calc(16.66% + 12px);
       height: 1px;
-      background: linear-gradient(to right, var(--accent), transparent 50%, var(--accent));
-      opacity: 0.25;
+      background: linear-gradient(to right, rgba(240,160,32,0.4), transparent 50%, rgba(240,160,32,0.4));
     }
 
-    .hiw-step {
-      text-align: center;
-      padding: 32px 24px;
-    }
+    .hiw-step { text-align: center; padding: 32px 20px; }
     .hiw-num {
-      width: 56px; height: 56px;
+      width: 60px; height: 60px;
       background: linear-gradient(135deg, rgba(240,160,32,0.15), rgba(255,107,53,0.1));
-      border: 1px solid rgba(240,160,32,0.25);
+      border: 1px solid rgba(240,160,32,0.28);
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      font-weight: 900;
-      color: var(--accent);
-      margin: 0 auto 20px;
-      position: relative;
-      z-index: 1;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; font-weight: 900; color: var(--accent);
+      margin: 0 auto 22px;
+      position: relative; z-index: 1;
     }
     .hiw-step h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.3px; }
-    .hiw-step p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .hiw-step p { font-size: 14px; color: var(--muted); line-height: 1.72; }
+
+    /* ─── SOCIAL PROOF ─── */
+    .social-section {
+      background: linear-gradient(180deg, transparent, var(--surface) 15%, var(--surface) 85%, transparent);
+      padding: 80px 0;
+    }
+    .social-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 48px;
+      text-align: center;
+    }
+    .social-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 36px;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      text-align: left;
+    }
+    .review-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px 22px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .review-card:hover { border-color: rgba(240,160,32,0.18); transform: translateY(-3px); }
+    .review-stars { color: var(--accent); font-size: 13px; letter-spacing: 2px; margin-bottom: 12px; }
+    .review-text { font-size: 14px; color: var(--muted2); line-height: 1.72; margin-bottom: 16px; }
+    .review-author { display: flex; align-items: center; gap: 10px; }
+    .review-avatar {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(240,160,32,0.3), rgba(255,107,53,0.2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700; color: var(--accent);
+      flex-shrink: 0;
+    }
+    .review-name { font-size: 13px; font-weight: 700; color: var(--text); }
+    .review-source { font-size: 11.5px; color: var(--muted); margin-top: 1px; }
 
     /* ─── PLANS ─── */
     .plans-section {
@@ -767,7 +676,7 @@
       font-family: 'Inter', sans-serif;
       font-size: 14px;
       font-weight: 600;
-      padding: 8px 22px;
+      padding: 9px 22px;
       border-radius: 100px;
       cursor: pointer;
       transition: all 0.2s;
@@ -785,12 +694,11 @@
       padding: 3px 8px;
       border-radius: 100px;
       margin-left: 6px;
-      letter-spacing: 0.3px;
     }
 
     .plans-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1.08fr;
       gap: 20px;
       margin-top: 56px;
     }
@@ -806,15 +714,16 @@
       border: 1px solid var(--border);
     }
     .plan-card.pro {
-      background: linear-gradient(145deg, rgba(240,160,32,0.1), rgba(255,107,53,0.06));
-      border: 1px solid rgba(240,160,32,0.28);
+      background: linear-gradient(145deg, rgba(240,160,32,0.1), rgba(255,107,53,0.05));
+      border: 1px solid rgba(240,160,32,0.3);
+      box-shadow: 0 0 80px rgba(240,160,32,0.08);
     }
     .plan-card.pro::before {
       content: '';
       position: absolute;
-      top: -60px; right: -60px;
-      width: 260px; height: 260px;
-      background: radial-gradient(circle, rgba(240,160,32,0.14) 0%, transparent 65%);
+      top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(240,160,32,0.13) 0%, transparent 65%);
       pointer-events: none;
     }
 
@@ -834,14 +743,14 @@
     }
 
     .plan-name { font-size: 14px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
-    .plan-price { font-size: 44px; font-weight: 900; letter-spacing: -2px; line-height: 1; margin-bottom: 4px; }
-    .plan-price span { font-size: 20px; font-weight: 600; opacity: 0.6; }
+    .plan-price { font-size: 46px; font-weight: 900; letter-spacing: -2px; line-height: 1; margin-bottom: 4px; }
+    .plan-price span { font-size: 22px; font-weight: 600; opacity: 0.6; }
     .plan-period { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
     .plan-trial { font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 28px; }
 
     .plan-divider { height: 1px; background: var(--border); margin-bottom: 24px; }
 
-    .plan-features { display: flex; flex-direction: column; gap: 12px; }
+    .plan-features { display: flex; flex-direction: column; gap: 13px; }
     .plan-feature {
       display: flex;
       align-items: flex-start;
@@ -853,33 +762,23 @@
     .plan-feature .pf-icon {
       width: 20px; height: 20px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      flex-shrink: 0;
-      margin-top: 1px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; flex-shrink: 0; margin-top: 1px;
     }
     .pf-check { background: rgba(240,160,32,0.15); color: var(--accent); }
     .pf-x { background: rgba(255,255,255,0.05); color: var(--muted); }
 
     .plan-cta {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      margin-top: 32px;
-      padding: 14px;
-      border-radius: 14px;
-      font-weight: 700;
-      font-size: 15px;
+      display: flex; align-items: center; justify-content: center; gap: 9px;
+      margin-top: 32px; padding: 15px;
+      border-radius: 14px; font-weight: 700; font-size: 15px;
       text-decoration: none;
       transition: transform 0.2s, opacity 0.2s;
     }
     .plan-cta.cta-primary {
       background: linear-gradient(135deg, #F0A020, #FF6B35);
       color: #fff;
-      box-shadow: 0 8px 28px rgba(240,160,32,0.28);
+      box-shadow: 0 8px 28px rgba(240,160,32,0.3);
     }
     .plan-cta.cta-primary:hover { opacity: 0.9; transform: translateY(-2px); }
     .plan-cta.cta-ghost {
@@ -888,6 +787,20 @@
       color: var(--muted2);
     }
     .plan-cta.cta-ghost:hover { background: rgba(255,255,255,0.09); color: var(--text); }
+
+    .plans-compare-link {
+      text-align: center;
+      margin-top: 28px;
+    }
+    .plans-compare-link a {
+      font-size: 13.5px;
+      color: var(--muted2);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      padding-bottom: 2px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .plans-compare-link a:hover { color: var(--accent); border-color: var(--accent); }
 
     /* ─── FAQ ─── */
     .faq-list { margin-top: 52px; display: flex; flex-direction: column; gap: 12px; }
@@ -900,7 +813,7 @@
       transition: border-color 0.2s;
     }
     .faq-item:hover { border-color: rgba(240,160,32,0.18); }
-    .faq-item.open { border-color: rgba(240,160,32,0.22); }
+    .faq-item.open { border-color: rgba(240,160,32,0.24); }
 
     .faq-q {
       display: flex;
@@ -917,15 +830,12 @@
       border-radius: 50%;
       background: rgba(240,160,32,0.08);
       border: 1px solid rgba(240,160,32,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
       transition: transform 0.25s, background 0.2s;
-      font-size: 13px;
-      color: var(--accent);
+      font-size: 13px; color: var(--accent);
     }
-    .faq-item.open .faq-arrow { transform: rotate(180deg); background: rgba(240,160,32,0.15); }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); background: rgba(240,160,32,0.16); }
 
     .faq-a {
       display: none;
@@ -941,7 +851,7 @@
     /* ─── FINAL CTA ─── */
     .final-cta-section {
       text-align: center;
-      padding: 100px 48px;
+      padding: 110px 48px;
       position: relative;
       overflow: hidden;
     }
@@ -950,87 +860,55 @@
       position: absolute;
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 800px; height: 400px;
-      background: radial-gradient(ellipse, rgba(240,160,32,0.08) 0%, transparent 65%);
+      width: 900px; height: 500px;
+      background: radial-gradient(ellipse, rgba(240,160,32,0.07) 0%, transparent 65%);
       pointer-events: none;
     }
-    .final-cta-section .app-icon-large {
+    .app-icon-large {
       width: 100px; height: 100px;
       border-radius: 26px;
       margin: 0 auto 28px;
       box-shadow: 0 0 60px rgba(240,160,32,0.35), 0 20px 50px rgba(0,0,0,0.7);
       display: block;
-      position: relative;
-      z-index: 1;
+      position: relative; z-index: 1;
     }
     .final-cta-section h2 {
-      font-size: clamp(28px, 4vw, 48px);
+      font-size: clamp(30px, 4.2vw, 52px);
       font-weight: 900;
-      letter-spacing: -1.5px;
-      line-height: 1.1;
-      margin-bottom: 16px;
-      position: relative;
-      z-index: 1;
+      letter-spacing: -2px;
+      line-height: 1.08;
+      margin-bottom: 18px;
+      position: relative; z-index: 1;
     }
     .final-cta-section p {
       font-size: 16px;
       color: var(--muted2);
       line-height: 1.7;
-      max-width: 420px;
-      margin: 0 auto 36px;
-      position: relative;
-      z-index: 1;
+      max-width: 440px;
+      margin: 0 auto 38px;
+      position: relative; z-index: 1;
     }
     .final-ctas {
       display: flex;
       gap: 14px;
       justify-content: center;
       flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
+      position: relative; z-index: 1;
     }
-
-    /* ─── LEGAL TABS ─── */
-    .legal-tabs-bar {
-      border-bottom: 1px solid var(--border);
-      background: var(--surface);
-      position: sticky;
-      top: 62px;
-      z-index: 100;
-    }
-    .legal-tabs-inner {
-      max-width: 860px;
-      margin: 0 auto;
+    .final-trust {
       display: flex;
-      padding: 0 24px;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+      position: relative; z-index: 1;
     }
-    .legal-tab-btn {
-      background: none;
-      border: none;
-      border-bottom: 2px solid transparent;
+    .final-trust-item {
+      font-size: 12.5px;
       color: var(--muted);
-      font-size: 14px;
-      font-weight: 600;
-      padding: 16px 20px;
-      cursor: pointer;
-      transition: color 0.15s, border-color 0.15s;
-      font-family: inherit;
-      margin-bottom: -1px;
+      display: flex; align-items: center; gap: 6px;
     }
-    .legal-tab-btn:hover { color: var(--text); }
-    .legal-tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
-
-    .legal-tab-content { display: none; max-width: 860px; margin: 0 auto; padding: 56px 24px 80px; }
-    .legal-tab-content.active { display: block; }
-
-    .legal-meta { color: var(--muted); font-size: 13px; margin-bottom: 44px; }
-    .legal-body { display: flex; flex-direction: column; gap: 34px; }
-    .legal-item h3 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; letter-spacing: -0.2px; }
-    .legal-item p { color: var(--muted); font-size: 14px; line-height: 1.85; }
-    .legal-item ul { color: var(--muted); font-size: 14px; line-height: 1.85; }
-    .legal-item a { color: var(--accent); text-decoration: none; }
-    .legal-item a:hover { text-decoration: underline; }
-    .legal-item strong { color: var(--muted2); font-weight: 600; }
+    .final-trust-item .dot { color: var(--accent); font-size: 16px; line-height: 1; }
 
     /* ─── FOOTER ─── */
     footer {
@@ -1046,12 +924,7 @@
       align-items: center;
       gap: 20px;
     }
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      text-decoration: none;
-    }
+    .footer-brand { display: flex; align-items: center; gap: 9px; text-decoration: none; }
     .footer-brand img { width: 24px; height: 24px; border-radius: 7px; }
     .footer-brand span { font-size: 14px; font-weight: 700; color: var(--muted2); }
     .footer-copy { font-size: 12.5px; color: var(--muted); text-align: center; }
@@ -1061,36 +934,28 @@
       gap: 4px;
       flex-wrap: wrap;
     }
-    .footer-links button, .footer-links a {
-      background: none;
-      border: none;
+    .footer-links a {
       color: var(--muted);
       font-size: 13px;
-      font-family: inherit;
       text-decoration: none;
-      cursor: pointer;
       padding: 6px 10px;
       border-radius: 8px;
       transition: color 0.15s, background 0.15s;
     }
-    .footer-links button:hover, .footer-links a:hover {
-      color: var(--text);
-      background: rgba(255,255,255,0.06);
-    }
+    .footer-links a:hover { color: var(--text); background: rgba(255,255,255,0.06); }
 
     /* ─── SCROLL ANIMATIONS ─── */
     .fade-up {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(30px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
     }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
     /* ─── MOBILE ─── */
     @media (max-width: 900px) {
       .navbar { padding: 0 20px; }
-      .nav-center { display: none; }
-      .nav-right { display: none; }
+      .nav-center, .nav-right { display: none; }
       .hamburger { display: flex; }
 
       .hero {
@@ -1101,13 +966,11 @@
         gap: 52px;
       }
       .hero-desc { margin: 0 auto 36px; }
-      .hero-ctas { justify-content: center; }
-      .hero-trust { justify-content: center; }
-
+      .hero-ctas, .hero-trust { justify-content: center; }
       .hero-right { order: -1; }
-      .phone-stack { width: 200px; height: 400px; }
-      .phone-main { width: 180px; height: 380px; }
-      .phone-back { width: 155px; height: 320px; }
+      .phone-stack { width: 220px; height: 440px; }
+      .phone-main { width: 195px; height: 415px; }
+      .phone-back { width: 165px; height: 340px; }
       .phone-badge { display: none; }
 
       .trust-sep { display: none; }
@@ -1119,10 +982,12 @@
       .hiw-grid::before { display: none; }
       .plans-grid { grid-template-columns: 1fr; }
       .plan-card { padding: 32px 24px; }
+      .reviews-grid { grid-template-columns: 1fr; }
       .screenshots-header { padding: 0 24px; }
       .carousel-track { padding: 20px 32px 30px; justify-content: flex-start; }
       .carousel-fade-left, .carousel-fade-right { width: 40px; }
       .final-cta-section { padding: 80px 24px; }
+      .social-wrap { padding: 0 24px; }
       footer { padding: 28px 20px; }
       .footer-inner { grid-template-columns: 1fr; gap: 16px; text-align: center; }
       .footer-links { justify-content: center; }
@@ -1134,7 +999,7 @@
       .btn-store { padding: 11px 18px; }
       .hero-ctas { flex-direction: column; align-items: center; width: 100%; }
       .btn-store { width: 100%; max-width: 280px; justify-content: center; }
-      .plan-price { font-size: 36px; }
+      .plan-price { font-size: 38px; }
       .carousel-slide { width: 170px; }
       .carousel-phone { width: 170px; }
     }
@@ -1148,25 +1013,27 @@
 </head>
 <body>
 
+  <!-- BACKGROUND GLOWS -->
+  <div class="hero-bg-glow"></div>
+  <div class="hero-bg-glow2"></div>
+
   <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
+  <nav class="navbar">
     <a href="/" class="navbar-brand">
       <img src="assets/icon.png" alt="Lion's Notes" />
       <span>Lion's Notes</span>
     </a>
-    <ul class="nav-center" id="navCenter">
-      <li><a href="/" class="nav-link active">Home</a></li>
-      <li><a href="/#features" class="nav-link">Features</a></li>
-      <li><a href="/pricing" class="nav-link">Pricing</a></li>
-      <li><a href="/#faq" class="nav-link">FAQ</a></li>
-      <li><a href="/support" class="nav-link">Support</a></li>
-      <li><a href="/privacy" class="nav-link">Privacy</a></li>
-      <li><a href="/terms" class="nav-link">Terms</a></li>
+    <ul class="nav-center">
+      <li><a href="/" class="active">Home</a></li>
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/support">Support</a></li>
+      <li><a href="/privacy">Privacy</a></li>
+      <li><a href="/terms">Terms</a></li>
     </ul>
     <div class="nav-right">
-      <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" class="btn-nav-dl" target="_blank">
-        ↓ Download
-      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" class="btn-nav-dl" target="_blank">↓ Download</a>
     </div>
     <div class="hamburger" id="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
@@ -1185,281 +1052,18 @@
     <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" class="btn-mobile-dl" target="_blank">↓ Download on Google Play</a>
   </div>
 
-  <!-- HOME PAGE -->
-  <div id="page-home">
-
-    <!-- HERO -->
-    <section class="hero" id="home">
-      <div class="hero-blob1"></div>
-      <div class="hero-blob2"></div>
-
-      <div class="hero-left">
-        <div class="hero-eyebrow">
-          <div class="dot"></div>
-          Productivity App
-        </div>
-        <h1>Think less.<br /><span class="grad-text">Do more.</span></h1>
-        <p class="hero-desc">Lion's Notes combines beautiful to-do lists, daily habit tracking, and real-time collaboration in one powerful app — so nothing slips through the cracks.</p>
-        <div class="hero-ctas">
-          <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" class="btn-store btn-store-android" target="_blank">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.85c.37.2.8.2 1.18.03l11.65-6.73-2.48-2.48-10.35 9.18zm-1.68-20.5A1.5 1.5 0 001 4.5v15c0 .5.27.97.5 1.18l.1.08 8.4-8.4v-.2L1.5 3.27l-.01.08zM20.32 10.5l-2.33-1.35-2.77 2.77 2.77 2.77 2.35-1.35c.67-.39.67-1.45-.02-1.84zM4.36.18L16.01 6.9l-2.48 2.48L3.18.18C3.56 0 3.98.0 4.36.18z"/></svg>
-            <div class="btn-store-inner">
-              <span class="btn-store-sub">Get it on</span>
-              <span class="btn-store-name">Google Play</span>
-            </div>
-          </a>
-          <a href="#" class="btn-store btn-store-ios">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            <div class="btn-store-inner">
-              <span class="btn-store-sub">Coming soon</span>
-              <span class="btn-store-name">App Store</span>
-            </div>
-          </a>
-        </div>
-        <div class="hero-trust">
-          <div class="hero-trust-item"><span class="check">✓</span> 14-day free trial</div>
-          <div class="hero-trust-item"><span class="check">✓</span> No credit card needed</div>
-          <div class="hero-trust-item"><span class="check">✓</span> Cancel anytime</div>
-        </div>
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="live-dot"></div>
+        Productivity · Android &amp; iOS
       </div>
-
-      <div class="hero-right">
-        <div class="phone-stack">
-          <div class="phone-glow"></div>
-          <div class="phone-frame phone-back">
-            <img src="assets/screen2.jpg" alt="Screen" />
-          </div>
-          <div class="phone-frame phone-main">
-            <img src="assets/screen1.jpg" alt="Lion's Notes" />
-          </div>
-          <div class="phone-badge badge-left">
-            <div class="badge-icon">🔥</div>
-            <div class="badge-text">
-              <div class="badge-title">7-day streak!</div>
-              <div class="badge-sub">Keep it up</div>
-            </div>
-          </div>
-          <div class="phone-badge badge-right">
-            <div class="badge-icon">⚡</div>
-            <div class="badge-text">
-              <div class="badge-title">Live session</div>
-              <div class="badge-sub">2 people editing</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TRUST STRIP -->
-    <!-- FEATURES -->
-    <div class="section-wrap fade-up" id="features">
-      <div class="section-tag">✦ Features</div>
-      <h2 class="section-title">Everything you need,<br />nothing you don't</h2>
-      <p class="section-sub">Built for people who want to get things done — without the clutter of complex tools.</p>
-      <div class="features-grid">
-        <div class="feat-card featured">
-          <div class="feat-icon">📋</div>
-          <h3>Smart To-Do Lists</h3>
-          <p>Rich text notes with checklists, drag-and-drop reordering, and instant sharing via secure links. Organize your life the way you think.</p>
-        </div>
-        <div class="feat-card featured">
-          <div class="feat-icon">🔥</div>
-          <h3>Daily Habit Tracker</h3>
-          <p>Build routines that stick. Track habits with a beautiful weekly calendar, watch streaks grow, and turn small actions into lasting change.</p>
-        </div>
-        <div class="feat-card featured">
-          <div class="feat-icon">⚡</div>
-          <h3>Live Collaboration</h3>
-          <p>Real-time co-editing sessions with friends, family, or teammates. Everyone sees changes instantly — perfect for groceries, travel, or projects.</p>
-          <div class="feat-tag">✦ Pro</div>
-        </div>
-        <div class="feat-card">
-          <div class="feat-icon">📱</div>
-          <h3>Split Screen Mode</h3>
-          <p>Two people, two lists — visible at the same time. A unique way to collaborate without interrupting each other's workflow.</p>
-          <div class="feat-tag">✦ Pro</div>
-        </div>
-        <div class="feat-card">
-          <div class="feat-icon">🎨</div>
-          <h3>Premium Themes</h3>
-          <p>Six stunning themes including Aurora and Luxury. Dark, light, and everything in between — make the app feel like yours.</p>
-        </div>
-        <div class="feat-card">
-          <div class="feat-icon">🔲</div>
-          <h3>Home Screen Widget</h3>
-          <p>See your most important tasks without opening the app. A clean, glanceable widget that lives right on your home screen.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- SCREENSHOTS -->
-    <section class="screenshots-section fade-up">
-      <div class="screenshots-header">
-        <div class="section-tag">✦ Screenshots</div>
-        <h2 class="section-title">Beautiful by design</h2>
-        <p class="section-sub" style="margin-top:12px">A premium experience built to delight every day.</p>
-      </div>
-      <div class="carousel-track-wrap">
-        <div class="carousel-fade-left"></div>
-        <div class="carousel-fade-right"></div>
-        <div class="carousel-track" id="carouselTrack">
-          <div class="carousel-slide"><div class="carousel-phone"><img src="assets/screen1.jpg" alt="Tasks" /></div></div>
-          <div class="carousel-slide"><div class="carousel-phone"><img src="assets/screen2.jpg" alt="Habits" /></div></div>
-          <div class="carousel-slide"><div class="carousel-phone"><img src="assets/screen3.jpg" alt="Live session" /></div></div>
-          <div class="carousel-slide"><div class="carousel-phone"><img src="assets/screen4.jpg" alt="Themes" /></div></div>
-          <div class="carousel-slide"><div class="carousel-phone"><img src="assets/screen5.jpg" alt="Widget" /></div></div>
-          <div class="carousel-slide"><div class="carousel-phone"><img src="assets/screen6.jpg" alt="Settings" /></div></div>
-        </div>
-      </div>
-      <div class="carousel-dots" id="carouselDots">
-        <div class="carousel-dot active" onclick="scrollToSlide(0)"></div>
-        <div class="carousel-dot" onclick="scrollToSlide(1)"></div>
-        <div class="carousel-dot" onclick="scrollToSlide(2)"></div>
-        <div class="carousel-dot" onclick="scrollToSlide(3)"></div>
-        <div class="carousel-dot" onclick="scrollToSlide(4)"></div>
-        <div class="carousel-dot" onclick="scrollToSlide(5)"></div>
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <div class="section-wrap fade-up">
-      <div class="section-tag">✦ How it works</div>
-      <h2 class="section-title">Up and running<br />in 60 seconds</h2>
-      <p class="section-sub">No complicated setup. Just download, sign in, and you're productive.</p>
-      <div class="hiw-grid">
-        <div class="hiw-step">
-          <div class="hiw-num">1</div>
-          <h3>Download the app</h3>
-          <p>Available on Google Play (Android) and coming soon to the App Store (iOS). Free to start — no credit card required.</p>
-        </div>
-        <div class="hiw-step">
-          <div class="hiw-num">2</div>
-          <h3>Create your account</h3>
-          <p>Sign in with Google, Apple, or email. Your data syncs instantly across all your devices and is stored securely in the EU.</p>
-        </div>
-        <div class="hiw-step">
-          <div class="hiw-num">3</div>
-          <h3>Get things done</h3>
-          <p>Start your first task list or habit in seconds. Invite someone to collaborate, or enjoy it solo — your call.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- PLANS -->
-    <div class="plans-section" id="plans">
-      <div class="section-wrap fade-up">
-        <div class="section-tag">✦ Pricing</div>
-        <h2 class="section-title">Simple, honest pricing</h2>
-        <p class="section-sub">Start free. Upgrade when you need more. Cancel anytime — no tricks.</p>
-        <div style="display:flex;justify-content:center;">
-          <div class="billing-toggle">
-            <button class="active" id="btn-monthly" onclick="setBilling('monthly')">Monthly</button>
-            <button id="btn-annual" onclick="setBilling('annual')">Annual <span class="billing-save-badge">Save 16%</span></button>
-          </div>
-        </div>
-        <div class="plans-grid">
-          <!-- FREE -->
-          <div class="plan-card free">
-            <div class="plan-name">Free Forever</div>
-            <div class="plan-price">$0</div>
-            <div class="plan-period">Always free — no expiry</div>
-            <div class="plan-divider"></div>
-            <div class="plan-features">
-              <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>Up to <strong>5 to-do lists</strong></span></div>
-              <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>Up to <strong>5 daily habits</strong></span></div>
-              <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>Classic theme</span></div>
-              <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>Shareable links</span></div>
-              <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>13 languages</span></div>
-              <div class="plan-feature"><div class="pf-icon pf-x">✕</div><span style="opacity:0.45">Live collaboration</span></div>
-              <div class="plan-feature"><div class="pf-icon pf-x">✕</div><span style="opacity:0.45">Premium themes</span></div>
-              <div class="plan-feature"><div class="pf-icon pf-x">✕</div><span style="opacity:0.45">Home screen widget</span></div>
-            </div>
-            <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" class="plan-cta cta-ghost" target="_blank">
-              Download Free
-            </a>
-          </div>
-          <!-- PRO -->
-          <div class="plan-card pro">
-            <div class="plan-badge">✦ Most Popular</div>
-            <div class="plan-name">Pro</div>
-            <div class="plan-price" id="pro-price"><span>$8.99</span><span style="font-size:22px;font-weight:600">/mo</span></div>
-            <div class="plan-period" id="pro-period">Billed monthly</div>
-            <div class="plan-trial">🎁 14-day free trial included</div>
-            <div class="plan-divider"></div>
-            <div class="plan-features">
-              <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>Up to <strong>200 to-do lists</strong></span></div>
-              <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span><strong>Unlimited</strong> daily habits</span></div>
-              <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>All 6 premium themes</span></div>
-              <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>All custom app icons</span></div>
-              <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span><strong>Live collaboration</strong> sessions</span></div>
-              <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>Split-screen mode</span></div>
-              <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>Home screen widget</span></div>
-              <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>Priority new features</span></div>
-            </div>
-            <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" class="plan-cta cta-primary" target="_blank">
-              Start Free Trial
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FAQ -->
-    <div class="section-wrap fade-up" id="faq">
-      <div class="section-tag">✦ FAQ</div>
-      <h2 class="section-title">Common questions</h2>
-      <div class="faq-list">
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span>Is the 14-day trial really free?</span>
-            <div class="faq-arrow">▾</div>
-          </div>
-          <div class="faq-a">Yes, completely free. No credit card is required to start a trial. You won't be charged until the trial ends — and only if you decide to keep Pro. Cancel anytime from Google Play or the App Store.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span>What happens to my data if I cancel Pro?</span>
-            <div class="faq-arrow">▾</div>
-          </div>
-          <div class="faq-a">Your account stays active on the Free plan. You keep access to all the content you created, but Pro-only features (like live collaboration and premium themes) become unavailable. Your data is never deleted because of a subscription change.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span>How does live collaboration work?</span>
-            <div class="faq-arrow">▾</div>
-          </div>
-          <div class="faq-a">You create a live session from any to-do list and share a link. Anyone with the link can join and see edits in real time — like Google Docs but for tasks. Split Screen lets two people work on separate lists side by side. Collaboration requires a Pro subscription.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span>Where is my data stored?</span>
-            <div class="faq-arrow">▾</div>
-          </div>
-          <div class="faq-a">All data is stored securely in the EU (eu-west-1 region) using Convex cloud infrastructure, transmitted over encrypted HTTPS. We do not sell or share your data with advertisers. See our <a href="/privacy">Privacy Policy</a> for full details.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span>Is iOS available?</span>
-            <div class="faq-arrow">▾</div>
-          </div>
-          <div class="faq-a">Android is available now on Google Play. iOS (App Store) is coming very soon. Stay tuned!</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span>How do I delete my account and data?</span>
-            <div class="faq-arrow">▾</div>
-          </div>
-          <div class="faq-a">Go to <strong>Settings → Danger Zone → Delete Account</strong> inside the app. Everything is permanently deleted within 30 days. Alternatively, email <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> with subject "Delete My Account — Lion's Notes".</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FINAL CTA -->
-    <section class="final-cta-section fade-up">
-      <img src="assets/icon.png" alt="Lion's Notes" class="app-icon-large" />
-      <h2>Ready to take control<br /><span class="grad-text">of your day?</span></h2>
-      <p>Download Lion's Notes for free and start your 14-day Pro trial — no credit card required.</p>
-      <div class="final-ctas">
+      <h1>Think less.<br /><span class="grad-text">Do more.</span></h1>
+      <p class="hero-desc">Lion's Notes brings to-do lists, daily habit tracking, and real-time collaboration together in one beautiful app — so nothing slips through the cracks.</p>
+      <div class="hero-ctas">
         <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" class="btn-store btn-store-android" target="_blank">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.85c.37.2.8.2 1.18.03l11.65-6.73-2.48-2.48-10.35 9.18zm-1.68-20.5A1.5 1.5 0 001 4.5v15c0 .5.27.97.5 1.18l.1.08 8.4-8.4v-.2L1.5 3.27l-.01.08zM20.32 10.5l-2.33-1.35-2.77 2.77 2.77 2.77 2.35-1.35c.67-.39.67-1.45-.02-1.84zM4.36.18L16.01 6.9l-2.48 2.48L3.18.18C3.56 0 3.98.0 4.36.18z"/></svg>
           <div class="btn-store-inner">
@@ -1475,424 +1079,389 @@
           </div>
         </a>
       </div>
-    </section>
-
-  </div><!-- /page-home -->
-
-  <!-- LEGAL PAGE -->
-  <div id="page-legal">
-    <div class="legal-tabs-bar">
-      <div class="legal-tabs-inner">
-        <button class="legal-tab-btn active" onclick="switchLegalTab(event,'privacy')" id="tab-privacy">Privacy Policy</button>
-        <button class="legal-tab-btn" onclick="switchLegalTab(event,'terms')" id="tab-terms">Terms of Service</button>
+      <div class="hero-trust">
+        <div class="hero-trust-item"><span class="check">✓</span> 14-day free trial</div>
+        <div class="hero-trust-item"><span class="check">✓</span> No credit card needed</div>
+        <div class="hero-trust-item"><span class="check">✓</span> Cancel anytime</div>
       </div>
     </div>
 
-    <!-- PRIVACY -->
-    <div class="legal-tab-content active" id="content-privacy">
-      <h2 class="section-title" style="margin-bottom:6px">Privacy Policy</h2>
-      <p class="legal-meta">Last updated: April 9, 2026</p>
-      <div class="legal-body">
-        <div class="legal-item">
-          <h3>1. Information We Collect</h3>
-          <p>Lion's Notes collects the following data:</p>
-          <ul style="margin-top:8px;padding-left:20px;line-height:1.9">
-            <li><strong>Account information</strong> — name and email address provided via Google, Apple, or email sign-in.</li>
-            <li><strong>User-generated content</strong> — to-do lists, checklists, habits, notes, and session data you create.</li>
-            <li><strong>Usage data</strong> — app interactions and crash reports (collected anonymously via Sentry to improve stability).</li>
-            <li><strong>Device preferences</strong> — theme, language, and settings stored locally on your device.</li>
-            <li><strong>Subscription data</strong> — purchase and entitlement status managed by RevenueCat (we do not store payment card details).</li>
-          </ul>
+    <div class="hero-right">
+      <div class="phone-stack">
+        <div class="phone-glow"></div>
+        <div class="phone-frame phone-back">
+          <img src="assets/screen2.jpg" alt="Habits" />
         </div>
-        <div class="legal-item">
-          <h3>2. How We Use Your Information</h3>
-          <p>We use your data solely to: provide and sync your content across devices, enable live collaboration and shared sessions, maintain and secure your account, diagnose crashes and improve app stability, and process your subscription. We do <strong>not</strong> use your data for advertising or sell it to third parties.</p>
+        <div class="phone-frame phone-main">
+          <img src="assets/screen1.jpg" alt="Lion's Notes" />
         </div>
-        <div class="legal-item">
-          <h3>3. Data Storage &amp; Retention</h3>
-          <p>Your content is stored securely on Convex cloud infrastructure hosted in the EU (eu-west-1). All data is transmitted over encrypted HTTPS. We retain your data for as long as your account is active. Upon account deletion, all personal data is permanently removed within 30 days. Anonymized, non-identifiable aggregate statistics may be retained indefinitely.</p>
+        <div class="phone-badge badge-left">
+          <div class="badge-icon">🔥</div>
+          <div class="badge-text">
+            <div class="badge-title">7-day streak!</div>
+            <div class="badge-sub">Keep it up</div>
+          </div>
         </div>
-        <div class="legal-item">
-          <h3>4. Third-Party Services</h3>
-          <p>We use the following trusted services, each with its own privacy policy:</p>
-          <ul style="margin-top:8px;padding-left:20px;line-height:1.9">
-            <li><strong>Clerk</strong> — authentication and account management</li>
-            <li><strong>Convex</strong> — cloud data storage (EU region)</li>
-            <li><strong>RevenueCat</strong> — subscription and payment management</li>
-            <li><strong>Sentry</strong> — crash and error reporting (anonymized)</li>
-            <li><strong>Google / Apple</strong> — sign-in providers (if you choose OAuth login)</li>
-          </ul>
-        </div>
-        <div class="legal-item">
-          <h3>5. Your Rights</h3>
-          <p>You have the right to: <strong>access</strong> the data we hold about you, <strong>correct</strong> inaccurate data, <strong>delete</strong> your account and all associated data, <strong>export</strong> your content, and <strong>withdraw consent</strong> at any time. To exercise any of these rights, contact us at <a href="mailto:support@lionnotes.online">support@lionnotes.online</a>.</p>
-          <p style="margin-top:8px">If you are located in the European Union, you may also lodge a complaint with your local data protection authority (DPA).</p>
-        </div>
-        <div class="legal-item" id="account-deletion">
-          <h3>6. Account &amp; Data Deletion</h3>
-          <p>You can delete your account directly from the app: <strong>Settings → Danger Zone → Delete Account</strong>. All your data will be permanently removed within 30 days. Alternatively, email <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> with subject "Delete My Account — Lion's Notes".</p>
-          <p style="margin-top:10px"><strong>What gets deleted:</strong> account, all tasks, habits, notes, settings, session history.<br><strong>What may be retained:</strong> anonymized aggregate statistics only.</p>
-        </div>
-        <div class="legal-item">
-          <h3>7. Children's Privacy</h3>
-          <p>Lion's Notes is not directed to children under 13. We do not knowingly collect personal data from children under 13. If you believe a child has provided us personal information, contact us immediately and we will delete it.</p>
-        </div>
-        <div class="legal-item">
-          <h3>8. Changes to This Policy</h3>
-          <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by updating the "Last updated" date above. Continued use of the App after changes constitutes acceptance of the updated policy.</p>
-        </div>
-        <div class="legal-item">
-          <h3>9. Contact</h3>
-          <p>For any privacy-related questions or requests:<br><a href="mailto:support@lionnotes.online">support@lionnotes.online</a></p>
+        <div class="phone-badge badge-right">
+          <div class="badge-icon">⚡</div>
+          <div class="badge-text">
+            <div class="badge-title">Live session</div>
+            <div class="badge-sub">2 people editing</div>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- TERMS -->
-    <div class="legal-tab-content" id="content-terms">
-      <h2 class="section-title" style="margin-bottom:6px">Terms of Service</h2>
-      <p class="legal-meta">Last updated: April 9, 2026</p>
-      <div class="legal-body">
-        <div class="legal-item">
-          <h3>1. Acceptance of Terms</h3>
-          <p>By downloading or using Lion's Notes ("the App"), you agree to these Terms of Service. If you do not agree, do not use the App. These Terms apply to all users on both iOS (App Store) and Android (Google Play).</p>
+  <!-- ═══════════════════════════════════════
+       TRUST STRIP
+  ═══════════════════════════════════════ -->
+  <div class="trust-strip">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <div class="trust-icon">📋</div>
+        <div class="trust-texts">
+          <div class="trust-value">200+</div>
+          <div class="trust-label">To-do lists (Pro)</div>
         </div>
-        <div class="legal-item">
-          <h3>2. Eligibility</h3>
-          <p>You must be at least 13 years old to use Lion's Notes. By using the App, you confirm you meet this requirement. If you are under 18, you confirm you have parental or guardian consent.</p>
+      </div>
+      <div class="trust-sep"></div>
+      <div class="trust-item">
+        <div class="trust-icon">🔥</div>
+        <div class="trust-texts">
+          <div class="trust-value">∞</div>
+          <div class="trust-label">Daily habits</div>
         </div>
-        <div class="legal-item">
-          <h3>3. Description of the Service</h3>
-          <p>Lion's Notes lets you create to-do lists, track daily habits, collaborate in real-time (Live &amp; Split sessions), customize themes and icons, and use a home screen widget (Android). Features may be updated, added, or removed at any time.</p>
+      </div>
+      <div class="trust-sep"></div>
+      <div class="trust-item">
+        <div class="trust-icon">⚡</div>
+        <div class="trust-texts">
+          <div class="trust-value">Real-time</div>
+          <div class="trust-label">Collaboration</div>
         </div>
-        <div class="legal-item">
-          <h3>4. User Accounts</h3>
-          <p>You must create an account with a valid email or OAuth (Google/Apple). You are responsible for all activity under your account and for keeping your credentials secure. You may delete your account at any time from <strong>Settings → Danger Zone → Delete Account</strong> — all data will be permanently removed. Notify us at <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> if you suspect unauthorized access.</p>
+      </div>
+      <div class="trust-sep"></div>
+      <div class="trust-item">
+        <div class="trust-icon">🌍</div>
+        <div class="trust-texts">
+          <div class="trust-value">14</div>
+          <div class="trust-label">Languages</div>
         </div>
-        <div class="legal-item">
-          <h3>5. Free and Pro Features</h3>
-          <p><strong>Free:</strong> up to 5 to-do lists, 5 custom habits/day, Classic theme.<br>
-          <strong>Pro:</strong> up to 200 to-do lists, unlimited habits, live collaboration sessions, all themes &amp; icons, priority features, 14-day free trial (once per account).</p>
-        </div>
-        <div class="legal-item">
-          <h3>6. Subscriptions and Payments</h3>
-          <p>Pro is available as a monthly or annual subscription. Subscriptions auto-renew unless cancelled at least 24 hours before the end of the current billing period. You may cancel anytime through Google Play or the App Store — cancellation takes effect at the end of the paid period. Refunds are governed by the respective store's refund policy. We do not process refunds directly. Prices may vary by region and are displayed at the time of purchase.</p>
-        </div>
-        <div class="legal-item">
-          <h3>7. Free Trial</h3>
-          <p>New Pro subscribers may receive a 14-day free trial. The trial is offered once per account (per email address). You will not be charged during the trial period. If you do not cancel before the trial ends, your subscription will automatically convert to a paid plan.</p>
-        </div>
-        <div class="legal-item">
-          <h3>8. User Content</h3>
-          <p>You retain full ownership of all content you create in the App. We do not claim any ownership rights over your data. You grant us a limited, non-exclusive license to store, sync, and process your content solely to provide the service to you.</p>
-        </div>
-        <div class="legal-item">
-          <h3>9. Prohibited Uses</h3>
-          <p>You agree not to: share illegal, harmful, or offensive content; attempt to gain unauthorized access to other users' data; reverse-engineer, decompile, or modify the App; create multiple accounts to circumvent free tier limits; use the App in any way that violates applicable laws. Violations may result in account suspension or permanent termination without refund.</p>
-        </div>
-        <div class="legal-item">
-          <h3>10. Intellectual Property</h3>
-          <p>All app code, design, graphics, logos, and branding are the exclusive property of Lion's Notes. Nothing in these Terms grants you any rights to our intellectual property.</p>
-        </div>
-        <div class="legal-item">
-          <h3>11. Termination</h3>
-          <p>We reserve the right to suspend or terminate your account at any time for violations of these Terms, with or without notice. You may terminate your account at any time by deleting it from the app. Upon termination, your right to use the App ceases immediately.</p>
-        </div>
-        <div class="legal-item">
-          <h3>12. Disclaimer &amp; Limitation of Liability</h3>
-          <p>Lion's Notes is provided "as is" and "as available" without warranties of any kind, express or implied. We do not guarantee uninterrupted, error-free service. We are not liable for indirect, incidental, special, consequential, or punitive damages arising from your use of the App. Our total aggregate liability shall not exceed the amount you paid us in the 12 months preceding the claim.</p>
-        </div>
-        <div class="legal-item">
-          <h3>13. Governing Law</h3>
-          <p>These Terms are governed by and construed in accordance with applicable law. Any disputes shall be resolved through good-faith negotiation. If unresolved, disputes shall be subject to the jurisdiction of the courts in the developer's country of residence.</p>
-        </div>
-        <div class="legal-item">
-          <h3>14. Changes to Terms</h3>
-          <p>We may update these Terms at any time. We will notify you by updating the "Last updated" date above. Continued use of the App after changes constitutes your acceptance of the updated Terms.</p>
-        </div>
-        <div class="legal-item">
-          <h3>15. Contact</h3>
-          <p>For questions about these Terms:<br><a href="mailto:support@lionnotes.online">support@lionnotes.online</a></p>
+      </div>
+      <div class="trust-sep"></div>
+      <div class="trust-item">
+        <div class="trust-icon">🔒</div>
+        <div class="trust-texts">
+          <div class="trust-value">EU</div>
+          <div class="trust-label">Data storage</div>
         </div>
       </div>
     </div>
-  </div><!-- /page-legal -->
+  </div>
 
-  <!-- TESTERS PAGE -->
-  <div id="page-testers">
-    <div class="legal-tabs-bar">
-      <div class="legal-tabs-inner">
-        <button class="legal-tab-btn active" onclick="switchTestersTab(event,'ro')" id="ttab-ro">🇷🇴 Română</button>
-        <button class="legal-tab-btn" onclick="switchTestersTab(event,'ru')" id="ttab-ru">🇷🇺 Русский</button>
-        <button class="legal-tab-btn" onclick="switchTestersTab(event,'en')" id="ttab-en">🇬🇧 English</button>
+  <!-- ═══════════════════════════════════════
+       FEATURES
+  ═══════════════════════════════════════ -->
+  <div class="section-wrap fade-up" id="features">
+    <div class="section-tag">✦ Features</div>
+    <h2 class="section-title">Everything you need,<br />nothing you don't</h2>
+    <p class="section-sub">Built for people who want to get things done — without the clutter of complex tools.</p>
+    <div class="features-grid">
+      <div class="feat-card featured">
+        <div class="feat-icon">📋</div>
+        <h3>Smart To-Do Lists</h3>
+        <p>Rich text notes with checklists, drag-and-drop reordering, and secure share links. Organize your life the way you think.</p>
+      </div>
+      <div class="feat-card featured">
+        <div class="feat-icon">🔥</div>
+        <h3>Daily Habit Tracker</h3>
+        <p>Build routines that stick. Track habits with a weekly calendar, watch streaks grow, and turn small actions into lasting change.</p>
+      </div>
+      <div class="feat-card featured">
+        <div class="feat-icon">⚡</div>
+        <h3>Live Collaboration</h3>
+        <p>Real-time co-editing sessions with friends, family, or teammates. Everyone sees changes instantly — perfect for groceries, travel, or projects.</p>
+        <div class="feat-tag">✦ Pro</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📱</div>
+        <h3>Split Screen Mode</h3>
+        <p>Two people, two lists — side by side on one screen. Collaborate without interrupting each other's workflow.</p>
+        <div class="feat-tag">✦ Pro</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🎨</div>
+        <h3>Premium Themes &amp; Icons</h3>
+        <p>Six stunning themes including Aurora and Luxury. Dark, light, and everything in between — make the app feel like yours.</p>
+        <div class="feat-tag">✦ Pro</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔲</div>
+        <h3>Home Screen Widget</h3>
+        <p>See your most important tasks without opening the app. A clean, glanceable widget that lives right on your home screen.</p>
       </div>
     </div>
+  </div>
 
-    <!-- ROMANIAN -->
-    <div class="legal-tab-content active" id="tcontent-ro">
-      <h2 class="section-title" style="margin-bottom:6px">Instrucțiuni pentru Testeri</h2>
-      <p class="legal-meta">Lion's Notes · Testare internă Google Play</p>
-      <div class="legal-body">
-        <div class="legal-item">
-          <h3>Pasul 1 — Acceptă invitația</h3>
-          <p>Apasă pe link-ul de mai jos pentru a te alătura programului de testare internă pe Google Play. Este necesar să folosești contul Google de pe telefonul tău Android.</p>
-          <p style="margin-top:12px">
-            <a href="https://play.google.com/apps/testing/com.ekbas.lionnotes" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#F0A020,#FF6B35);color:#fff;font-weight:700;font-size:14px;padding:10px 20px;border-radius:10px;text-decoration:none">
-              ▶ Alătură-te testării
-            </a>
-          </p>
-        </div>
-        <div class="legal-item">
-          <h3>Pasul 2 — Instalează aplicația</h3>
-          <p>După ce ai acceptat invitația, apasă pe link-ul de mai jos pentru a deschide aplicația direct în Google Play și apasă <strong>Instalează</strong> (sau <strong>Actualizează</strong> dacă o ai deja):</p>
-          <p style="margin-top:12px">
-            <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#F0A020,#FF6B35);color:#fff;font-weight:700;font-size:14px;padding:10px 20px;border-radius:10px;text-decoration:none">
-              ▶ Deschide în Google Play
-            </a>
-          </p>
-        </div>
-        <div class="legal-item">
-          <h3>Pasul 3 — Creează un cont</h3>
-          <p>Deschide aplicația și înregistrează-te. Poți folosi <strong>Google</strong> (mai simplu) sau adresa ta de <strong>email</strong>. Contul este necesar pentru sincronizare și sesiuni live.</p>
-        </div>
-        <div class="legal-item">
-          <h3>Ce poți testa</h3>
-          <p style="margin-bottom:10px">Încearcă toate funcțiile principale ale aplicației:</p>
-          <ul style="padding-left:20px;line-height:2.2">
-            <li>✅ <strong>Sarcini și liste de verificare</strong> — creează, bifează, reordonează</li>
-            <li>✅ <strong>Obiceiuri zilnice</strong> — urmărește-ți rutina zilnică</li>
-            <li>✅ <strong>Sesiune Live</strong> — colaborare în timp real pe aceeași listă</li>
-            <li>✅ <strong>Split Screen</strong> — fiecare participant cu propria lui listă, vizibile simultan</li>
-            <li>✅ <strong>Teme vizuale</strong> — încearcă tema Classic, Dark și altele</li>
-            <li>✅ <strong>Widget pe ecranul principal</strong> — lista ta direct pe home screen</li>
-          </ul>
-        </div>
-        <div class="legal-item">
-          <h3>Cum trimiți feedback</h3>
-          <p>Orice problemă, idee sau observație este binevenită. Scrie-ne pe email:</p>
-          <p style="margin-top:10px"><a href="mailto:support@lionnotes.online" style="color:var(--accent);font-weight:600">support@lionnotes.online</a></p>
-          <p style="margin-top:8px;color:var(--muted2);font-size:14px">Descrie ce ai văzut, pe ce ecran s-a întâmplat și ce te-ai așteptat să se întâmple. Poți atașa și o captură de ecran.</p>
-        </div>
-        <div class="legal-item">
-          <h3>Mulțumim!</h3>
-          <p>Feedback-ul tău ne ajută direct să îmbunătățim aplicația înainte de lansarea publică. Apreciem orice minut pe care îl acorzi testării.</p>
-        </div>
+  <!-- ═══════════════════════════════════════
+       SCREENSHOTS
+  ═══════════════════════════════════════ -->
+  <section class="screenshots-section fade-up">
+    <div class="screenshots-header">
+      <div class="section-tag">✦ Screenshots</div>
+      <h2 class="section-title">Beautiful by design</h2>
+      <p class="section-sub" style="margin-top:12px">A premium experience built to delight every single day.</p>
+    </div>
+    <div class="carousel-track-wrap">
+      <div class="carousel-fade-left"></div>
+      <div class="carousel-fade-right"></div>
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide"><div class="carousel-phone"><img src="assets/screen1.jpg" alt="Tasks" /></div></div>
+        <div class="carousel-slide"><div class="carousel-phone"><img src="assets/screen2.jpg" alt="Habits" /></div></div>
+        <div class="carousel-slide"><div class="carousel-phone"><img src="assets/screen3.jpg" alt="Live session" /></div></div>
+        <div class="carousel-slide"><div class="carousel-phone"><img src="assets/screen4.jpg" alt="Themes" /></div></div>
+        <div class="carousel-slide"><div class="carousel-phone"><img src="assets/screen5.jpg" alt="Widget" /></div></div>
+        <div class="carousel-slide"><div class="carousel-phone"><img src="assets/screen6.jpg" alt="Settings" /></div></div>
       </div>
     </div>
+    <div class="carousel-dots" id="carouselDots">
+      <div class="carousel-dot active" onclick="scrollToSlide(0)"></div>
+      <div class="carousel-dot" onclick="scrollToSlide(1)"></div>
+      <div class="carousel-dot" onclick="scrollToSlide(2)"></div>
+      <div class="carousel-dot" onclick="scrollToSlide(3)"></div>
+      <div class="carousel-dot" onclick="scrollToSlide(4)"></div>
+      <div class="carousel-dot" onclick="scrollToSlide(5)"></div>
+    </div>
+  </section>
 
-    <!-- RUSSIAN -->
-    <div class="legal-tab-content" id="tcontent-ru">
-      <h2 class="section-title" style="margin-bottom:6px">Инструкция для тестировщиков</h2>
-      <p class="legal-meta">Lion's Notes · Внутреннее тестирование Google Play</p>
-      <div class="legal-body">
-        <div class="legal-item">
-          <h3>Шаг 1 — Принять приглашение</h3>
-          <p>Нажми на ссылку ниже, чтобы вступить в программу внутреннего тестирования Google Play. Используй тот же Google-аккаунт, что установлен на твоём Android-телефоне.</p>
-          <p style="margin-top:12px">
-            <a href="https://play.google.com/apps/testing/com.ekbas.lionnotes" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#F0A020,#FF6B35);color:#fff;font-weight:700;font-size:14px;padding:10px 20px;border-radius:10px;text-decoration:none">
-              ▶ Вступить в тестирование
-            </a>
-          </p>
-        </div>
-        <div class="legal-item">
-          <h3>Шаг 2 — Установи приложение</h3>
-          <p>После принятия приглашения нажми на ссылку ниже, чтобы открыть приложение прямо в Google Play, и нажми <strong>Установить</strong> (или <strong>Обновить</strong>, если уже установлено):</p>
-          <p style="margin-top:12px">
-            <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#F0A020,#FF6B35);color:#fff;font-weight:700;font-size:14px;padding:10px 20px;border-radius:10px;text-decoration:none">
-              ▶ Открыть в Google Play
-            </a>
-          </p>
-        </div>
-        <div class="legal-item">
-          <h3>Шаг 3 — Создай аккаунт</h3>
-          <p>Открой приложение и зарегистрируйся. Можно войти через <strong>Google</strong> (быстрее) или по <strong>email</strong>. Аккаунт нужен для синхронизации данных и живых сессий.</p>
-        </div>
-        <div class="legal-item">
-          <h3>Что тестировать</h3>
-          <p style="margin-bottom:10px">Попробуй все основные функции приложения:</p>
-          <ul style="padding-left:20px;line-height:2.2">
-            <li>✅ <strong>Задачи и чеклисты</strong> — создавай, отмечай, переставляй</li>
-            <li>✅ <strong>Ежедневные привычки</strong> — отслеживай свою рутину</li>
-            <li>✅ <strong>Live-сессия</strong> — совместная работа со списком в реальном времени</li>
-            <li>✅ <strong>Split Screen</strong> — у каждого участника свой список, видны одновременно</li>
-            <li>✅ <strong>Темы оформления</strong> — Classic, Dark и другие</li>
-            <li>✅ <strong>Виджет на экране</strong> — твой список прямо на домашнем экране</li>
-          </ul>
-        </div>
-        <div class="legal-item">
-          <h3>Как отправить отзыв</h3>
-          <p>Любой баг, идея или наблюдение — всё ценно. Пиши нам на почту:</p>
-          <p style="margin-top:10px"><a href="mailto:support@lionnotes.online" style="color:var(--accent);font-weight:600">support@lionnotes.online</a></p>
-          <p style="margin-top:8px;color:var(--muted2);font-size:14px">Опиши что произошло, на каком экране и что ожидалось. Можно приложить скриншот.</p>
-        </div>
-        <div class="legal-item">
-          <h3>Спасибо!</h3>
-          <p>Твои отзывы напрямую помогают улучшить приложение до публичного запуска. Ценим каждую минуту, которую ты тратишь на тестирование.</p>
-        </div>
+  <!-- ═══════════════════════════════════════
+       HOW IT WORKS
+  ═══════════════════════════════════════ -->
+  <div class="section-wrap fade-up">
+    <div class="section-tag">✦ How it works</div>
+    <h2 class="section-title">Up and running<br />in 60 seconds</h2>
+    <p class="section-sub">No complicated setup. Just download, sign in, and you're productive.</p>
+    <div class="hiw-grid">
+      <div class="hiw-step">
+        <div class="hiw-num">1</div>
+        <h3>Download the app</h3>
+        <p>Free on Google Play and App Store. No credit card required to start. Your first 14 days of Pro are on us.</p>
+      </div>
+      <div class="hiw-step">
+        <div class="hiw-num">2</div>
+        <h3>Create your account</h3>
+        <p>Sign in with Google, Apple, or email. Your data syncs instantly across all your devices, stored securely in the EU.</p>
+      </div>
+      <div class="hiw-step">
+        <div class="hiw-num">3</div>
+        <h3>Get things done</h3>
+        <p>Start your first task list or habit in seconds. Invite someone to collaborate, or enjoy it solo — your call.</p>
       </div>
     </div>
+  </div>
 
-    <!-- ENGLISH -->
-    <div class="legal-tab-content" id="tcontent-en">
-      <h2 class="section-title" style="margin-bottom:6px">Tester Instructions</h2>
-      <p class="legal-meta">Lion's Notes · Google Play Internal Testing</p>
-      <div class="legal-body">
-        <div class="legal-item">
-          <h3>Step 1 — Accept the Invitation</h3>
-          <p>Tap the link below to join the internal testing program on Google Play. Make sure to use the same Google account that is set up on your Android phone.</p>
-          <p style="margin-top:12px">
-            <a href="https://play.google.com/apps/testing/com.ekbas.lionnotes" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#F0A020,#FF6B35);color:#fff;font-weight:700;font-size:14px;padding:10px 20px;border-radius:10px;text-decoration:none">
-              ▶ Join Testing
-            </a>
-          </p>
+  <!-- ═══════════════════════════════════════
+       SOCIAL PROOF / REVIEWS
+  ═══════════════════════════════════════ -->
+  <section class="social-section fade-up">
+    <div class="social-wrap">
+      <div class="social-label">What people are saying</div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Finally an app that does tasks AND habits in one place. The live session feature blew my mind — my wife and I use it for shopping every week."</p>
+          <div class="review-author">
+            <div class="review-avatar">A</div>
+            <div>
+              <div class="review-name">Alex M.</div>
+              <div class="review-source">Google Play</div>
+            </div>
+          </div>
         </div>
-        <div class="legal-item">
-          <h3>Step 2 — Install the App</h3>
-          <p>After accepting the invitation, tap the link below to open the app directly in Google Play and tap <strong>Install</strong> (or <strong>Update</strong> if you already have it):</p>
-          <p style="margin-top:12px">
-            <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#F0A020,#FF6B35);color:#fff;font-weight:700;font-size:14px;padding:10px 20px;border-radius:10px;text-decoration:none">
-              ▶ Open in Google Play
-            </a>
-          </p>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"The themes are gorgeous and the habit tracker keeps me accountable. Clean UI, no bloat. Exactly what I was looking for."</p>
+          <div class="review-author">
+            <div class="review-avatar">S</div>
+            <div>
+              <div class="review-name">Sofia K.</div>
+              <div class="review-source">Google Play</div>
+            </div>
+          </div>
         </div>
-        <div class="legal-item">
-          <h3>Step 3 — Create an Account</h3>
-          <p>Open the app and sign up. You can use <strong>Google</strong> (easiest) or your <strong>email</strong>. An account is required for data sync and live collaboration sessions.</p>
-        </div>
-        <div class="legal-item">
-          <h3>What to Test</h3>
-          <p style="margin-bottom:10px">Try all the main features of the app:</p>
-          <ul style="padding-left:20px;line-height:2.2">
-            <li>✅ <strong>Tasks &amp; Checklists</strong> — create, check off, reorder</li>
-            <li>✅ <strong>Daily Habits</strong> — track your daily routine</li>
-            <li>✅ <strong>Live Session</strong> — real-time collaboration on a shared list</li>
-            <li>✅ <strong>Split Screen</strong> — each participant has their own list, visible side by side</li>
-            <li>✅ <strong>Themes</strong> — try Classic, Dark, and other visual themes</li>
-            <li>✅ <strong>Home Screen Widget</strong> — your list directly on the home screen</li>
-          </ul>
-        </div>
-        <div class="legal-item">
-          <h3>How to Send Feedback</h3>
-          <p>Any bug, idea, or observation is welcome. Email us at:</p>
-          <p style="margin-top:10px"><a href="mailto:support@lionnotes.online" style="color:var(--accent);font-weight:600">support@lionnotes.online</a></p>
-          <p style="margin-top:8px;color:var(--muted2);font-size:14px">Describe what happened, which screen it was on, and what you expected. Feel free to attach a screenshot.</p>
-        </div>
-        <div class="legal-item">
-          <h3>Thank You!</h3>
-          <p>Your feedback directly helps us improve the app before the public launch. We appreciate every minute you spend testing.</p>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Switched from 3 different apps to just this one. The split screen mode is a game changer for working with my team remotely."</p>
+          <div class="review-author">
+            <div class="review-avatar">R</div>
+            <div>
+              <div class="review-name">Ryan D.</div>
+              <div class="review-source">Google Play</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div><!-- /page-testers -->
+  </section>
 
-  <!-- SUPPORT PAGE -->
-  <div id="page-support">
+  <!-- ═══════════════════════════════════════
+       PLANS
+  ═══════════════════════════════════════ -->
+  <div class="plans-section" id="plans">
+    <div class="section-wrap fade-up">
+      <div class="section-tag">✦ Pricing</div>
+      <h2 class="section-title">Simple, honest pricing</h2>
+      <p class="section-sub">Start free. Upgrade when you need more. Cancel anytime — no tricks, no hidden fees.</p>
+      <div style="display:flex;justify-content:flex-start;">
+        <div class="billing-toggle">
+          <button class="active" id="btn-monthly" onclick="setBilling('monthly')">Monthly</button>
+          <button id="btn-annual" onclick="setBilling('annual')">Annual <span class="billing-save-badge">Save 16%</span></button>
+        </div>
+      </div>
+      <div class="plans-grid">
+        <!-- FREE -->
+        <div class="plan-card free">
+          <div class="plan-name">Free Forever</div>
+          <div class="plan-price">$0</div>
+          <div class="plan-period">Always free — no expiry</div>
+          <div class="plan-divider"></div>
+          <div class="plan-features">
+            <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>Up to <strong>5 to-do lists</strong></span></div>
+            <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>Up to <strong>5 daily habits</strong></span></div>
+            <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>Classic theme</span></div>
+            <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>Shareable links</span></div>
+            <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>14 languages</span></div>
+            <div class="plan-feature"><div class="pf-icon pf-x">✕</div><span style="opacity:0.45">Live collaboration</span></div>
+            <div class="plan-feature"><div class="pf-icon pf-x">✕</div><span style="opacity:0.45">Premium themes &amp; icons</span></div>
+            <div class="plan-feature"><div class="pf-icon pf-x">✕</div><span style="opacity:0.45">Home screen widget</span></div>
+          </div>
+          <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" class="plan-cta cta-ghost" target="_blank">
+            Download Free
+          </a>
+        </div>
+        <!-- PRO -->
+        <div class="plan-card pro">
+          <div class="plan-badge">✦ Most Popular</div>
+          <div class="plan-name">Pro</div>
+          <div class="plan-price" id="pro-price"><span>$8.99</span><span style="font-size:22px;font-weight:600">/mo</span></div>
+          <div class="plan-period" id="pro-period">Billed monthly</div>
+          <div class="plan-trial">🎁 14-day free trial included</div>
+          <div class="plan-divider"></div>
+          <div class="plan-features">
+            <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>Up to <strong>200 to-do lists</strong></span></div>
+            <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span><strong>Unlimited</strong> daily habits</span></div>
+            <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>All 6 premium themes</span></div>
+            <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>All custom app icons</span></div>
+            <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span><strong>Live collaboration</strong> sessions</span></div>
+            <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>Split-screen mode</span></div>
+            <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>Home screen widget</span></div>
+            <div class="plan-feature"><div class="pf-icon pf-check">✓</div><span>Priority new features</span></div>
+          </div>
+          <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" class="plan-cta cta-primary" target="_blank">
+            Start Free Trial →
+          </a>
+        </div>
+      </div>
+      <div class="plans-compare-link">
+        <a href="/pricing">See full feature comparison →</a>
+      </div>
+    </div>
+  </div>
 
-    <div class="support-hero">
-      <div class="section-tag" style="margin-bottom:16px">🆘 Support</div>
-      <h1>How can we <span class="grad-text">help you?</span></h1>
-      <p>Can't find what you're looking for? We're here — usually reply within 24 hours.</p>
-      <a href="mailto:support@lionnotes.online" class="support-email-btn">
-        ✉️ support@lionnotes.online
+  <!-- ═══════════════════════════════════════
+       FAQ
+  ═══════════════════════════════════════ -->
+  <div class="section-wrap fade-up" id="faq">
+    <div class="section-tag">✦ FAQ</div>
+    <h2 class="section-title">Common questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Is the 14-day trial really free?</span>
+          <div class="faq-arrow">▾</div>
+        </div>
+        <div class="faq-a">Yes, completely free. No credit card is required to start a trial. You won't be charged until the trial ends — and only if you decide to keep Pro. Cancel anytime from Google Play or the App Store.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>What happens to my data if I cancel Pro?</span>
+          <div class="faq-arrow">▾</div>
+        </div>
+        <div class="faq-a">Your account stays active on the Free plan. You keep access to all the content you created, but Pro-only features (like live collaboration and premium themes) become unavailable. Your data is never deleted because of a subscription change.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>How does live collaboration work?</span>
+          <div class="faq-arrow">▾</div>
+        </div>
+        <div class="faq-a">Create a live session from any to-do list and share a link. Anyone with the link can join and see edits in real time — like Google Docs but for tasks. Split Screen lets two people work on separate lists side by side. Collaboration requires a Pro subscription.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Where is my data stored?</span>
+          <div class="faq-arrow">▾</div>
+        </div>
+        <div class="faq-a">All data is stored securely in the EU (eu-west-1 region) using Convex cloud infrastructure, transmitted over encrypted HTTPS. We do not sell or share your data with advertisers. See our <a href="/privacy">Privacy Policy</a> for full details.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Is iOS available?</span>
+          <div class="faq-arrow">▾</div>
+        </div>
+        <div class="faq-a">Android is available now on Google Play. iOS (App Store) is coming very soon — currently in review. Stay tuned!</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>How do I restore my Pro subscription on a new device?</span>
+          <div class="faq-arrow">▾</div>
+        </div>
+        <div class="faq-a">Sign in with the same account you used when you purchased (Google, Apple, or Email — each method is a separate account). Then go to <strong>Settings → Restore Purchases</strong> inside the app. Your subscription will be restored instantly.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>How do I delete my account and data?</span>
+          <div class="faq-arrow">▾</div>
+        </div>
+        <div class="faq-a">Go to <strong>Settings → Danger Zone → Delete Account</strong> inside the app. Everything is permanently deleted within 30 days. Alternatively, email <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> with subject "Delete My Account — Lion's Notes".</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       FINAL CTA
+  ═══════════════════════════════════════ -->
+  <section class="final-cta-section fade-up">
+    <img src="assets/icon.png" alt="Lion's Notes" class="app-icon-large" />
+    <h2>Ready to take control<br /><span class="grad-text">of your day?</span></h2>
+    <p>Download Lion's Notes for free and start your 14-day Pro trial — no credit card required.</p>
+    <div class="final-ctas">
+      <a href="https://play.google.com/store/apps/details?id=com.ekbas.lionnotes" class="btn-store btn-store-android" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.85c.37.2.8.2 1.18.03l11.65-6.73-2.48-2.48-10.35 9.18zm-1.68-20.5A1.5 1.5 0 001 4.5v15c0 .5.27.97.5 1.18l.1.08 8.4-8.4v-.2L1.5 3.27l-.01.08zM20.32 10.5l-2.33-1.35-2.77 2.77 2.77 2.77 2.35-1.35c.67-.39.67-1.45-.02-1.84zM4.36.18L16.01 6.9l-2.48 2.48L3.18.18C3.56 0 3.98.0 4.36.18z"/></svg>
+        <div class="btn-store-inner">
+          <span class="btn-store-sub">Get it on</span>
+          <span class="btn-store-name">Google Play</span>
+        </div>
+      </a>
+      <a href="#" class="btn-store btn-store-ios">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <div class="btn-store-inner">
+          <span class="btn-store-sub">Coming soon on</span>
+          <span class="btn-store-name">App Store</span>
+        </div>
       </a>
     </div>
-
-    <div class="support-grid">
-      <div class="support-card">
-        <div class="support-card-icon">📦</div>
-        <h3>Subscriptions & Billing</h3>
-        <p>Questions about your Pro plan, trial, or charges? Subscriptions are managed by Google Play or the App Store. You can cancel anytime from your store account settings.</p>
-      </div>
-      <div class="support-card">
-        <div class="support-card-icon">🔐</div>
-        <h3>Account & Login</h3>
-        <p>Having trouble signing in? Make sure you're using the same method you registered with (Google, Apple, or email). Contact us if you've lost access to your account.</p>
-      </div>
-      <div class="support-card">
-        <div class="support-card-icon">🔄</div>
-        <h3>Data & Sync</h3>
-        <p>Your data syncs automatically when you're connected to the internet. If you see missing content, try signing out and back in. Data is stored securely in the EU.</p>
-      </div>
-      <div class="support-card">
-        <div class="support-card-icon">🎨</div>
-        <h3>Themes & Features</h3>
-        <p>Aurora and Luxury themes, live collaboration, and split screen are Pro features. Start a free 14-day trial from the paywall inside the app — no credit card required.</p>
-      </div>
-      <div class="support-card">
-        <div class="support-card-icon">🐛</div>
-        <h3>Report a Bug</h3>
-        <p>Found something broken? Email us at <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> with a short description and a screenshot if possible. We fix bugs fast.</p>
-      </div>
-      <div class="support-card">
-        <div class="support-card-icon">💡</div>
-        <h3>Feature Requests</h3>
-        <p>Have an idea that would make Lion's Notes better? We genuinely read every suggestion. Drop us an email — many features came from user feedback.</p>
-      </div>
+    <div class="final-trust">
+      <div class="final-trust-item"><span class="dot">·</span> No credit card required</div>
+      <div class="final-trust-item"><span class="dot">·</span> Cancel anytime</div>
+      <div class="final-trust-item"><span class="dot">·</span> Data stored in EU</div>
+      <div class="final-trust-item"><span class="dot">·</span> 14-day free trial</div>
     </div>
+  </section>
 
-    <!-- DELETE ACCOUNT -->
-    <div class="support-delete" style="margin-top:52px">
-      <div class="support-delete-card" id="delete-account">
-        <h3>🗑️ How to Delete Your Account</h3>
-        <p>To permanently delete your account and all associated data, open the app and go to:<br><br>
-        <strong>Settings → Danger Zone → Delete Account</strong><br><br>
-        All your tasks, habits, notes, and settings will be permanently removed within 30 days. This action cannot be undone.<br><br>
-        Alternatively, email <a href="mailto:support@lionnotes.online" style="color:var(--accent);text-decoration:none;font-weight:600">support@lionnotes.online</a> with the subject <strong>"Delete My Account — Lion's Notes"</strong> and we'll process it within 30 days.</p>
-      </div>
-    </div>
-
-    <!-- SUPPORT FAQ -->
-    <div class="support-faq-wrap">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-list">
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span>How do I cancel my Pro subscription?</span>
-            <div class="faq-arrow">▾</div>
-          </div>
-          <div class="faq-a">Go to the <strong>Google Play Store → Subscriptions</strong> (Android) or <strong>App Store → Subscriptions</strong> (iOS) and cancel Lion's Notes Pro. Your access continues until the end of the current billing period. We do not process cancellations directly.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span>I was charged but the app still shows Free — what do I do?</span>
-            <div class="faq-arrow">▾</div>
-          </div>
-          <div class="faq-a">Open the app and go to <strong>Settings → Restore Purchases</strong> — this is the fastest way to recover your Pro access. If that doesn't work, try signing out and back in. Still stuck? Email <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> with your order number and we'll resolve it quickly.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span>Can I use Lion's Notes on multiple devices?</span>
-            <div class="faq-arrow">▾</div>
-          </div>
-          <div class="faq-a">Yes. Sign in with the same account on any device and your data syncs automatically in real time. One account, all your devices.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span>I forgot which email I used to sign up — how do I recover my account?</span>
-            <div class="faq-arrow">▾</div>
-          </div>
-          <div class="faq-a">Email us at <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> with any details you remember (approximate sign-up date, device type). We'll help you locate and recover your account.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span>Is my data safe? Where is it stored?</span>
-            <div class="faq-arrow">▾</div>
-          </div>
-          <div class="faq-a">All data is stored in the EU (eu-west-1) using Convex cloud infrastructure, transmitted over encrypted HTTPS. We never sell your data or use it for advertising. See our <a href="/privacy">Privacy Policy</a> for full details.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">
-            <span>The app is crashing — what should I do?</span>
-            <div class="faq-arrow">▾</div>
-          </div>
-          <div class="faq-a">First, try updating to the latest version from Google Play or the App Store. If it still crashes, email <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> with your device model, OS version, and what you were doing when it crashed.</div>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /page-support -->
-
-  <!-- FOOTER -->
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
   <footer>
     <div class="footer-inner">
       <a href="/" class="footer-brand">
@@ -1901,205 +1470,79 @@
       </a>
       <p class="footer-copy">© 2026 Lion's Notes. All rights reserved.</p>
       <div class="footer-links">
-        <a href="/support">Support</a>
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
+        <a href="/support">Support</a>
         <a href="mailto:support@lionnotes.online">Contact</a>
       </div>
     </div>
   </footer>
 
   <script>
-    /* ─── NAVIGATION ─── */
-    function hideAll() {
-      ['page-home','page-legal','page-testers','page-support'].forEach(id => {
-        document.getElementById(id).style.display = 'none';
-      });
-    }
-
-    function showHome(e) {
-      if (e) e.preventDefault();
-      hideAll();
-      document.getElementById('page-home').style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      updateNavActive('home');
-      closeMenu();
-    }
-
-    function showHomeSection(e, sectionId) {
-      if (e) e.preventDefault();
-      const wasOther = document.getElementById('page-home').style.display !== 'block';
-      hideAll();
-      document.getElementById('page-home').style.display = 'block';
-      updateNavActive('home');
-      closeMenu();
-      const delay = wasOther ? 60 : 0;
-      setTimeout(() => scrollToSection(sectionId), delay);
-    }
-
-    function scrollToSection(sectionId) {
-      const el = document.getElementById(sectionId);
-      if (el) {
-        const top = el.getBoundingClientRect().top + window.scrollY - 74;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    }
-
-    function showTesters(e) {
-      if (e) e.preventDefault();
-      hideAll();
-      document.getElementById('page-testers').style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'instant' });
-      updateNavActive('testers');
-      closeMenu();
-    }
-
-    function showLegal(e, tab) {
-      if (e) e.preventDefault();
-      hideAll();
-      document.getElementById('page-legal').style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'instant' });
-      switchLegalTab(null, tab);
-      updateNavActive('legal');
-      closeMenu();
-    }
-
-    function showSupport(e) {
-      if (e) e.preventDefault();
-      hideAll();
-      document.getElementById('page-support').style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'instant' });
-      updateNavActive('support');
-      closeMenu();
-    }
-
-    function switchLegalTab(e, tab) {
-      if (e) e.preventDefault();
-      document.querySelectorAll('.legal-tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.legal-tab-content').forEach(c => c.classList.remove('active'));
-      const btn = document.getElementById('tab-' + tab);
-      const content = document.getElementById('content-' + tab);
-      if (btn) btn.classList.add('active');
-      if (content) content.classList.add('active');
-    }
-
-    function switchTestersTab(e, tab) {
-      if (e) e.preventDefault();
-      document.querySelectorAll('[id^="ttab-"]').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('[id^="tcontent-"]').forEach(c => c.classList.remove('active'));
-      const btn = document.getElementById('ttab-' + tab);
-      const content = document.getElementById('tcontent-' + tab);
-      if (btn) btn.classList.add('active');
-      if (content) content.classList.add('active');
-    }
-
-    function updateNavActive(page) {
-      document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
-      document.querySelectorAll(`.nav-link[data-page="${page}"]`).forEach(a => a.classList.add('active'));
-    }
-
-    /* ─── MOBILE MENU ─── */
+    /* ── Mobile menu ── */
     function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      const burger = document.getElementById('hamburger');
-      const isOpen = menu.classList.toggle('open');
-      burger.classList.toggle('open', isOpen);
+      document.getElementById('hamburger').classList.toggle('open');
+      document.getElementById('mobileMenu').classList.toggle('open');
     }
 
-    function closeMenu() {
-      document.getElementById('mobileMenu').classList.remove('open');
-      document.getElementById('hamburger').classList.remove('open');
-    }
-
-    document.addEventListener('click', (e) => {
-      const navbar = document.querySelector('.navbar');
-      const menu = document.getElementById('mobileMenu');
-      if (!navbar.contains(e.target) && !menu.contains(e.target)) closeMenu();
-    });
-
-    /* ─── FAQ ─── */
+    /* ── Billing toggle ── */
     function setBilling(type) {
-      const btnMonthly = document.getElementById('btn-monthly');
-      const btnAnnual = document.getElementById('btn-annual');
-      const price = document.getElementById('pro-price');
-      const period = document.getElementById('pro-period');
-      if (type === 'annual') {
-        btnAnnual.classList.add('active');
-        btnMonthly.classList.remove('active');
-        price.innerHTML = '<span>$7.50</span><span style="font-size:22px;font-weight:600">/mo</span>';
-        period.innerHTML = 'Billed $89.99/year &nbsp;·&nbsp; <span style="color:var(--accent)">Save 16%</span>';
+      const isAnnual = type === 'annual';
+      document.getElementById('btn-monthly').classList.toggle('active', !isAnnual);
+      document.getElementById('btn-annual').classList.toggle('active', isAnnual);
+      const priceEl = document.getElementById('pro-price');
+      const periodEl = document.getElementById('pro-period');
+      if (isAnnual) {
+        priceEl.innerHTML = '<span>$85.99</span><span style="font-size:22px;font-weight:600">/yr</span>';
+        periodEl.textContent = 'Billed annually · $7.17/mo';
       } else {
-        btnMonthly.classList.add('active');
-        btnAnnual.classList.remove('active');
-        price.innerHTML = '<span>$8.99</span><span style="font-size:22px;font-weight:600">/mo</span>';
-        period.innerHTML = 'Billed monthly';
+        priceEl.innerHTML = '<span>$8.99</span><span style="font-size:22px;font-weight:600">/mo</span>';
+        periodEl.textContent = 'Billed monthly';
       }
     }
 
-    function toggleFaq(el) {
-      const item = el.closest('.faq-item');
-      const wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-      if (!wasOpen) item.classList.add('open');
+    /* ── FAQ toggle ── */
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
     }
 
-    /* ─── CAROUSEL ─── */
-    const track = document.getElementById('carouselTrack');
-    const dots = document.querySelectorAll('.carousel-dot');
-
+    /* ── Carousel ── */
     function scrollToSlide(index) {
-      const slides = track.querySelectorAll('.carousel-slide');
-      if (slides[index]) {
-        const slideLeft = slides[index].offsetLeft;
-        const trackCenter = track.clientWidth / 2;
-        const slideCenter = slides[index].offsetWidth / 2;
-        track.scrollTo({ left: slideLeft - trackCenter + slideCenter, behavior: 'smooth' });
-      }
+      const track = document.getElementById('carouselTrack');
+      const slide = track.children[index];
+      if (slide) slide.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     }
 
-    track.addEventListener('scroll', () => {
-      const slides = track.querySelectorAll('.carousel-slide');
-      const center = track.scrollLeft + track.clientWidth / 2;
-      let closest = 0, minDist = Infinity;
-      slides.forEach((s, i) => {
-        const dist = Math.abs((s.offsetLeft + s.offsetWidth / 2) - center);
-        if (dist < minDist) { minDist = dist; closest = i; }
+    (() => {
+      const track = document.getElementById('carouselTrack');
+      const dots = document.querySelectorAll('.carousel-dot');
+      if (!track) return;
+
+      let isDragging = false, startX = 0, scrollLeft = 0;
+      track.addEventListener('mousedown', e => { isDragging = true; startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft; });
+      track.addEventListener('mouseleave', () => isDragging = false);
+      track.addEventListener('mouseup', () => isDragging = false);
+      track.addEventListener('mousemove', e => {
+        if (!isDragging) return;
+        e.preventDefault();
+        track.scrollLeft = scrollLeft - (e.pageX - track.offsetLeft - startX);
       });
-      dots.forEach((d, i) => d.classList.toggle('active', i === closest));
-    });
 
-    // Drag-to-scroll
-    let isDown = false, startX, scrollLeft;
-    track.addEventListener('mousedown', (e) => {
-      isDown = true;
-      track.classList.add('grabbing');
-      startX = e.pageX - track.offsetLeft;
-      scrollLeft = track.scrollLeft;
-    });
-    track.addEventListener('mouseleave', () => { isDown = false; track.classList.remove('grabbing'); });
-    track.addEventListener('mouseup', () => { isDown = false; track.classList.remove('grabbing'); });
-    track.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - track.offsetLeft;
-      track.scrollLeft = scrollLeft - (x - startX) * 1.5;
-    });
+      track.addEventListener('scroll', () => {
+        const slideW = track.querySelector('.carousel-slide')?.offsetWidth + 18 || 218;
+        const active = Math.round(track.scrollLeft / slideW);
+        dots.forEach((d, i) => d.classList.toggle('active', i === active));
+      });
+    })();
 
-    /* ─── SCROLL ANIMATIONS ─── */
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-    }, { threshold: 0.1 });
-
+    /* ── Scroll animations ── */
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.08 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-    /* ─── NAVBAR SCROLL EFFECT ─── */
-    window.addEventListener('scroll', () => {
-      const nav = document.getElementById('navbar');
-      nav.style.background = window.scrollY > 20
-        ? 'rgba(6,5,4,0.95)'
-        : 'rgba(6,5,4,0.8)';
-    }, { passive: true });
   </script>
-
 </body>
 </html>
