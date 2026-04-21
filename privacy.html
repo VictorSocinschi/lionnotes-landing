@@ -68,6 +68,8 @@
     .info-box { background: rgba(240,160,32,0.07); border: 1px solid rgba(240,160,32,0.2); border-radius: 12px; padding: 16px 20px; margin-bottom: 36px; }
     .info-box p { font-size: 14px; color: var(--muted2); line-height: 1.7; }
     .info-box strong { color: var(--text); }
+    .warning-box { background: rgba(255,60,60,0.06); border: 1px solid rgba(255,60,60,0.18); border-radius: 12px; padding: 16px 20px; margin: 14px 0 0; }
+    .warning-box p { font-size: 13.5px; color: var(--muted2); line-height: 1.7; text-transform: uppercase; letter-spacing: 0.01em; }
 
     footer { text-align: center; padding: 32px 24px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
   </style>
@@ -108,7 +110,7 @@
 
 <div class="container">
   <h1 class="page-title">Privacy Policy</h1>
-  <p class="page-meta">Last updated: April 19, 2026</p>
+  <p class="page-meta">Effective Date: April 21, 2026 &nbsp;·&nbsp; Last Updated: April 21, 2026</p>
 
   <div class="tabs">
     <a href="/privacy" class="tab active">Privacy Policy</a>
@@ -117,94 +119,149 @@
 
   <div class="info-box">
     <p><strong>Data Controller:</strong> Victor Socinschi, developer of Lion's Notes.<br>
-    Contact: <a href="mailto:support@lionnotes.online" style="color:var(--accent)">support@lionnotes.online</a></p>
+    Contact for all privacy matters: <a href="mailto:support@lionnotes.online" style="color:var(--accent)">support@lionnotes.online</a><br>
+    <strong>Governing language:</strong> This Privacy Policy exists in English only. The English version is the sole legally binding version. In the event of any conflict arising from any non-English interface or communication, the English text prevails.</p>
   </div>
 
   <div class="section">
-    <h3>1. Information We Collect</h3>
-    <p>Lion's Notes collects the following data:</p>
+    <h3>1. Introduction and Scope</h3>
+    <p>This Privacy Policy ("Policy") governs the collection, processing, storage, transfer, and deletion of personal data by Lion's Notes ("Application," "Service," "we," "us," or "our") — a mobile productivity application available on the Apple App Store and Google Play Store, as well as any associated web interfaces.</p>
+    <p style="margin-top:12px">By accessing or using the Service, you acknowledge that you have read, understood, and agree to be bound by this Policy. If you do not agree, you must immediately discontinue use of the Service.</p>
+    <p style="margin-top:12px">This Policy applies to the Lion's Notes mobile application (iOS and Android), any web application or landing page operated under the same brand, all interactions with our backend services, authentication systems, and billing infrastructure, and all current and future features of the Service.</p>
+  </div>
+
+  <div class="section">
+    <h3>2. Information We Collect</h3>
+    <p><strong>Information you provide directly:</strong></p>
     <ul>
-      <li><strong>Account information</strong> — name and email address provided via Google, Apple, or email sign-in.</li>
-      <li><strong>User-generated content</strong> — to-do lists, checklists, habits, notes, and session data you create.</li>
-      <li><strong>Usage &amp; diagnostic data</strong> — app interactions, crash reports, device type, OS version, and app version, collected via Sentry to improve stability. This data may include your IP address.</li>
-      <li><strong>Push notification token</strong> — if you enable notifications, your device push token is stored to deliver reminders. You can disable this in your device Settings at any time.</li>
-      <li><strong>Device preferences</strong> — theme, language, and settings stored locally on your device.</li>
-      <li><strong>Subscription data</strong> — purchase status and entitlement information managed by RevenueCat. We do not store payment card details.</li>
+      <li><strong>Account registration data</strong> — email address, display name, and password processed and stored by Clerk, Inc.</li>
+      <li><strong>Authentication identifiers</strong> — OAuth tokens and session tokens generated upon sign-in via Apple, Google, or email/password.</li>
+      <li><strong>User-generated content</strong> — tasks, notes, checklist items, habit entries, habit logs, rich text content, expense session data, and any other content you create within the Service.</li>
+      <li><strong>User preferences</strong> — theme selections, language preferences, notification preferences, and streak configuration.</li>
+    </ul>
+    <p style="margin-top:12px"><strong>Information collected automatically:</strong></p>
+    <ul>
+      <li><strong>Device information</strong> — device model, operating system version, unique device identifiers (where permitted by the OS), and app version.</li>
+      <li><strong>Usage data</strong> — features accessed, timestamps of interactions, session duration, and in-app events generated in the course of normal application use.</li>
+      <li><strong>Push notification tokens</strong> — device tokens used to deliver local notifications, if you have granted notification permissions.</li>
+      <li><strong>Crash and diagnostic data</strong> — error reports and performance metrics collected via Sentry, which may include device info, OS version, app version, error stack traces, and IP address.</li>
+    </ul>
+    <p style="margin-top:12px"><strong>What we do NOT collect:</strong> payment card numbers, bank account details, precise geolocation, biometric data, Social Security numbers, health data, browsing history outside the Application, or contacts and media from your device unless explicitly uploaded by you.</p>
+  </div>
+
+  <div class="section">
+    <h3>3. Subscription and Payment Data</h3>
+    <p>We do not directly collect, store, or process payment card numbers or any sensitive financial credentials. All billing is handled exclusively through Apple In-App Purchase (iOS) or Google Play Billing (Android). RevenueCat, Inc. processes billing metadata on our behalf, including subscription status, product identifiers, purchase dates, renewal dates, and expiration dates. We receive from RevenueCat only the minimum subscription metadata necessary to provide Pro features. We do not receive full payment details.</p>
+  </div>
+
+  <div class="section">
+    <h3>4. Legal Basis for Processing (GDPR)</h3>
+    <p>For users in the European Economic Area and United Kingdom, we process personal data on the following legal bases under GDPR:</p>
+    <ul>
+      <li><strong>Account creation, content storage, subscription management</strong> — performance of a contract (Art. 6(1)(b) GDPR)</li>
+      <li><strong>Push notifications</strong> — consent (Art. 6(1)(a) GDPR), which you may withdraw at any time</li>
+      <li><strong>Crash diagnostics via Sentry, security and fraud prevention</strong> — legitimate interests (Art. 6(1)(f) GDPR)</li>
+      <li><strong>Legal compliance</strong> — legal obligation (Art. 6(1)(c) GDPR)</li>
     </ul>
   </div>
 
   <div class="section">
-    <h3>2. How We Use Your Information</h3>
-    <p>We use your data solely to: provide and sync your content across devices, enable live collaboration and shared sessions, maintain and secure your account, diagnose crashes and improve app stability, deliver push notifications you have opted into, and process your subscription.</p>
-    <p style="margin-top:12px">We do <strong>not</strong> use your data for advertising or sell it to third parties.</p>
-    <p style="margin-top:16px"><strong>Legal basis for processing (GDPR):</strong></p>
+    <h3>5. How We Use Your Information</h3>
+    <p>We use the information collected to: operate, maintain, and provide all features of the Application; authenticate users and manage sessions; verify Pro status and enforce feature access; deliver habit reminders and other notifications you have configured; diagnose bugs and improve the Application; detect and prevent fraud and unauthorized access; comply with applicable laws; and respond to support requests.</p>
+    <p style="margin-top:12px"><strong>We do not sell, rent, trade, or otherwise commercialize your personal data to any third party for their independent marketing or advertising purposes.</strong></p>
+  </div>
+
+  <div class="section">
+    <h3>6. Third-Party Service Providers</h3>
+    <p>We engage the following sub-processors, each bound by data processing agreements:</p>
     <ul>
-      <li><strong>Account data &amp; user content</strong> — performance of our contract with you (Art. 6(1)(b) GDPR)</li>
-      <li><strong>Crash &amp; diagnostic data via Sentry</strong> — our legitimate interest in maintaining app stability and security (Art. 6(1)(f) GDPR)</li>
-      <li><strong>Subscription management via RevenueCat</strong> — performance of our contract with you (Art. 6(1)(b) GDPR)</li>
-      <li><strong>Push notifications</strong> — your consent, which you may withdraw at any time (Art. 6(1)(a) GDPR)</li>
+      <li><strong>Clerk, Inc.</strong> (US) — authentication and identity management. Processes email, display name, hashed passwords, OAuth tokens, session data. <a href="https://clerk.com/legal/privacy" target="_blank">Privacy Policy</a></li>
+      <li><strong>Convex, Inc.</strong> (US) — backend database and serverless functions. Processes all user-generated content, application state, subscription metadata. Data transfers to the US are covered by Standard Contractual Clauses. <a href="https://www.convex.dev/privacy" target="_blank">Privacy Policy</a></li>
+      <li><strong>RevenueCat, Inc.</strong> (US) — subscription management and billing metadata. <a href="https://www.revenuecat.com/privacy" target="_blank">Privacy Policy</a></li>
+      <li><strong>Sentry, Inc.</strong> (US) — crash and error reporting. May collect device info, OS version, app version, error stack traces, and IP address. Data transfers governed by Standard Contractual Clauses. <a href="https://sentry.io/privacy/" target="_blank">Privacy Policy</a></li>
+      <li><strong>Apple Inc. and Google LLC</strong> — app distribution, in-app purchase processing, push notification infrastructure.</li>
+    </ul>
+    <p style="margin-top:12px">Where personal data is transferred outside the EU/EEA, we rely on Standard Contractual Clauses approved by the European Commission to ensure an adequate level of protection.</p>
+  </div>
+
+  <div class="section">
+    <h3>7. Data Retention</h3>
+    <ul>
+      <li><strong>Active account data</strong> — retained for the duration of your account plus 30 days following deletion (for accidental deletion recovery).</li>
+      <li><strong>User-generated content</strong> — deleted upon account deletion request, subject to the 30-day grace period.</li>
+      <li><strong>Subscription records</strong> — retained for 7 years from the transaction date to comply with financial record-keeping obligations.</li>
+      <li><strong>Authentication and security logs</strong> — retained for 90 days.</li>
+      <li><strong>Anonymized analytics</strong> — may be retained indefinitely as they cannot be linked to any individual.</li>
     </ul>
   </div>
 
   <div class="section">
-    <h3>3. Data Storage &amp; Retention</h3>
-    <p>Your content is stored securely on Convex cloud infrastructure hosted in the EU (eu-west-1, Ireland). All data is transmitted over encrypted HTTPS. We retain your data for as long as your account is active. Upon account deletion, all personal data is permanently removed within 30 days. Anonymized, non-identifiable aggregate statistics may be retained indefinitely.</p>
+    <h3>8. Data Security</h3>
+    <p>We implement industry-standard technical and organizational measures to protect your personal data, including encryption of data in transit via TLS 1.2 or higher, access controls limiting data access to authorized systems, and secure authentication via Clerk's enterprise-grade identity infrastructure.</p>
+    <div class="warning-box">
+      <p><strong>No method of transmission over the internet or electronic storage is 100% secure. We cannot guarantee absolute security of your data. By using the Service, you acknowledge and accept this inherent risk. We shall not be liable for any unauthorized access to or disclosure of your personal data that is beyond our reasonable control.</strong></p>
+    </div>
   </div>
 
   <div class="section">
-    <h3>4. Third-Party Services &amp; International Transfers</h3>
-    <p>We use the following trusted services to operate the app. Each has its own privacy policy.</p>
-    <ul>
-      <li><strong>Clerk</strong> (US) — authentication and account management. Data transfers governed by Standard Contractual Clauses (SCCs).</li>
-      <li><strong>Convex</strong> (EU, Ireland) — cloud data storage.</li>
-      <li><strong>RevenueCat</strong> (US) — subscription and payment management. Data transfers governed by SCCs.</li>
-      <li><strong>Sentry</strong> (US) — crash and error reporting. May collect device info, OS version, app version, and error stack traces. Data transfers governed by SCCs.</li>
-      <li><strong>Google / Apple</strong> — sign-in providers (if you choose OAuth login), subject to their respective privacy policies.</li>
-    </ul>
-    <p style="margin-top:12px">Where personal data is transferred outside the EU/EEA, we rely on Standard Contractual Clauses (SCCs) as approved by the European Commission to ensure an adequate level of protection.</p>
-  </div>
-
-  <div class="section">
-    <h3>5. Your Rights</h3>
-    <p>Under GDPR and applicable privacy laws, you have the right to:</p>
-    <ul>
-      <li><strong>Access</strong> — request a copy of the personal data we hold about you</li>
-      <li><strong>Rectification</strong> — correct inaccurate or incomplete data</li>
-      <li><strong>Erasure</strong> — request deletion of your account and all associated data</li>
-      <li><strong>Portability</strong> — receive your data in a structured, machine-readable format</li>
-      <li><strong>Restriction</strong> — request that we limit processing of your data in certain circumstances</li>
-      <li><strong>Objection</strong> — object to processing based on legitimate interest</li>
-      <li><strong>Withdraw consent</strong> — withdraw consent at any time where processing is based on consent (e.g. push notifications)</li>
-    </ul>
-    <p style="margin-top:12px">To exercise any of these rights, contact us at <a href="mailto:support@lionnotes.online">support@lionnotes.online</a>. We will respond within <strong>30 days</strong>.</p>
-    <p style="margin-top:10px">If you are located in the European Union, you may also lodge a complaint with your local data protection authority (DPA).</p>
-    <p style="margin-top:10px"><strong>California residents (CCPA):</strong> We do not sell your personal data. You have the right to know what data we collect and to request its deletion.</p>
+    <h3>9. Your Rights</h3>
+    <p><strong>Rights for all users:</strong> Subject to applicable law and verification of your identity, you have the right to access, correct, delete, and receive a portable copy of your personal data, and to object to certain processing.</p>
+    <p style="margin-top:12px"><strong>EEA/UK users (GDPR):</strong> You additionally have the right to restrict processing, withdraw consent at any time without affecting the lawfulness of prior processing, and lodge a complaint with your local data protection supervisory authority.</p>
+    <p style="margin-top:12px"><strong>California residents (CCPA/CPRA):</strong> You have the right to know what personal information is collected, used, or shared; to delete personal information subject to exceptions; to correct inaccurate personal information; and to non-discrimination for exercising CCPA rights. <strong>We do not sell or share personal information as defined under CCPA/CPRA.</strong></p>
+    <p style="margin-top:12px">To exercise any of the above rights, contact us at <a href="mailto:support@lionnotes.online">support@lionnotes.online</a>. We will respond within 30 days (or 45 days where permitted by law with notice).</p>
   </div>
 
   <div class="section" id="account-deletion">
-    <h3>6. Account &amp; Data Deletion</h3>
-    <p>You can delete your account directly from the app: <strong>Settings → Danger Zone → Delete Account</strong>. All your data will be permanently removed within 30 days. Alternatively, email <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> with subject "Delete My Account — Lion's Notes".</p>
-    <p style="margin-top:10px"><strong>What gets deleted:</strong> account, all tasks, habits, notes, settings, session history.<br><strong>What may be retained:</strong> anonymized aggregate statistics only.</p>
+    <h3>10. Account &amp; Data Deletion</h3>
+    <p>You can delete your account directly from the app: <strong>Settings → Danger Zone → Delete Account</strong>. All your personal data will be permanently removed within 30 days, subject to legal retention obligations. Alternatively, email <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> with subject <strong>"Delete My Account — Lion's Notes"</strong>.</p>
+    <p style="margin-top:10px"><strong>What gets deleted:</strong> account, all tasks, habits, notes, settings, session history, expense data.<br><strong>What may be retained:</strong> anonymized aggregate statistics; subscription records retained for 7 years as required by law.</p>
   </div>
 
   <div class="section">
-    <h3>7. Children's Privacy</h3>
-    <p>Lion's Notes is not directed to children under 13. We do not knowingly collect personal data from children under 13. If you believe a child has provided us personal information, contact us immediately at <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> and we will delete it promptly.</p>
+    <h3>11. Children's Privacy</h3>
+    <p>The Service is not directed to children under the age of 13, or under the age of 16 for users in the EEA. We do not knowingly collect personal data from children below these ages. If you believe we may have collected data from a child, please contact us immediately at <a href="mailto:support@lionnotes.online">support@lionnotes.online</a> and we will delete it promptly.</p>
   </div>
 
   <div class="section">
-    <h3>8. Changes to This Policy</h3>
-    <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by updating the "Last updated" date above. Continued use of the App after changes constitutes acceptance of the updated policy.</p>
+    <h3>12. Push Notifications</h3>
+    <p>The Service may request permission to send push notifications for habit reminders and other features. You may withdraw this permission at any time through your device's operating system settings. Withdrawal of notification permission does not affect your continued use of the Service.</p>
   </div>
 
   <div class="section">
-    <h3>9. Contact</h3>
-    <p>For any privacy-related questions or requests:<br><a href="mailto:support@lionnotes.online">support@lionnotes.online</a></p>
+    <h3>13. Automated Decision-Making and Profiling</h3>
+    <p>We do not engage in any automated decision-making or profiling activities that produce legal or similarly significant effects on you, as described in Article 22 of the GDPR. All feature access decisions (such as Pro status enforcement) are based solely on verifiable subscription data obtained from Apple App Store or Google Play Billing and are not the result of any automated profiling of your behavior or personal characteristics.</p>
+  </div>
+
+  <div class="section">
+    <h3>14. Do Not Track</h3>
+    <p>Some browsers and devices transmit "Do Not Track" (DNT) signals. The Service is a native mobile application and does not operate through a browser tracking context. We do not currently respond to DNT signals, and no third-party tracking for behavioral advertising purposes is conducted within the Application. We will update this Policy if our practices change.</p>
+  </div>
+
+  <div class="section">
+    <h3>15. Sensitive Personal Information (CPRA)</h3>
+    <p>Under the California Privacy Rights Act (CPRA), certain categories of personal information are designated as "sensitive." We do not collect sensitive personal information as defined under CPRA (including Social Security numbers, financial account details, precise geolocation, health data, biometric data, contents of communications, or racial/ethnic origin) except as described in this Policy. We do not use or disclose sensitive personal information for purposes other than those necessary to provide the Service. You have the right to limit our use of sensitive personal information; however, as we do not use it beyond what is strictly necessary to provide the Service, no opt-out mechanism is required at this time.</p>
+  </div>
+
+  <div class="section">
+    <h3>16. Language and Governing Version</h3>
+    <p>The Service supports thirteen (13) interface languages for user convenience. <strong>This Privacy Policy is provided in English only. The English version constitutes the sole legally binding version of this Policy.</strong> Non-English user interfaces do not constitute translations of this Policy and have no legal effect. In the event of any conflict or ambiguity, the English text of this Policy shall prevail in all respects.</p>
+  </div>
+
+  <div class="section">
+    <h3>17. Changes to This Policy</h3>
+    <p>We reserve the right to modify this Policy at any time at our sole discretion. Changes will be effective upon posting the revised Policy with an updated "Last Updated" date. We may, but are not obligated to, provide notice of material changes through in-app notifications or email. <strong>Your continued use of the Service after the effective date of any modification constitutes your acceptance of the revised Policy.</strong> If you do not agree to the revised Policy, you must discontinue use of the Service immediately.</p>
+  </div>
+
+  <div class="section">
+    <h3>18. Contact</h3>
+    <p>For all privacy-related inquiries, requests, or complaints:<br>
+    <a href="mailto:support@lionnotes.online">support@lionnotes.online</a><br>
+    We aim to respond within 30 days of receipt.</p>
   </div>
 </div>
 
 <footer>
-  © 2026 Lion's Notes · <a href="/privacy" style="color:var(--muted);text-decoration:none">Privacy</a> · <a href="/terms" style="color:var(--muted);text-decoration:none">Terms</a>
+  © 2026 Lion's Notes · <a href="/privacy" style="color:var(--muted);text-decoration:none">Privacy</a> · <a href="/terms" style="color:var(--muted);text-decoration:none">Terms</a> · <a href="mailto:support@lionnotes.online" style="color:var(--muted);text-decoration:none">Contact</a>
 </footer>
 
 <script>
